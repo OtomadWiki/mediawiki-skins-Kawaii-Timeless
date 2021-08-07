@@ -591,6 +591,13 @@ pre,
 			border-bottom-width: 3px;
 		}
 	}
+
+	// Keep images from overflowing
+	a > img,
+	.floatnone > img {
+		height: auto !important;
+		max-width: 100% !important;
+	}
 }
 
 // Keep images from overflowing
@@ -604,7 +611,7 @@ a > img,
 .floatnone > img {
 	// Hopefully these are only templates or something sane to begin with
 	// See: T269970
-	.mw-body-content table & {
+	.mw-body .mw-parser-output table & {
 		height: unset !important;
 		max-width: unset !important;
 	}

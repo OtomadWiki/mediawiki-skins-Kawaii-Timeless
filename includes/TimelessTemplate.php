@@ -75,7 +75,7 @@ class TimelessTemplate extends BaseTemplate {
 
 		// For mobile
 		$html .= Html::element( 'div', [ 'id' => 'menus-cover' ] );
-
+		$html .= Html::rawElement('div', ['class' => 'topHeadingImage'], '');
 		$html .= Html::rawElement( 'div', [ 'id' => 'mw-content-container', 'class' => 'ts-container' ],
 			Html::rawElement( 'div', [ 'id' => 'mw-content-block', 'class' => 'ts-inner' ],
 				Html::rawElement( 'div', [ 'id' => 'mw-content-wrapper' ],
@@ -166,7 +166,7 @@ class TimelessTemplate extends BaseTemplate {
 					)
 				) .
 				$this->getClear() .
-				Html::rawElement( 'div', [ 'id' => 'bodyContent' ],
+				Html::rawElement( 'div', [ 'class' => 'mw-body-content', 'id' => 'bodyContent' ],
 					$this->getContentSub() .
 					$this->get( 'bodytext' ) .
 					$this->getClear()

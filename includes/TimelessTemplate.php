@@ -75,7 +75,15 @@ class TimelessTemplate extends BaseTemplate {
 
 		// For mobile
 		$html .= Html::element( 'div', [ 'id' => 'menus-cover' ] );
-		$html .= Html::rawElement('div', ['class' => 'topHeadingImage'], '');
+
+		//add banner -aira@21.09.16
+		$html .= Html::rawElement( 'div' , [ 'id' => 'siteBanner', 'class' => 'siteBanner' ],
+				Html::rawElement( 'div' , [ 'id' => 'topHeadingImage', 'class' => 'topHeadingImage']).
+				Html::rawElement( 'div' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo']),
+		 '');
+			//$html .= Html::rawElement('div', ['class' => 'topHeadingImage'], '');
+			//$html .= Html::rawElement('div', ['class' => 'topHeadingLogo'], '');
+		
 		$html .= Html::rawElement( 'div', [ 'id' => 'mw-content-container', 'class' => 'ts-container' ],
 			Html::rawElement( 'div', [ 'id' => 'mw-content-block', 'class' => 'ts-inner' ],
 				Html::rawElement( 'div', [ 'id' => 'mw-content-wrapper' ],

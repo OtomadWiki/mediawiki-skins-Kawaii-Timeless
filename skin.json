@@ -100,6 +100,9 @@
 				"resources/screen-desktop-mid.less": {
 					"media": "screen and (min-width: 1100px) and (max-width: 1339px)"
 				},
+				"resources/screen-desktop-midup.less": {
+					"media": "screen and (min-width: 1100px)"
+				},
 				"resources/screen-desktop-small.less": {
 					"media": "screen and (min-width: 851px) and (max-width: 1099px)"
 				},

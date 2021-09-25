@@ -79,7 +79,7 @@ class TimelessTemplate extends BaseTemplate {
 		//add banner -aira@21.09.16
 		$html .= Html::rawElement( 'div' , [ 'id' => 'siteBanner', 'class' => 'siteBanner' ],
 				Html::rawElement( 'div' , [ 'id' => 'topHeadingImage', 'class' => 'topHeadingImage']).
-				Html::rawElement( 'div' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo']),
+				Html::rawElement( 'img' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo.png']),
 		 '');
 			//$html .= Html::rawElement('div', ['class' => 'topHeadingImage'], '');
 			//$html .= Html::rawElement('div', ['class' => 'topHeadingLogo'], '');
@@ -578,7 +578,7 @@ class TimelessTemplate extends BaseTemplate {
 		);
 
 		$html .= Html::rawElement( 'form', [ 'action' => $this->get( 'wgScript' ), 'id' => 'searchform' ],
-			Html::rawElement( 'div', [ 'id' => 'simpleSearch' ],
+			Html::rawElement( 'div', [ 'id' => 'simpleSearch', 'class' => 'opacityhide' ],
 				Html::rawElement( 'div', [ 'id' => 'searchInput-container' ],
 					$this->makeSearchInput( [
 						'id' => 'searchInput'
@@ -633,24 +633,6 @@ class TimelessTemplate extends BaseTemplate {
 	 */
 	protected function getHeaderHack() {
 		$html = '';
-
-		// These are almost exactly the same and this is stupid.
-		$html .= Html::rawElement( 'div', [ 'id' => 'mw-header-hack', 'class' => 'color-bar' ],
-			Html::rawElement( 'div', [ 'class' => 'color-middle-container' ],
-				Html::element( 'div', [ 'class' => 'color-middle' ] )
-			) .
-			Html::element( 'div', [ 'class' => 'color-left' ] ) .
-			Html::element( 'div', [ 'class' => 'color-right' ] )
-		);
-		$html .= Html::rawElement( 'div', [ 'id' => 'mw-header-nav-hack' ],
-			Html::rawElement( 'div', [ 'class' => 'color-bar' ],
-				Html::rawElement( 'div', [ 'class' => 'color-middle-container' ],
-					Html::element( 'div', [ 'class' => 'color-middle' ] )
-				) .
-				Html::element( 'div', [ 'class' => 'color-left' ] ) .
-				Html::element( 'div', [ 'class' => 'color-right' ] )
-			)
-		);
 
 		return $html;
 	}

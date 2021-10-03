@@ -33,7 +33,13 @@
 
 #mw-header-container {
 	background: @background;
-	padding: 3.75em @content-padding 0.35em;
+	padding: 3.75em 0.45em 0.7em;
+	height: 0;
+	top: 0;
+	z-index: 500;
+	width: 100%;
+	box-sizing: border-box;
+	min-height: 7.7em;
 }
 
 #mw-header-hack {
@@ -56,9 +62,9 @@
 	background: @background;
 	box-shadow: 0 2px 3px 1px rgba( 0, 0, 0, 0.05 );
 	position: absolute;
-	padding: 2em 2.5em 1em;
+	padding: 3em 0 0 0;
 	margin: 0;
-	min-width: 9.153em;
+	min-width: 14em;
 	max-width: 80%;
 	top: 3.25em;
 	right: 0;
@@ -66,15 +72,22 @@
 	z-index: 100;
 
 	h3 {
-		margin: 0.5em 0 1.5em;
+		margin: 0 1.4em;
+		border-bottom: 2px solid #eee;
+		font-size: 1em;
+		color: #808080;
 	}
 
 	ul {
-		margin: 1em 0 2em;
+		margin: 0;
+		padding: 0.7em 0 0 0;
+		font-size: 1.1em;
 	}
 
 	li {
-		margin: 0 0 0.75em;
+		margin: 0;
+		padding: 0.8em 1.4em;
+		border-radius: 0;
 	}
 }
 
@@ -130,8 +143,23 @@
 	}
 
 	.sidebar-inner {
+		position: fixed;
+		width: 50%;
+		top: 0;
+		bottom: 0;
 		left: 0;
 		right: auto;
+		overflow: scroll;
+		transform: translate3d(-100%, 0, 0);
+		transition: all 0.7s cubic-bezier(0.12, 1, 0.29, 0.99);
+		border-radius: 0;
+	}
+}
+
+#site-navigation.dropdown-active {
+	.sidebar-inner {
+		transform: none;
+		opacity: 100 !important;
 	}
 }
 
@@ -261,4 +289,13 @@ div.thumb {
 /* Banner */
 .topHeadingLogo{
 	display: none;
+}
+
+/* Fix Echo Position bug on Safari */
+#personal-extra{
+	right: 8.5em;
+    top: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
 }

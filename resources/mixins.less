@@ -41,10 +41,9 @@
 
 .box() {
 	background: @base90;
-	border: solid @base80;
-	border-width: 1px 1px @border;
+	border-radius: 4px;
 	padding: 1.25em 1.75em;
-	box-shadow: 0 1px 2px 1px rgba( 0, 0, 0, 0.02 );
+	box-shadow: 0 10px 12px 1px rgba( 0, 0, 0, 0.1 );
 }
 
 .unbox() {
@@ -55,12 +54,15 @@
 }
 
 .nav-block() {
-	.box();
-	padding: 1.5em 1.5em 0;
+	padding: 1.9em 1.5em 0;
 	margin: 1em 0;
 	line-height: 1.125;
 	word-wrap: break-word;
 	font-size: 0.95em;
+	background: @base100;
+	box-shadow: 0 10px 12px 1px rgba( 0, 0, 0, 0.1 );
+	border-radius: 4px;
+	overflow: hidden;
 
 	ul,
 	li {
@@ -71,10 +73,11 @@
 
 	h3 {
 		font-weight: normal;
-		font-size: 1em;
+		font-size: 1.2em;
 		margin: 0.25em 0 0.75em 0;
 		padding-bottom: 0.15em;
 		border-bottom: solid 2px @base70;
+		font-weight: 500;
 	}
 
 	.mw-portlet-body {
@@ -82,7 +85,10 @@
 	}
 
 	li {
-		padding: 0.25em 0;
+		padding: 0.6em 0.4em;
+		border-radius: 4px;
+		transition: background .2s;
+		cursor: pointer;
 	}
 }
 

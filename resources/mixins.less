@@ -41,7 +41,7 @@
 
 .box() {
 	background: @base90;
-	border-radius: 4px;
+	border-radius: 8px;
 	padding: 1.25em 1.75em;
 	box-shadow: 0 10px 12px 1px rgba( 0, 0, 0, 0.1 );
 }
@@ -60,8 +60,8 @@
 	word-wrap: break-word;
 	font-size: 0.95em;
 	background: @base100;
-	box-shadow: 0 10px 12px 1px rgba( 0, 0, 0, 0.1 );
-	border-radius: 4px;
+	box-shadow: 0 4px 7px 1px rgba( 158, 179, 193, 0.2 );
+	border-radius: 8px;
 	overflow: hidden;
 
 	ul,
@@ -129,8 +129,10 @@
 
 .dropdown-menu( @direction: right ) {
 	.nav-block();
-	background: @background;
-	box-shadow: 0 2px 3px 1px rgba( 0, 0, 0, 0.05 );
+	background: rgba( 255, 255, 255, 0.8 );
+	backdrop-filter: blur(35px);
+    --webkit-backdrop-filter: blur(35px);
+	box-shadow: 0 15px 20px rgba( 0, 0, 0, 0.2 );
 	position: absolute;
 	padding: 20px 2em 0;
 	margin: 0;

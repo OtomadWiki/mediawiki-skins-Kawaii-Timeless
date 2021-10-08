@@ -41,14 +41,23 @@ div.mw-notification-area {
 	z-index: 100;
 	top: 0;
 	width: 100%;
-	background: rgba( 255, 255, 255, 0.7 );
 	color: @text;
 	padding: 0.5em 0 0;
 	min-height: @fixed-header-height;
 	box-sizing: border-box;
-	backdrop-filter: blur(70px);
-	--webkit-backdrop-filter: blur(70px);
-	box-shadow: 0 0.125rem 1rem rgba( 0, 0, 0, 0.26 )
+	box-shadow: 0 0.125rem 2rem rgba( 158, 179, 193, 0.5 );
+}
+
+#kawaiiHeaderBackground {
+	height: 0;
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	width: 100%;
+	backdrop-filter: blur(35px);
+    --webkit-backdrop-filter: blur(35px);
+	background: rgba( 255, 255, 255, 0.8 );
+	min-height: @fixed-header-height;
 }
 
 #p-logo-text {
@@ -57,6 +66,25 @@ div.mw-notification-area {
 
 #p-search {
 	.flex(1, 1, auto, 2);
+}
+
+#searchInput {
+	background: transparent;
+}
+
+#simpleSearch {
+	border: none;
+	background: transparent;
+	max-width: 30em;
+	margin: 0 auto;
+	&:hover{
+		border-bottom: 1px solid @blue;
+		background: @base100;
+	}
+	&:active, &:focus, &:focus-within{
+		border-bottom: 2px solid @blue;
+		background: @base100;
+	}
 }
 
 #user-tools {
@@ -99,7 +127,7 @@ div.mw-notification-area {
 		top: 3.15em;
 		display: none !important;
 		.dropdown-menu();
-		.dropdown-pokey();
+		// .dropdown-pokey();
 	}
 
 	.pokey {
@@ -160,11 +188,12 @@ div.mw-notification-area {
 	.dropdown {
 		display: none !important;
 		.dropdown-menu();
-		.dropdown-pokey();
+		// .dropdown-pokey();
 		// Override the mobile thing
 		top: 2.25em !important;
 		padding-bottom: 2em;
 		margin-right: 2px;
+		background: @background;
 
 		.selected a {
 			color: @text;

@@ -29,6 +29,7 @@ body {
 	background: @background;
 	padding: 1em @content-padding 3em;
 	overflow: hidden;
+	box-shadow: 0 4px 7px 1px rgba( 158, 179, 193, 0.2 );
 }
 
 #mw-content-wrapper{
@@ -111,10 +112,13 @@ body {
 }
 
 #simpleSearch {
-	box-shadow: inset 0 2px 4px 0 rgba( 0, 0, 0, 0.05 );
 	background: #f1f2f3;
 	position: relative;
 	border: solid 1px transparent;
+	transition: background .3s;
+	margin-left: .5em;
+    margin-right: .5em;
+	border-radius: 8px;
 }
 
 .opacityhide {
@@ -124,13 +128,15 @@ body {
 #searchInput {
 	border: 0;
 	margin: 0;
-	height: 2.1em;
-	padding: 0.4em 4.5em 0.2em 2em;
+	height: 2.4em;
+	padding: 0.4em 3.7em 0.3em 1.2em;
 	box-shadow: none;
 	background: transparent;
 	width: 100%;
 	min-height: 0;
 	font-family: inherit;
+	border-radius: 8px;
+	opacity: 80%;
 }
 
 #searchButton,
@@ -158,10 +164,12 @@ body {
 	.suggestions-special {
 		background-color: @background;
 		padding: 0.75em 2em;
+		border: none;
 	}
 
 	.suggestions-results {
 		background-color: @background;
+		border: none;
 	}
 
 	.suggestions-result {
@@ -172,6 +180,9 @@ body {
 	.suggestions-result-current {
 		background-color: @base70;
 		color: @text;
+		& .special-label, & .special-query {
+			color: @text;
+		}
 	}
 }
 
@@ -555,7 +566,6 @@ pre,
 	h2 {
 		font-size: 1.8em;
 		border-bottom: solid 2px @base70;
-		color: @title-pink;
 	}
 
 	h3 {
@@ -863,7 +873,7 @@ body :not( :checked ) > .toctogglespan:after {
 /* Notification */
 .mw-notification{
 	border: none;
-	border-radius: 4px;
+	border-radius: 8px;
 	box-shadow: 0 0 12px rgba( 0, 0, 0, 0.15 )
 }
 
@@ -943,6 +953,7 @@ body :not( :checked ) > .toctogglespan:after {
 	animation-name: slideinfromright;
     animation-duration: 0.7s;
     animation-timing-function: cubic-bezier(0.1,0.9,0.2,1);
+	animation-fill-mode: both;
 }
 
 /*Jump Anamtion*/

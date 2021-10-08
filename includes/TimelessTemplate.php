@@ -69,6 +69,7 @@ class TimelessTemplate extends BaseTemplate {
 				$this->getLogo( 'p-logo-text', 'text' ) .
 				$this->getSearch()
 			) .
+			Html::rawElement( 'div' , [ 'id' => 'kawaiiHeaderBackground', 'class' => 'kawaiiHeaderBackground']).
 			$this->getClear()
 		);
 		$html .= $this->getHeaderHack();

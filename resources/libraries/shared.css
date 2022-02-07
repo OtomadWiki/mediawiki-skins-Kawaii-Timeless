@@ -340,7 +340,7 @@ a.new {
 
 .wikitable > tr > th,
 .wikitable > * > tr > th {
-	background-color: #eaecf0;
+	background-color: #fbecf0;
 	text-align: center;
 }
 
@@ -390,7 +390,7 @@ a.new {
 }
 
 .messagebox {
-	background-color: #eaecf0;
+	background-color: #fbecf0;
 	border-color: #a2a9b1;
 }
 

@@ -6,9 +6,9 @@
 @base20: #aaaaaa;
 @base0: #000;
 
-@red: #ff6666;
+@red: #d33;
 @red-bright: #fee7e6;
-@red-dark: #9c3f3f;
+@red-dark: #b32424;
 
 @title-pink: #e06386;
 @tools-color:#7d7d7d;
@@ -28,8 +28,8 @@
 @link-hover: #00aeec;
 @link-visited: #008ac5;
 
-@link-red: #ff6666;
-@link-red-visited: #ff6666;
+@link-red: #ff0000;
+@link-red-visited: #ff0000;
 
 @link-ext: #008ac5;
 @link-ext-visited: #008ac5;

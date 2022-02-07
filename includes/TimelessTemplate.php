@@ -77,10 +77,17 @@ class TimelessTemplate extends BaseTemplate {
 		// For mobile
 		$html .= Html::element( 'div', [ 'id' => 'menus-cover' ] );
 
-		//add banner -aira@21.09.16
+		//add banner -aira@21.11.15
 		$html .= Html::rawElement( 'div' , [ 'id' => 'siteBanner', 'class' => 'siteBanner' ],
-				Html::rawElement( 'div' , [ 'id' => 'topHeadingImage', 'class' => 'topHeadingImage']).
-				Html::rawElement( 'img' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo.png']),
+			Html::rawElement( 'div' , [ 'id' => 'topHeadingImage', 'class' => 'topHeadingImage']).
+			Html::rawElement( 'div' , [ 'id' => 'bannerItems', 'class' => 'bannerItems' ],
+				Html::rawElement( 'a', [ 'href' => 'https://otomad.wiki' ],
+					Html::rawElement( 'img' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-Winter.png' ]),
+				).
+				Html::rawElement( 'a', [ 'href' => 'https://www.bilibili.com/video/av550236157' ],
+					Html::rawElement( 'img' , [ 'id' => 'KichukuWeekly', 'class' => 'KichukuWeekly', 'src' => '/kawaii/banner/OM2021/link-1.png' ]),
+				),
+			).
 		 '');
 			//$html .= Html::rawElement('div', ['class' => 'topHeadingImage'], '');
 			//$html .= Html::rawElement('div', ['class' => 'topHeadingLogo'], '');
@@ -551,7 +558,7 @@ class TimelessTemplate extends BaseTemplate {
 				'a',
 				array_merge(
 					[
-						'class' => [ 'mw-wiki-logo', !$logoImage ? 'fallback' : 'timeless-logo' ],
+						'class' => [ 'mw-wiki-logo', !$logoImage ? 'fallback' : 'timeless-logo', 'mdui-ripple' ],
 						'href' => $this->data['nav_urls']['mainpage']['href']
 					],
 					Linker::tooltipAndAccesskeyAttribs( 'p-logo' )

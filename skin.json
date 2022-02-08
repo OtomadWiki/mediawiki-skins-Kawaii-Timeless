@@ -1,5 +1,5 @@
 {
-	"name": "Timeless",
+	"name": "Kawaii-Timeless",
 	"version": "2.4.0",
 	"author": [
 		"Isarra Yos",
@@ -16,7 +16,7 @@
 	},
 	"ValidSkinNames": {
 		"timeless": {
-			"displayname": "Timeless",
+			"displayname": "Kawaii-Timeless",
 			"class": "MediaWiki\\Skin\\Timeless\\SkinTimeless",
 			"args": [
 				{

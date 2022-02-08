@@ -7,7 +7,7 @@ Timeless Skin for Chinese Otomad Wiki
 1. Download ZIP and extract
 2. Rename `Kawaii-Timeless-master` folder to `Kawaii-Timeless`
 3. Make a copy called `Timeless`
-4. Delect the original `Timeless` in `skins` directory
+4. Delete the original `Timeless` in `skins` directory
 5. Put two folders into `skins`
 6. Set `LocalSettings.php` like this
 

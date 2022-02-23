@@ -153,7 +153,13 @@
 			"+ext.wikiLove.icon": "resources/extensions/WikiLove.icon.less",
 			"+ext.proofreadpage.page.navigation": "resources/extensions/Proofreadpage.page.navigation.less",
 			"+ext.CodeMirror": "resources/extensions/CodeMirror.less",
-			"+ext.wikiEditor.styles": "resources/extensions/WikiEditor.less"
+			"+ext.wikiEditor.styles": "resources/extensions/WikiEditor.less",
+			"+ext.flowthread": "resources/extensions/FlowThread.less",
+			"+ext.flowthread.manage": "resources/extensions/FlowThreadManage.less",
+			"+ext.uls.pt": "resources/extensions/uls.pt.less",
+			"+ext.uls.interface": "resources/extensions/uls.interface.less",
+			"+ext.uls.languagesettings": "resources/extensions/uls.languagesettings.less",
+			"+ext.uls.common": "resources/extensions/uls.common.less"
 		}
 	},
 	"AutoloadNamespaces": {

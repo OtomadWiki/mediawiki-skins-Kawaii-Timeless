@@ -1,0 +1,55 @@
+@import '../variables.less';
+
+.comment-thread {
+    border-top: 1px solid rgba(0,0,0,0.11);
+}
+
+.comment-avatar {
+    img {
+        border-radius: 3em;
+    }
+}
+
+.comment-toolbar {
+    margin-top: 1em;
+    border: none;
+    padding-left: unset;
+    background: transparent;
+    margin-right: 2px;
+}
+
+.comment-body {
+    padding-left: 75px;
+}
+
+.comment-post {
+    padding: 14px 10px;
+}
+
+.comment-submit {
+    border-radius: 2px;
+    text-shadow: none;
+    background-color: @blue;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 4px rgba( 0, 0, 0, 0.15 );
+    transition: 150ms ease;
+    &:hover{
+        box-shadow: 0 9px 9px rgba( 0, 0, 0, 0.15 );
+    }
+    &:active{
+        box-shadow: 0 0 0 rgba( 0, 0, 0, 0.15 );
+    }
+}
+
+.flowthread-btn {
+    transition: 150ms ease;
+    &:hover{
+        background-color: white;
+    }
+}
+
+.comment-replybox {
+    margin-left: 10px;
+    margin-top: 30px;
+}

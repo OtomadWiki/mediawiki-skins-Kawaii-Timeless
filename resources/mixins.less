@@ -87,7 +87,6 @@
 	li {
 		padding: 0.6em 0.4em;
 		border-radius: 4px;
-		transition: background .2s;
 		cursor: pointer;
 	}
 }
@@ -134,13 +133,16 @@
     --webkit-backdrop-filter: blur(24px);
 	box-shadow: 0 15px 20px rgba( 0, 0, 0, 0.2 );
 	position: absolute;
-	padding: 20px 2em 0;
 	margin: 0;
 	min-width: 9.153em;
 	top: 2.95em;
 	@{direction}: -1em;
-	overflow: visible;
 	z-index: 3;
+	opacity: 100;
+	display: block !important;
+	transition: all .5s cubic-bezier(0.16, 1, 0.3, 1);
+	height: 0;
+	padding: 0 1.2em 0;
 }
 
 .dropdown-pokey() {

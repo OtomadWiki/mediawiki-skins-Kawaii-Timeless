@@ -32,6 +32,10 @@ body {
 	background: @background;
 	padding: 1em @content-padding 3em;
 	box-shadow: 0 4px 7px 1px rgba( 158, 179, 193, 0.2 );
+	animation-name: slideinfromrightOverflow;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.1,0.9,0.2,1);
+    animation-fill-mode: both;
 }
 
 #mw-content-wrapper{
@@ -207,6 +211,12 @@ body {
 	.footer-icons {
 		float: right;
 		margin: 0 0 0 1em;
+		img {
+			transition: filter .2s;
+			&:hover {
+				filter: brightness(1.5);
+			}
+		}
 	}
 
 	#footer-places li {
@@ -240,7 +250,6 @@ body {
 }
 
 .tools-inline li {
-	transition: background 400ms;
 	border-radius: 4em;
 	padding: 4px 14px;
 	transform: translateX(0);
@@ -921,7 +930,7 @@ body :not( :checked ) > .toctogglespan:after {
 @keyframes slideinfromright {
 	0% {
 		opacity: 0;
-		transform: translateX(260px);
+		transform: translateX(200px);
 	}
 
 	100% {
@@ -930,10 +939,23 @@ body :not( :checked ) > .toctogglespan:after {
 	}
 }
 
+@keyframes slideinfromrightOverflow {
+	0%{
+		overflow: hidden;
+	}
+
+	99% {
+		overflow: hidden;
+	}
+
+	100% {
+		overflow: auto;
+	}
+}
+
 .mw-body {
 	animation-name: slideinfromright;
     animation-duration: 0.6s;
-    /*animation-delay: 0.3s;*/
     animation-timing-function: cubic-bezier(0.1,0.9,0.2,1);
     animation-fill-mode: both;
 }
@@ -999,4 +1021,97 @@ body :not( :checked ) > .toctogglespan:after {
 
 .mw-changeslist .mw-collapsed {
 	background: unset !important;
+}
+
+/* User Dropdown Pt Icon */
+.pt-md-icon() {
+	content: '';
+	padding-left: 36px;
+	background-repeat: no-repeat;
+	opacity: 0.51;
+	padding-top: 2px;
+}
+
+/*#pt-userpage a:after, #pt-mytalk a:after, #pt-adminlinks a:after, #pt-preferences a:after, #pt-betafeatures a:after, #pt-watchlist a:after, #pt-mycontris a:after, #pt-logout a:after, #pt-createaccount a:after, #pt-login a:after{
+	content: '';
+	padding-right: 31px;
+	background-repeat: no-repeat;
+	opacity: 0.67;
+	background-image: url(images/material-icons/navigate_next_black_24dp.svg);
+}*/ 
+
+#pt-userpage a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/insert_drive_file_black_24dp.svg);
+}
+
+#pt-mytalk a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/forum_black_24dp.svg);
+}
+
+#pt-adminlinks a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/admin_panel_settings_black_24dp.svg);
+}
+
+#pt-preferences a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/settings_black_24dp.svg);
+}
+
+#pt-betafeatures a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/science_black_24dp.svg);
+}
+
+#pt-watchlist a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/star_black_24dp.svg);
+}
+
+#pt-mycontris a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/extension_black_24dp.svg);
+}
+
+#pt-logout a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/logout_black_24dp.svg);
+}
+
+#pt-createaccount a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/person_add_black_24dp.svg);
+}
+
+#pt-login a:before {
+	.pt-md-icon();
+	background-image: url(images/material-icons/login_black_24dp.svg);
+}
+
+/* History Page */
+#pagehistory li{
+	padding: 8px;
+	border-bottom: 1px #00000012 solid;
+	margin-bottom: 0px;
+}
+
+#pagehistory li.selected{
+	outline: none;
+	border: none;
+	border-radius: 4px;
+}
+
+.mw-checkbox-toggle-controls {
+	margin-top: 40px;
+}
+
+.mw-history-compareselectedversions{
+	margin-top: 24px;
+}
+
+ul#pagehistory {
+	margin: 0;
+    list-style-type: none;
 }

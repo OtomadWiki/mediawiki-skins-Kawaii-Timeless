@@ -56,7 +56,9 @@
 }
 
 #searchInput {
-	height: 3em
+	height: 3em;
+	font-size: 16px;
+	padding: 0 3.7em 0 1.2em;
 }
 
 .color-right,
@@ -147,7 +149,7 @@
 }
 
 #user-tools h2 {
-	right: @content-padding + 0.75em;
+	right: @content-padding;
 	background-image: url( images/user-large-grey.svg );
 }
 
@@ -179,8 +181,13 @@
 }
 
 #site-tools h2 {
-	right: @content-padding + 4.5em;
+	right: @content-padding + 3em;
+	z-index: 100;
 	background-image: url( images/gear-large-grey.svg );
+	transition: transform 1s cubic-bezier(0.67, 0.03, 0, 0.99);
+	&:hover {
+		transform: rotate(90deg);
+	}
 }
 
 /* Logo */
@@ -303,15 +310,30 @@ div.thumb {
 }
 
 /* Banner */
-.topHeadingLogo, .KichukuWeekly{
+.topHeadingLogo, .bannerContent{
 	display: none;
 }
 
 /* Fix Echo Position bug on Safari */
 #personal-extra{
-	right: 8.5em;
+	right: @content-padding + 5em;
     top: 0;
     height: 60px;
     display: flex;
     align-items: center;
+	& li {
+		margin-right: 1.2em;
+		width: 22px;
+		display: block;
+	}
+	& ul {
+		margin: 0;
+		height: 20px;
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+#mw-site-navigation .sidebar-chunk li:hover, #mw-related-navigation .sidebar-chunk li:hover, #personal .dropdown li:hover, #p-variants-desktop .dropdown li:hover {
+	background: transparent;
 }

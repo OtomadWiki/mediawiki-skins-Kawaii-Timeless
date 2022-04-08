@@ -1,5 +1,9 @@
 @import 'variables.less';
 
+::selection{
+    background-color: rgba( 251, 114, 153, 0.5 );
+}
+
 .siteBanner{
 	height: 10vw;
 	position: relative;
@@ -20,19 +24,23 @@
 	background-repeat: no-repeat;
 	background-position: bottom;
 	background-size: cover;
-	background-image: url(/kawaii/banner/BannerBG-20211115.png);
 	top: 0;
 }
 .bannerItems{
 	display: flex;
-	justify-content: space-around;
     align-items: center;
 	width: 100%;
+	max-width: 115em;
+	margin: auto;
+	max-height: 240px;
+    min-height: 155px;
+    height: 10vw;
 }
 .topHeadingLogo{
 	position: relative;
-	margin-left: 250px;
+	margin-left: 230px;
 	margin-top: 55px;
+	width: 370px;
 }
 .bannerContent{
 	position: relative;
@@ -44,4 +52,7 @@
 }
 #mw-site-navigation .sidebar-inner {
 	display: block !important;
+}
+#personal {
+	margin-right: 1.5em;
 }

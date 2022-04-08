@@ -22,8 +22,36 @@
     padding-left: 75px;
 }
 
+.comment-body textarea, .comment-preview {
+    font-family: @fonts;
+    font-size: 15px;
+    color: @text;
+}
+
+.comment-body textarea {
+    height: 50px;
+    line-height: 28px;
+    transition: 250ms !important;
+    &:focus {
+        line-height: 20px;
+        height: 84px;
+    }
+}
+
+.comment-text {
+    font-size: 15px;
+}
+
 .comment-post {
     padding: 14px 10px;
+}
+
+.comment-user, .comment-user a {
+    font-size: 14px;
+}
+
+.comment-footer {
+    font-size: 14px;
 }
 
 .comment-submit {
@@ -32,24 +60,53 @@
     background-color: @blue;
     color: white;
     border: none;
-    box-shadow: 0 4px 4px rgba( 0, 0, 0, 0.15 );
+    width: 70px;
+    box-shadow: 0 4px 4px rgba( 251, 114, 153, 0.3 );
     transition: 150ms ease;
     &:hover{
-        box-shadow: 0 9px 9px rgba( 0, 0, 0, 0.15 );
+        box-shadow: 0 9px 9px rgba( 251, 114, 153, 0.3 );
     }
     &:active{
-        box-shadow: 0 0 0 rgba( 0, 0, 0, 0.15 );
+        box-shadow: 0 0 0 rgba( 251, 114, 153, 0.3 );
     }
 }
 
 .flowthread-btn {
     transition: 150ms ease;
+    width: 32px;
+    height: 32px;
+
     &:hover{
-        background-color: white;
+        background-color: transparent;
+        border: 0;
     }
+    &:active {
+        background-color: transparent;
+        border: 0;
+    }
+}
+
+.flowthread-btn-wikitext.on+.flowthread-btn-preview {
+    width: 32px;
 }
 
 .comment-replybox {
     margin-left: 10px;
     margin-top: 30px;
+}
+
+.mw-special-FlowThreadManage fieldset {
+    padding: 1.5em 0.75em 0.625em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.04), 0 3px 6px rgba(0,0,0,0.06);
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.mw-special-FlowThreadManage legend {
+    background: #fb7299;
+    border-radius: 1em;
+    color: white;
+    padding: 0 1em;
+    box-shadow: 0 3px 6px rgba(251,114,153,0.5);
 }

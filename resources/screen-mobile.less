@@ -5,6 +5,11 @@
 
 /* Layout */
 
+#mw-content-wrapper {
+	margin-top: 0;
+	padding-top: 0.95em;
+}
+
 #mw-data-after-content,
 .mw-footer {
 	padding: 0 @content-padding;
@@ -113,7 +118,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 99;
+	z-index: 102;
 	width: 100%;
 	height: 100%;
 	background: @base80;
@@ -149,14 +154,15 @@
 }
 
 #user-tools h2 {
-	right: @content-padding;
-	background-image: url( images/user-large-grey.svg );
+	right: @content-padding + 0.3em;
+	///background-image: url( images/user-large-grey.svg );
 }
 
 #site-navigation {
 	h2 {
-		left: @content-padding;
+		left: 1em;
 		background-image: url( images/menu-large-grey.svg );
+		z-index: 100;
 	}
 
 	.sidebar-inner {
@@ -181,7 +187,7 @@
 }
 
 #site-tools h2 {
-	right: @content-padding + 3em;
+	right: @content-padding + 3.1em;
 	z-index: 100;
 	background-image: url( images/gear-large-grey.svg );
 	transition: transform 1s cubic-bezier(0.67, 0.03, 0, 0.99);
@@ -206,11 +212,28 @@
 /* Page actions */
 
 #p-namespaces li {
-	margin-right: 1.5em;
+	padding: 0;
+	margin: 0 0 0 0.18em;
+	min-width: 40px;
+    min-height: 40px;
+	display: inline-grid;
+}
+
+#p-views li, #p-more li{
+	padding: 0;
+	margin: 0 0 0 0.18em;
+	min-width: 40px;
+    min-height: 40px;
+	display: inline-grid;
 }
 
 .tools-inline li a {
 	.ca-icon-only();
+	.ca-icon-only-mobile();
+}
+
+#ca-flowthreadcontrol a {
+	transform: scale(0.6) !important;
 }
 
 #ca-more,
@@ -221,6 +244,7 @@
 
 	span {
 		.ca-icon-only();
+		.ca-icon-only-mobile();
 		display: inline-block;
 		overflow: visible;
 	}
@@ -228,12 +252,10 @@
 
 #ca-more span {
 	background-image: url( images/gear-grey.svg );
-	background-repeat: no-repeat;
 }
 
 #ca-languages span {
 	background-image: url( images/languages-grey.svg );
-	background-repeat: no-repeat;
 }
 
 /* Full-width thumbnails */
@@ -316,7 +338,7 @@ div.thumb {
 
 /* Fix Echo Position bug on Safari */
 #personal-extra{
-	right: @content-padding + 5em;
+	right: @content-padding + 5.1em;
     top: 0;
     height: 60px;
     display: flex;
@@ -336,4 +358,28 @@ div.thumb {
 
 #mw-site-navigation .sidebar-chunk li:hover, #mw-related-navigation .sidebar-chunk li:hover, #personal .dropdown li:hover, #p-variants-desktop .dropdown li:hover {
 	background: transparent;
+}
+
+.mw-prefs-tabs > .oo-ui-menuLayout-content > .oo-ui-indexLayout-stackLayout > .oo-ui-tabPanelLayout {
+	padding: 20px 8px;
+}
+
+/* Atom */
+a.feedlink {
+	margin-left: 22px;
+}
+
+/* Avatar */
+#personal .header-avatar {
+	width: 30px;
+    height: 30px;
+    left: 14px;
+	border-radius: 50%;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: @base70;
 }

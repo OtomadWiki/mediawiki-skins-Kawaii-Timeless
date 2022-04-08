@@ -65,6 +65,7 @@ class TimelessTemplate extends BaseTemplate {
 
 		$html .= Html::rawElement( 'div', [ 'id' => 'mw-header-container', 'class' => 'ts-container' ],
 			Html::rawElement( 'div', [ 'id' => 'mw-header', 'class' => 'ts-inner' ],
+
 				$userLinks['html'] .
 				$this->getLogo( 'p-logo-text', 'text' ) .
 				$this->getSearch()
@@ -79,14 +80,11 @@ class TimelessTemplate extends BaseTemplate {
 
 		//add banner -aira@21.11.15
 		$html .= Html::rawElement( 'div' , [ 'id' => 'siteBanner', 'class' => 'siteBanner' ],
-			Html::rawElement( 'div' , [ 'id' => 'topHeadingImage', 'class' => 'topHeadingImage']).
+			Html::rawElement( 'div' , [ 'id' => 'topHeadingImage', 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/BG-2022031702.png);' ]).
 			Html::rawElement( 'div' , [ 'id' => 'bannerItems', 'class' => 'bannerItems' ],
 				Html::rawElement( 'a', [ 'href' => 'https://otomad.wiki' ],
-					Html::rawElement( 'img' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-Winter.png' ]),
-				).
-				Html::rawElement( 'a', [ 'href' => 'https://www.bilibili.com/video/av550236157' ],
-					Html::rawElement( 'img' , [ 'id' => 'KichukuWeekly', 'class' => 'KichukuWeekly', 'src' => '/kawaii/banner/OM2021/link-1.png' ]),
-				),
+					Html::rawElement( 'img' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-Spring.svg', 'style' => 'filter: drop-shadow(0 4px 5px #fb729980);' ]),
+			),
 			).
 		 '');
 			//$html .= Html::rawElement('div', ['class' => 'topHeadingImage'], '');
@@ -503,6 +501,7 @@ class TimelessTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getLogo( $id = 'p-logo', $part = 'both' ) {
+
 		$html = '';
 		$config = $this->getSkin()->getContext()->getConfig();
 
@@ -514,6 +513,7 @@ class TimelessTemplate extends BaseTemplate {
 				'role' => 'banner'
 			]
 		);
+
 		$logos = ResourceLoaderSkinModule::getAvailableLogos( $config );
 		if ( $part !== 'image' ) {
 			$wordmarkImage = $this->getLogoImage( $config->get( 'TimelessWordmark' ), true );
@@ -585,6 +585,21 @@ class TimelessTemplate extends BaseTemplate {
 	 */
 	protected function getSearch() {
 		$html = Html::openElement( 'div', [ 'class' => 'mw-portlet', 'id' => 'p-search' ] );
+
+			//Aira
+			$html .= Html::rawElement( 'div' , [ 'id' => 'header-links-container', 'style' => 'position: fixed' ],
+			Html::rawElement( 'ul' , [ 'class' => 'header-links-ul' ],
+				Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
+					Html::rawElement( 'a' , [ 'id' => 'header-link-home' , 'class' => 'header-links-a', 'href' => '/' ], 首页),
+				).
+				Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
+					Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://www.calibur.tv/' ], 主站),
+				).
+				Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
+					Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://mc.calibur.tv/' ], MC),
+				),
+			).
+		 '');
 
 		$html .= Html::rawElement(
 			'h3',
@@ -733,15 +748,9 @@ class TimelessTemplate extends BaseTemplate {
 			$headerMsg = 'timeless-notloggedin';
 		}
 		$html = Html::openElement( 'div', [ 'id' => 'user-tools' ] );
+		$avatar = 'https://otomad.wiki/images/avatars/otomad_wiki_' . $user->getId() . '_l';
 
-		$html .= Html::rawElement( 'div', [ 'id' => 'personal' ],
-			Html::rawElement( 'h2', [],
-				Html::element( 'span', [], $dropdownHeader )
-			) .
-			Html::rawElement( 'div', [ 'id' => 'personal-inner', 'class' => 'dropdown' ],
-				$this->getPortlet( 'personal', $personalTools, $headerMsg )
-			)
-		);
+		$html .= Html::rawElement( 'a', [ 'id' => 'headerUpload', 'href' => 'https://otomad.wiki/Special:Upload', 'title' => '上传文件[alt-shift-u]' ]);
 
 		// Extra icon stuff (echo etc)
 		if ( !empty( $extraTools ) ) {
@@ -756,6 +765,16 @@ class TimelessTemplate extends BaseTemplate {
 				Html::rawElement( 'ul', [], $iconList )
 			);
 		}
+
+		$html .= Html::rawElement( 'div', [ 'id' => 'personal' ],
+			Html::rawElement( 'h2', [],
+				Html::element( 'div', [ 'class' => 'header-avatar', 'style' => 'background-image: url("' . $avatar . '")' ] )
+				//Html::element( 'span', [], $dropdownHeader ),
+			) .
+			Html::rawElement( 'div', [ 'id' => 'personal-inner', 'class' => 'dropdown' ],
+				$this->getPortlet( 'personal', $personalTools, $headerMsg )
+			)
+		);
 
 		$html .= Html::closeElement( 'div' );
 

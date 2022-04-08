@@ -15,7 +15,7 @@
 	},
 	"timeless-desc": "为音MAD中文维基而修改的Timeless皮肤",
 	"timeless-anonymous": "匿名",
-	"timeless-loggedinas": "以'''$1'''登录",
+	"timeless-loggedinas": "'''$1'''",
 	"timeless-notloggedin": "未登录",
 	"timeless-userpage": "{{GENDER:$1|用户}}页",
 	"timeless-talkpage": "{{GENDER:$1|用户}}讨论",

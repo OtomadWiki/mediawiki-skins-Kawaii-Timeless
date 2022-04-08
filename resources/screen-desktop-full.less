@@ -20,6 +20,7 @@
 	.flex(1, 1, auto, 2);
 	// Make word wrapping, max-width percentages, etc work with the above flex
 	min-width: 50%;
+	max-width: 1262px;
 }
 
 #mw-related-navigation {
@@ -41,4 +42,79 @@
 // Dropdown
 #mw-related-navigation .sidebar-inner, #mw-site-navigation .sidebar-inner{
 	padding: unset !important;
+}
+
+#personal {
+	margin-left: 1em;
+}
+
+#headerUpload {
+	position: relative;
+	height: 3.75em;
+	width: 4.9em;
+	background-color: @blue;
+	float: right;
+	margin-top: -0.5em;
+	right: 0.5em;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	box-shadow: 0 4px 8px rgba( 251, 114, 153, 0.3 );
+	&:hover, &:focus-visible {
+		background-color: @blue-hover;
+		box-shadow: 0 9px 9px rgba( 251, 114, 153, 0.3 );
+		transition: box-shadow 150ms, background-color 150ms;
+	}
+	&:active {
+		background-color: @blue-dark;
+		box-shadow: 0 0 0 rgba( 251, 114, 153, 0.3 );
+		transition: box-shadow 150ms, background-color 150ms;
+	}
+}
+
+#headerUpload::before {
+    content: '上传';
+    color: white;
+    position: absolute;
+    width: 100%;
+    height: 98%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#personal-extra {
+	width: 95px;
+}
+
+/* Header Links */
+#header-links-container {
+	display: block;
+	top: 0;
+	height: 3.5em;
+}
+
+.header-links-ul {
+	height: 100%;
+	margin: 0;
+	display: flex;
+}
+
+.header-links-li {
+	height: 100%;
+	margin: 0;
+}
+
+.header-links-a {
+    height: 100%;
+    text-align: center;
+    padding: 0 14px 0 14px;
+    display: flex;
+    align-items: center;
+	justify-content: center;
+    color: #545454 !important;
+	transition: background-color 0.2s, color 0.2s;
+	&:hover {
+		background-color: @hover;
+		color: @blue !important;
+	}
 }

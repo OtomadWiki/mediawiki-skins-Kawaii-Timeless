@@ -1,6 +1,4 @@
 @import 'variables.less';
-@import 'harmonyos.less';
-/*@import url("https://font.sec.miui.com/font/css?family=HarmonyOS_Regular:300,450,500,650:Chinese_Simplify,Latin&display=swap");*/
 
 /* Page layout */
 
@@ -21,21 +19,21 @@ body {
 	color: @text;
 	// Footer colour; results in a weird distracting dark scrollbar in firefox, but fuck firefox
 	// Setting it here avoids a jump to white after the footer, which is even more distracting
-	background: @base100;
+	background: @body-background;
 	font-size: @font-size;
 	line-height: 1.6;
 	-webkit-tap-highlight-color: transparent !important;
+}
+
+[lang] {
+	font-family: @fonts;
 }
 
 #mw-content {
 	.box;
 	background: @background;
 	padding: 1em @content-padding 3em;
-	box-shadow: 0 4px 7px 1px rgba( 158, 179, 193, 0.2 );
-	animation-name: slideinfromrightOverflow;
-    animation-duration: 0.6s;
-    animation-timing-function: cubic-bezier(0.1,0.9,0.2,1);
-    animation-fill-mode: both;
+	box-shadow: 0 4px 7px 1px rgba( 193, 159, 168, 0.2 );
 }
 
 #mw-content-wrapper{
@@ -140,7 +138,6 @@ body {
 	width: 100%;
 	min-height: 0;
 	font-family: inherit;
-	border-radius: 8px;
 	opacity: 80%;
 }
 
@@ -162,8 +159,11 @@ body {
 
 .suggestions {
 	background: @background;
-	box-shadow: 0 5px 10px 0 rgba( 0, 0, 0, 0.2 );
-	border-radius: 8px;
+	box-shadow: 0 15px 20px 0 rgba( 193, 159, 168, 0.4 );
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 	transition: background 0.2s, background-color 0.2s, color 0.2s;
 
 	.suggestions-special {
@@ -179,11 +179,11 @@ body {
 
 	.suggestions-result {
 		color: @text;
-		padding: 0.65em 2em 0.7em;
+		padding: 0.6em 2em;
 	}
 
 	.suggestions-result-current {
-		background-color: @base70;
+		background-color: @background;
 		color: @text;
 		& .special-label, & .special-query {
 			color: @text;
@@ -234,7 +234,7 @@ body {
 /* Content */
 
 #mw-content-container {
-	background: #fafafa;
+	background: @body-background;
 }
 
 .tools-inline,
@@ -253,9 +253,10 @@ body {
 	border-radius: 4em;
 	padding: 4px 14px;
 	transform: translateX(0);
+	transition: background cubic-bezier(0.22,0.58,0.12,0.98) 0.4s;
 
 	&.selected {
-		background: #0000000d;
+		background: @hover;
 	}
 
 	a {
@@ -379,6 +380,13 @@ a {
 			color: @link;
 		}
 	}
+
+	&.feedlink {
+		background-size: 18px;
+		padding-left: 22px !important;
+		margin-left: 6px;
+		background-image: url(images/material-icons/rss_feed_black_18dp.svg);
+	}
 }
 
 a.new,
@@ -426,8 +434,8 @@ a.mw-selflink {
 	font-family: @fonts;
 	padding: 25px 5px 0 5px;
 	background-image: url(./images/pencil-grey.svg?60f18);
-    background-repeat: no-repeat;
-    background-position: left bottom;
+	background-repeat: no-repeat;
+	background-position: left bottom;
 
 	a {
 		padding: 6px 12px;
@@ -438,7 +446,7 @@ a.mw-selflink {
 		transition: all .2s;
 
 		&:hover {
-			background: #0000000d;
+			background: @hover;
 			color: @tools-color;
 		}
 	}
@@ -885,10 +893,12 @@ body :not( :checked ) > .toctogglespan:after {
 }
 
 /* Notification */
-.mw-notification{
-	border: none;
-	border-radius: 8px;
-	box-shadow: 0 0 12px rgba( 0, 0, 0, 0.15 )
+.skin-timeless .postedit.mw-notification {
+	top: 4.75em;
+}
+
+.skin-timeless .mw-notification-area {
+	width: auto;
 }
 
 /* Top Logo */
@@ -914,7 +924,7 @@ body :not( :checked ) > .toctogglespan:after {
 
 /* Sidebar Chunk */
 #mw-site-navigation .sidebar-chunk li:hover, #mw-related-navigation .sidebar-chunk li:hover, #personal .dropdown li:hover, #p-variants-desktop .dropdown li:hover {
-	background: #0000000d;
+	background: @hover;
 }
 
 #mw-site-navigation span, #mw-related-navigation span, #personal .dropdown span, #p-normal-catlinks a {
@@ -923,12 +933,20 @@ body :not( :checked ) > .toctogglespan:after {
 }
 
 /* OOUI */
-.oo-ui-dropdownWidget-handle .oo-ui-labelElement-label {
-	line-height: 1.42857143em;
+#mw-wrapper .oo-ui-dropdownWidget-handle .oo-ui-labelElement-label, #mw-wrapper .oo-ui-decoratedOptionWidget .oo-ui-labelElement-label {
+	line-height: 1.6em;
+}
+
+#mw-wrapper .oo-ui-buttonElement.oo-ui-labelElement > input.oo-ui-buttonElement-button, #mw-wrapper .oo-ui-buttonElement.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+	line-height: 1.6em;
+}
+
+#mw-wrapper .oo-ui-textInputWidget input {
+	line-height: 2.39em;
 }
 
 /*SlideIn Animation*/
-@keyframes slideinfromright {
+@keyframes slide-in-left {
 	0% {
 		opacity: 0;
 		transform: translateX(200px);
@@ -940,62 +958,55 @@ body :not( :checked ) > .toctogglespan:after {
 	}
 }
 
-@keyframes slideinfromrightOverflow {
-	0%{
-		overflow: hidden;
-	}
-
-	99% {
-		overflow: hidden;
+@keyframes move-in-left {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(5em, 0);
+		transform: translate(5em, 0);
 	}
 
 	100% {
-		overflow: auto;
+		opacity: 1;
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
 	}
 }
+
+@keyframes move-in-up {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(0, 5em);
+		transform: translate(0, 5em);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
+	}
+}
+
+.suggestions a.mw-searchSuggest-link, .suggestions a.mw-searchSuggest-link:hover, .suggestions a.mw-searchSuggest-link:active, .suggestions a.mw-searchSuggest-link:focus {
+	display: block;
+	-webkit-animation: move-in-left cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.4s;
+    animation: move-in-left cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.4s;
+}
+
 
 .mw-body {
-	animation-name: slideinfromright;
-    animation-duration: 0.6s;
-    animation-timing-function: cubic-bezier(0.1,0.9,0.2,1);
-    animation-fill-mode: both;
-}
-
-.oo-ui-fieldsetLayout-group {
-	animation-name: slideinfromright;
-    animation-duration: 0.4s;
-    animation-timing-function: cubic-bezier(0, 1.24, 0, 0.97);
+	animation-name: slide-in-left;
+	animation-duration: 0.6s;
+	animation-timing-function: cubic-bezier(0.1,0.9,0.2,1);
 	animation-fill-mode: both;
+	animation-delay: 0.3s;
 }
 
-/*Jump Anamtion*/
-@keyframes jump {
-	0% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(-5px);
-	}
-	100% {
-		transform: translateY(0);
-	}
-}
-
-.jumpanim:hover {
-	animation: jump .3s;
-}
-
-#pt-notifications-alert .mw-echo-notifications-badge:focus,
-#pt-notifications-notice .mw-echo-notifications-badge:focus,
-#personal h2:focus {
-	animation: jump .3s;
-}
 
 /* Recent Changes */
 .client-js .mw-changeslist ul, .client-js .mw-changeslist table.mw-enhanced-rc {
 	margin-left: unset;
 	border-bottom: 1px #00000012 solid;
-    padding: 8px;
+	padding: 8px;
 	transition: background .2s;
 }
 
@@ -1012,7 +1023,7 @@ body :not( :checked ) > .toctogglespan:after {
 	font-weight: normal;
 	font-size: 0.95em;
 	color: @tools-color;
-    letter-spacing: 0.75px;
+	letter-spacing: 0.75px;
 }
 
 .mw-changeslist .mw-made-collapsible {
@@ -1024,13 +1035,38 @@ body :not( :checked ) > .toctogglespan:after {
 	background: unset !important;
 }
 
+#mw-wrapper .comment--without-parentheses:before, .mw-changeslist-links:before, #mw-wrapper .mw-diff-bytes:before, .mw-tag-markers:before, .mw-uctop:before {
+	content: '(';
+	padding-left: 6px;
+}
+
+#mw-wrapper .comment--without-parentheses:after, .mw-changeslist-links:after, #mw-wrapper .mw-diff-bytes:after, .mw-tag-markers:after, .mw-uctop:after {
+	content: ')';
+	padding-right: 6px;
+}
+
+#mw-wrapper span.comment {
+	font-family: @fonts-mono;
+}
+
+/* Recent Changes Button */
+
+.mw-rcfilters-ui-liveUpdateButtonWidget.oo-ui-buttonElement-active .oo-ui-buttonElement-button {
+	background-color: #2fbdec !important;
+	border-color: #2fbdec !important;
+}
+
+.mw-rcfilters-ui-liveUpdateButtonWidget.oo-ui-toggleWidget-on:after {
+	top: 3px !important;
+	left: 10px !important;
+}
+
 /* User Dropdown Pt Icon */
 .pt-md-icon() {
 	content: '';
-	padding-left: 36px;
 	background-repeat: no-repeat;
 	opacity: 0.51;
-	padding-top: 2px;
+	padding: 3px 0px 4px 36px;
 }
 
 /*#pt-userpage a:after, #pt-mytalk a:after, #pt-adminlinks a:after, #pt-preferences a:after, #pt-betafeatures a:after, #pt-watchlist a:after, #pt-mycontris a:after, #pt-logout a:after, #pt-createaccount a:after, #pt-login a:after{
@@ -1040,6 +1076,14 @@ body :not( :checked ) > .toctogglespan:after {
 	opacity: 0.67;
 	background-image: url(images/material-icons/navigate_next_black_24dp.svg);
 }*/ 
+
+#pt-uls .uls-trigger {
+	padding-top: 0.8em !important;
+}
+
+#pt-uls .uls-trigger:before {
+	background-image: url(images/material-icons/translate_black_24dp.svg);
+}
 
 #pt-userpage a:before {
 	.pt-md-icon();
@@ -1114,5 +1158,215 @@ body :not( :checked ) > .toctogglespan:after {
 
 ul#pagehistory {
 	margin: 0;
-    list-style-type: none;
+	list-style-type: none;
+}
+
+/* No Selection */
+#p-variants-desktop, #user-tools h2 span {
+	user-select: none;
+}
+
+/* Special Page */
+.mw-specialpages-list{
+	& a {
+		padding: 0.5em 0.4em;
+		display: inline-block;
+		width: 100%;
+		border-radius: 4px;
+		color: @text !important;
+	}
+	& li {
+		margin: 0;
+		border-radius: 4px;
+	}
+	& ul {
+		list-style: none;
+		margin: 0;
+	}
+}
+
+/* Fonts Fix */
+.diff-editfont-monospace .diff-addedline, .diff-editfont-monospace .diff-deletedline, .diff-editfont-monospace .diff-context, .mw-body .wikiEditor-ui .ace_editor, .ace_search_field, td.mw-enhanced-rc, .mw-enhanced-rc-time a {
+	font-family: @fonts-mono;
+}
+
+/*TAB ANIM*/
+
+@keyframes tab-indicator-opacity {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget .oo-ui-labelElement-label:after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 80%;
+	opacity: 0;
+	border-bottom: 2px solid #fb7299;
+	transform: translate(-50%) scaleX(0);
+	transition: transform .5s cubic-bezier(0.1,0.9,0.2,1);
+}
+
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label:after {
+	transform: translate(-50%) scaleX(1);
+	animation: tab-indicator-opacity .5s cubic-bezier(0.1,0.9,0.2,1);
+	opacity: 1
+}
+
+
+#mw-wrapper .oo-ui-fieldsetLayout-group {
+	animation: move-in-left cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.4s;
+}
+
+
+/* Material Icons */
+.oo-ui-icon-settings, .mw-ui-icon-settings:before {
+	background-image: url(images/material-icons/settings_black_big.svg?d5b3b) !important;
+}
+
+/*Upload Page*/
+.mw-special-Upload legend {
+	color: @text;
+	padding: 0 3px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.mw-special-Upload td.htmlform-tip {
+	font-size: 14px;
+	text-align: center;
+	color: #606060;
+}
+.mw-special-Upload fieldset:nth-child(1) legend {
+	display: none;
+}
+#mw-upload-permitted {
+	font-size: 12px;
+	text-align: center;
+	color: #606060;
+}
+.mw-htmlform-field-UploadSourceField label {
+	display: block;
+	min-width: 0;
+	width: 0;
+	opacity: 0;
+}
+.mw-special-Upload fieldset{
+	padding: 1.5em 0.75em 0.625em;
+	margin-bottom: 15px;
+	border: none;
+}
+.mw-special-Upload .mw-htmlform-submit-buttons {
+	display: flex;
+    justify-content: flex-end;
+}
+.mw-special-Upload input#wpDestFile {
+	background: #2a333c05;
+	border-bottom: solid 1px #0000002b;
+	border-top: solid 1px transparent;
+	border-left: solid 1px transparent;
+	border-right: solid 1px transparent;
+	border-radius: 2px;
+	transition: border-color 250ms,box-shadow 250ms,height 250ms,line-height 250ms;
+	&:hover {
+		border-bottom: solid 1px @blue;
+		background: white;
+	}
+	&:focus {
+		background: white;
+		border-color: @blue;
+		box-shadow: inset 0 0 0 1px @blue;
+	}
+}
+
+.mw-htmlform-field-UploadSourceField {
+	& .mw-input {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+input#wpUploadFile {
+	background-color: transparent;
+	padding: 87px 46px;
+	appearance: none;
+	color: #747474;
+	border: #ccc 2px dashed;
+	border-radius: 10px;
+	width: 100%;
+	transition: background-color 0.1s;
+	text-align: center;
+	text-align-last: center;
+	cursor: pointer;
+	&:hover {
+		background-color: #fafafa;
+	}
+	&:active {
+		background-color: #ebebeb;
+	}
+	&::before {
+		content: '';
+		background-image: url(images/material-icons/upload_black_24dp.svg);
+		display: block;
+		height: 100px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 96px;
+		opacity: 0.4;
+	}
+	&::after {
+		content: '点击此处或拖拽文件到此处';
+		display: block;
+		font-size: 12px;
+		margin-top: 6px;
+		opacity: 0.5;
+		text-align: center;
+		text-align-last: center;
+	}
+}
+
+#wpUploadFile::file-selector-button {
+    display: none !important;
+}
+
+#wpUploadFile::-webkit-file-upload-button {
+    display: none !important;
+}
+
+#wpUploadFile::-ms-browse {
+    display: none !important;
+}
+
+/* Hide Links */
+#header-links-container {
+	display: none;
+}
+
+/* collapse toggle */
+.mw-collapsible-toggle {
+	transition: transform .4s cubic-bezier(.22,.58,.12,.98), opacity .4s cubic-bezier(.22,.58,.12,.98);
+}
+.mw-icon-arrow-collapsed, .mw-collapsible-arrow.mw-collapsible-toggle-collapsed {
+	background-image: url(/skins/Timeless/resources/images/material-icons/chevron_right_black_24dp.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 22px;
+	transform: rotate(0deg);
+	margin-top: 3px;
+	opacity: 0.51;
+}
+.mw-icon-arrow-expanded, .mw-collapsible-arrow.mw-collapsible-toggle-expanded {
+	background-image: url(images/material-icons/chevron_right_black_24dp.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 22px;
+	transform: rotate(90deg);
+	margin-top: 3px;
+	opacity: 1;
 }

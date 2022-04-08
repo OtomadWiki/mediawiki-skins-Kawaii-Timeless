@@ -5,7 +5,7 @@
 	"skinname-timeless": "Kawaii Timeless",
 	"timeless-desc": "A timeless skin designed after the Winter prototype by Brandon Harris, and various styles by the Wikimedia Foundation",
 	"timeless-anonymous": "Anonymous",
-	"timeless-loggedinas": "Logged in as '''$1'''",
+	"timeless-loggedinas": "'''$1'''",
 	"timeless-notloggedin": "Not logged in",
 	"timeless-userpage": "{{GENDER:$1|User}} page",
 	"timeless-talkpage": "{{GENDER:$1|User}} talk",

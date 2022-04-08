@@ -1,7 +1,8 @@
 $( function () {
 	// sidebar-chunk only applies to desktop-small, but the toggles are hidden at
 	// other resolutions regardless and the css overrides any visible effects.
-	var $dropdowns = $( '#personal, #p-variants-desktop, .sidebar-chunk' );
+	var $dropdowns = $( '#p-variants-desktop, .sidebar-chunk' );
+	//var $dropdowns = $( '#personal, #p-variants-desktop, .sidebar-chunk' );
 
 	/**
 	 * Desktop menu click-toggling
@@ -199,3 +200,12 @@ mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		} );
 	} );
 } );
+
+$(".mw-specialpages-list li").addClass("mdui-ripple");
+
+$("#personal").hover(function(){
+	$(this).toggleClass("dropdown-active");
+});
+
+var ktlsconsole = String("\nIntuitivie. Clean. Approachable. \n\n✦ Kawaii Timeless ✦\n\nJS Build: 2022-04-07 18:55:26\n")
+console.log('%c%s', 'color: #fb7299', ktlsconsole);

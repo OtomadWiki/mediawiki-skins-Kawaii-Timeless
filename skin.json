@@ -155,7 +155,7 @@
 			"+ext.CodeMirror": "resources/extensions/CodeMirror.less",
 			"+ext.wikiEditor.styles": "resources/extensions/WikiEditor.less",
 			"+ext.flowthread": "resources/extensions/FlowThread.less",
-			"+ext.flowthread.manage": "resources/extensions/FlowThreadManage.less",
+			"+ext.flowthread.manage": "resources/extensions/FlowThread.less",
 			"+ext.uls.pt": "resources/extensions/uls.pt.less",
 			"+ext.uls.interface": "resources/extensions/uls.interface.less",
 			"+ext.uls.languagesettings": "resources/extensions/uls.languagesettings.less",

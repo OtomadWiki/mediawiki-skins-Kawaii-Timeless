@@ -2,6 +2,8 @@ Kawaii Timeless
 ====
 Timeless Skin for Chinese Otomad Wiki
 
+![Preview Screenshot](https://raw.githubusercontent.com/OtomadWiki/Kawaii-Timeless/master/screenshots/1920x1080.png)
+
 ## How to Use
 
 1. Download ZIP and extract

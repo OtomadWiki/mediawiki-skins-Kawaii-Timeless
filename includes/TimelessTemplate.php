@@ -590,13 +590,13 @@ class TimelessTemplate extends BaseTemplate {
 			$html .= Html::rawElement( 'div' , [ 'id' => 'header-links-container', 'style' => 'position: fixed' ],
 			Html::rawElement( 'ul' , [ 'class' => 'header-links-ul' ],
 				Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
-					Html::rawElement( 'a' , [ 'id' => 'header-link-home' , 'class' => 'header-links-a', 'href' => '/' ], 首页),
+					Html::rawElement( 'a' , [ 'id' => 'header-link-home' , 'class' => 'header-links-a', 'href' => '/' ], '首页'),
 				).
 				Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
-					Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://www.calibur.tv/' ], 主站),
+					Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://www.calibur.tv/' ], '主站'),
 				).
 				Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
-					Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://mc.calibur.tv/' ], MC),
+					Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://mc.calibur.tv/' ], 'MC'),
 				),
 			).
 		 '');
@@ -750,7 +750,7 @@ class TimelessTemplate extends BaseTemplate {
 		$html = Html::openElement( 'div', [ 'id' => 'user-tools' ] );
 		$avatar = 'https://otomad.wiki/images/avatars/otomad_wiki_' . $user->getId() . '_l';
 
-		$html .= Html::rawElement( 'a', [ 'id' => 'headerUpload', 'href' => 'https://otomad.wiki/Special:Upload', 'title' => '上传文件[alt-shift-u]' ]);
+		$html .= Html::rawElement( 'a', [ 'id' => 'headerUpload', 'href' => 'https://otomad.wiki/Special:Upload', 'title' => '上传文件[alt-shift-u]' ], '上 传');
 
 		// Extra icon stuff (echo etc)
 		if ( !empty( $extraTools ) ) {

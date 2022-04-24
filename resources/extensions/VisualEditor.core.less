@@ -7,7 +7,7 @@
 		}
 
 		.ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
-			top: @fixed-header-height + @color-height;
+			top: @fixed-header-height;
 		}
 
 		// Make the gutter area clickable (T162838)
@@ -38,4 +38,8 @@
 			top: 0;
 		}
 	}
+}
+
+.ve-ui-toolbar > .oo-ui-toolbar-bar {
+	z-index: 101;
 }

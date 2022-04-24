@@ -2,6 +2,10 @@
 
 // Single-column layout with dropdown menus
 
+body {
+	background: @base100;
+}
+
 #mw-content-block {
 	padding: 0;
 	position: relative;
@@ -21,6 +25,7 @@
 
 #mw-content-container {
 	padding-bottom: 0;
+	background: @base100;
 }
 
 .categories-bottom();
@@ -181,4 +186,12 @@
 #mw-site-navigation .sidebar-inner, #mw-related-navigation .sidebar-inner {
 	height: auto;
 	padding: 2em 1.2em 0;
+}
+
+#header-links-container {
+	display: none;
+}
+
+#simpleSearch {
+	margin: 0 auto;
 }

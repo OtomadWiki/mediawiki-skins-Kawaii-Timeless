@@ -203,9 +203,20 @@ mw.hook( 'wikipage.content' ).add( function ( $content ) {
 
 $(".mw-specialpages-list li").addClass("mdui-ripple");
 
-$("#personal").hover(function(){
-	$(this).toggleClass("dropdown-active");
+$(function(){
+    var hoverTimer, outTimer;
+    $("#personal").hover(function(){
+        clearTimeout(outTimer);
+        hoverTimer = window.setTimeout(function(){
+            $("#personal").addClass("dropdown-active");
+        },100);
+    },function(){
+        clearTimeout(hoverTimer);
+        outTimer = window.setTimeout(function(){
+            $("#personal").removeClass("dropdown-active");
+        },300);
+    });
 });
 
-var ktlsconsole = String("\nIntuitivie. Clean. Approachable. \n\n✦ Kawaii Timeless ✦\n\nJS Build: 2022-04-07 18:55:26\n")
+var ktlsconsole = String("\nIntuitivie. Clean. Approachable. \n\n✦ Kawaii Timeless ✦\n\nJS Build: 2022.04.10 20:50:52\n")
 console.log('%c%s', 'color: #fb7299', ktlsconsole);

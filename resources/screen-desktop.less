@@ -58,6 +58,19 @@ div.mw-notification-area {
 	min-height: @fixed-header-height;
 }
 
+//Acrylic
+#kawaiiHeaderBackground:before, #personal .dropdown:before {
+	content: '';
+	background-image: url(/kawaii/texture-noise.png);
+	width: 100%;
+	height: 100%;
+	display: block;
+	opacity: 0.05;
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+
 #p-logo-text {
 	.flex(0, 0, auto, 1);
 }
@@ -68,29 +81,32 @@ div.mw-notification-area {
 
 #searchInput {
 	background: transparent;
+	padding: 0.3em 3.7em 0.3em 1.5em;
 }
 
 #simpleSearch {
 	border: none;
-	background: transparent;
-	max-width: 30em;
-	margin: 0 auto;
-	border-radius: 0;
+	background: rgba( 128, 128, 128, 0.1 );
+	max-width: 22em;
+	margin: 0 1em 0 auto;
+	border-radius: 3em;
 	&:hover{
-		border-bottom: 1px solid @blue;
+		background: rgba( 128, 128, 128, 0.15 );
 	}
-	&:active, &:focus, &:focus-within{
-		border-bottom: 2px solid @blue;
-	}
+	//&:active, &:focus, &:focus-within{
+	//	border-bottom: 2px solid @blue;
+	//}
 }
 
 #searchButton, #mw-searchButton {
-	height: 2.8em;
+	height: 2.4em;
+	background-size: 88%;
+	background-position: center;
 }
 
 .suggestions {
 	.backdropfx();
-	transform: translateY(7px);
+	transform: translateY(9px);
 
 	.suggestions-special {
 		background-color: transparent;
@@ -106,7 +122,7 @@ div.mw-notification-area {
 	}
 
 	.suggestions-result-current {
-		background-color: #0000000d
+		background-color: @hover;
 	}
 }
 
@@ -181,7 +197,7 @@ div.mw-notification-area {
 	background-color: @base70;
 }
 #personal.dropdown-active .header-avatar {
-	transform: translateY(52px) scale(2.0833);
+	transform: translateY(27px) scale(2.0833);
 	box-shadow: 0 0 1em 0.1em rgba( 251, 114, 153, 0.4 );
 }
 @keyframes avatar-ripple {
@@ -199,7 +215,7 @@ div.mw-notification-area {
 	content: '';
 	width: 100%;
 	height: 100%;
-	background-color: #fb7299;
+	background-color: @blue;
 	position: relative;
 	display: block;
 	border-radius: 50%;
@@ -228,8 +244,9 @@ div.mw-notification-area {
 	position: relative;
 	border-radius: 4em;
 	transition: background cubic-bezier(0.22,0.58,0.12,0.98) 0.4s;
-	&:hover {
-		background: #0000000d;
+
+	&.dropdown-active {
+		background: @hover
 	}
 
 	&.dropdown-active:active h3:after {
@@ -323,12 +340,6 @@ div.mw-notification-area {
 	padding-bottom: 1em;
 }
 
-.tools-inline li {
-	&:hover {
-		background: #0000000d;
-	}
-}
-
 #mw-wrapper #personal .dropdown h3 {
 	text-align: center;
 	border-bottom: none;
@@ -368,12 +379,12 @@ div.mw-notification-area {
 }
 #mw-wrapper .dropdown-active .dropdown {
 	& li {
-		animation: move-in-left cubic-bezier(0.22,0.58,0.12,0.98) 0.4s;
-		opacity: (1);
+		animation: move-in-left cubic-bezier(0.22,0.58,0.12,0.98) 0.4s backwards;
+		opacity: 1;
 	}
 	& h3 {
 		transform: none;
-		opacity: (1);
+		opacity: 1;
 	}
 }
 
@@ -395,8 +406,8 @@ div.mw-notification-area {
 }
 
 #personal .dropdown li a {
-	display: inline-block;
-	padding: 0.8em 0.4em;
+	display: flex;
+	padding: 0.5em 0.4em;
 	width: 100%;
 }
 
@@ -410,8 +421,8 @@ div.mw-notification-area {
 
 //顶栏Dropdown
 #mw-wrapper #user-tools .dropdown-active .dropdown{
-	height: 390px;
-	padding: 3.8em 1.2em 0;
+	height: 340px;
+	padding: 2em 1.2em 0;
 	opacity: 100;
 }
 
@@ -424,8 +435,8 @@ div.mw-notification-area {
 }
 
 #mw-wrapper .dropdown-active .dropdown li:nth-child(1) {
-	animation-delay: 0;
-	transition-delay: 0;
+	animation-delay: 0ms;
+	transition-delay: 0ms;
   }
 #mw-wrapper .dropdown-active .dropdown li:nth-child(2) {
 	animation-delay: 20ms;
@@ -483,7 +494,7 @@ div.mw-notification-area {
 		transition: background cubic-bezier(0.22,0.58,0.12,0.98) 0.4s;
 	}
 	& li:hover {
-		background-color: #0000000d;
+		background-color: @hover;
 	}
 	& li:hover a {
 		transform: translateX(5px);
@@ -513,4 +524,36 @@ div.mw-notification-area {
 /* Wiki Logo */
 .mw-wiki-logo.fallback {
 	background-size: 90%;
+}
+
+/* Header Links */
+#header-links-container {
+	display: block;
+	top: 0;
+	height: 3.5em;
+}
+
+.header-links-ul {
+	height: 100%;
+	margin: 0;
+	display: flex;
+}
+
+.header-links-li {
+	height: 100%;
+	margin: 0;
+}
+
+.header-links-a {
+	height: 100%;
+	text-align: center;
+	padding: 0 14px 0 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #545454 !important;
+	transition: color 0.2s;
+	&:hover {
+		color: @blue !important;
+	}
 }

@@ -1,6 +1,6 @@
 {
 	"name": "Kawaii-Timeless",
-	"version": "2.4.0",
+	"version": "2.6.1",
 	"author": [
 		"Isarra Yos",
 		"[https://otomad.wiki/User:%E8%89%BE%E4%BA%86%E4%B8%AA%E6%8B%89 艾了个拉]",
@@ -79,6 +79,9 @@
 				"toc": true
 			},
 			"styles": {
+				"resources/libraries/mdui-mini.css": {
+					"media": "screen"
+				},
 				"resources/libraries/normalise.css": {
 					"media": "screen"
 				},

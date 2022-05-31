@@ -154,7 +154,7 @@
 }
 
 #user-tools h2 {
-	right: @content-padding + 0.3em;
+	right: @content-padding + 0.1em;
 	///background-image: url( images/user-large-grey.svg );
 }
 
@@ -217,6 +217,7 @@
 	min-width: 40px;
     min-height: 40px;
 	display: inline-grid;
+	align-items: center;
 }
 
 #p-views li, #p-more li{
@@ -225,15 +226,12 @@
 	min-width: 40px;
     min-height: 40px;
 	display: inline-grid;
+	align-items: center;
 }
 
 .tools-inline li a {
 	.ca-icon-only();
 	.ca-icon-only-mobile();
-}
-
-#ca-flowthreadcontrol a {
-	transform: scale(0.6) !important;
 }
 
 #ca-more,
@@ -251,11 +249,13 @@
 }
 
 #ca-more span {
-	background-image: url( images/gear-grey.svg );
+	//background-image: url( images/gear-grey.svg );
+	.ca-icon( 'images/material-icons/settings_black_24dp' );
 }
 
 #ca-languages span {
-	background-image: url( images/languages-grey.svg );
+	//background-image: url( images/material-icons/translate_black_24dp.svg );
+	.ca-icon( 'images/material-icons/translate_black_24dp' );
 }
 
 /* Full-width thumbnails */

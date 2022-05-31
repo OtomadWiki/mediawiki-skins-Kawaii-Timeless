@@ -13,6 +13,7 @@
 // Icons - hides labels, but keep them accessible for screen-readers
 .icon() {
 	text-indent: -99999px;
+	font-size: 0;
 	border: 0;
 	background-color: transparent;
 	background-repeat: no-repeat;
@@ -20,31 +21,86 @@
 
 // Icons for the page actions menus
 .ca-icon( @icon: '' ) {
-	background-image: url( '@{icon}.svg' );
 	border: 0;
 	background-color: transparent;
 	background-repeat: no-repeat;
-	background-position: left top;
-	display: inline-block;
-	margin-bottom: -0.35em;
-	padding: 0 2px 0 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding: 0 17px 0 14px;
+	height: 36px;
+	font-size: 0.95em;
+	text-indent: 4px;
+	letter-spacing: 0.5px;
+	&::before {
+		content: '';
+		background-repeat: no-repeat;
+		opacity: 1;
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		opacity: 0.51;
+		background-size: 100%;
+		background-position: center;
+		background-image: url( '@{icon}.svg' );
+	}
 }
 
 // For use after .ca-icon() ...
 .ca-icon-only() {
 	text-indent: -99999px;
-	width: 20px;
 	overflow: hidden; // T174314
 	box-sizing: border-box;
-	padding: 0;
-	transform: scale(1.1);
+	padding: 0 14px;
+	font-size: 0 !important;
+	text-indent: 0 !important;
+	letter-spacing: 0 !important;
+	span {
+		display: none;
+		font-size: 0;
+	}
 }
 
+// For use after .ca-icon-only() ...
 .ca-icon-only-mobile() {
 	background-repeat: no-repeat;
 	background-position: center !important;
 	width: 100% !important;
 	height: 100%;
+	padding: 0 !important;
+	span {
+		display: none !important;
+		font-size: 0 !important;
+	}
+}
+
+.ca-icon-material( @icon: '' ) {
+	&::before {
+		content: '@{icon}';
+		background-image: none;
+		font-family: 'Material Icons';
+		font-weight: normal;
+		font-style: normal;
+		font-size: 22px;
+		width: 22px;
+		height: 22px;
+		display: inline-block;
+		//line-height: 1;
+		text-transform: none;
+		letter-spacing: normal;
+		word-wrap: normal;
+		white-space: nowrap;
+		direction: ltr;
+		user-select: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		-moz-osx-font-smoothing: grayscale;
+		font-feature-settings: 'liga';
+		text-indent: 0;
+		opacity: 1;
+		line-height: 1.05em;
+	}
 }
 
 .box() {
@@ -118,8 +174,8 @@
 // FX
 .backdropfx() {
 	background: rgba( 255, 255, 255, 0.5 );
-	-webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
 }
 
 // Dropdowns
@@ -131,15 +187,27 @@
 
 .dropdown-header-after() {
 	&:after {
-		display: inline-block;
-		content: '';
+		content: 'expand_more';
+		background-image: none;
+		font-family: 'Material Icons';
+		font-weight: normal;
+		font-style: normal;
+		font-size: 22px;
 		width: 22px;
-		height: 12px;
-		background-image: url( images/material-icons/expand_more_black_24dp.svg );
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: 22px;
-		opacity: 0.51;
+		height: 22px;
+		display: inline-block;
+		text-transform: none;
+		letter-spacing: normal;
+		word-wrap: normal;
+		white-space: nowrap;
+		direction: ltr;
+		user-select: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		-moz-osx-font-smoothing: grayscale;
+		font-feature-settings: 'liga';
+		text-indent: 0;
+		line-height: 1.05em;
 	}
 }
 

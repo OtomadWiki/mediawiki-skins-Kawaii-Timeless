@@ -73,21 +73,18 @@
 
 .flowthread-btn {
     transition: 150ms ease;
-    width: 32px;
-    height: 32px;
-
-    &:hover{
-        background-color: transparent;
-        border: 0;
-    }
-    &:active {
-        background-color: transparent;
-        border: 0;
+    width: 32px !important;
+    height: 32px !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    border-radius: 50%;
+    &:hover {
+        background-color: @hover;
     }
 }
 
-.flowthread-btn-wikitext.on+.flowthread-btn-preview {
-    width: 32px;
+.flowthread-btn:active, .flowthread-btn.on {
+    background-color: @hover !important;
 }
 
 .comment-replybox {

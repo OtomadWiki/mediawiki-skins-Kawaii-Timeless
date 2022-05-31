@@ -61,11 +61,11 @@ div.mw-notification-area {
 //Acrylic
 #kawaiiHeaderBackground:before, #personal .dropdown:before {
 	content: '';
-	background-image: url(/kawaii/texture-noise.png);
+	background-image: url(/kawaii/NoiseAsset_256x256_PNG.png);
 	width: 100%;
 	height: 100%;
 	display: block;
-	opacity: 0.05;
+	opacity: 0.04;
 	top: 0;
 	left: 0;
 	position: absolute;
@@ -238,11 +238,46 @@ div.mw-notification-area {
 	}
 }
 
+.tools-inline li {
+	border-radius: 4px;
+	&.selected {
+		background: transparent;
+		border-radius: 0;
+		border-bottom: 2px @blue solid;
+		color: @blue;
+	}
+	&.new.selected {
+		border-bottom: 2px @link-red solid;
+	}
+	&.selected a {
+		color: @blue;
+
+		&:hover {
+			color: @blue;
+		}
+
+		&:active {
+			color: @blue;
+		}
+	}
+	&.new.selected a {
+		color: @link-red;
+
+		&:hover {
+			color: @link-red;
+		}
+
+		&:active {
+			color: @link-red;
+		}
+	}
+}
+
 #p-variants-desktop {
 	float: right;
-	padding: 4px 6px 4px 14px;
+	//padding: 4px 6px 4px 14px;
 	position: relative;
-	border-radius: 4em;
+	border-radius: 4px;
 	transition: background cubic-bezier(0.22,0.58,0.12,0.98) 0.4s;
 
 	&.dropdown-active {
@@ -260,16 +295,31 @@ div.mw-notification-area {
 	h3 {
 		.dropdown-header();
 		.dropdown-header-after();
-		.ca-icon( 'images/languages-grey' );
-		font-size: 1em;
+		//.ca-icon( 'images/material-icons/translate_black_24dp' );
+		
+		border: 0;
+		background-color: transparent;
+		background-repeat: no-repeat;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+		padding: 0 17px 0 14px;
+		height: 36px;
+		font-size: 0.95em;
+		text-indent: 4px;
+		letter-spacing: 0.5px;
+
+		.ca-icon-material( 'translate' );
 		font-family: @fonts;
 		border-bottom: transparent;
 		margin: 0 0 -1em;
-		line-height: 1.5;
+		//line-height: 1.4;
 		padding-bottom: 1em;
 
 		&:after {
 			transition: transform .4s cubic-bezier(.22,.58,.12,.98);
+			margin-right: -6px;
 		}
 	}
 
@@ -421,7 +471,7 @@ div.mw-notification-area {
 
 //顶栏Dropdown
 #mw-wrapper #user-tools .dropdown-active .dropdown{
-	height: 340px;
+	height: 344px;
 	padding: 2em 1.2em 0;
 	opacity: 100;
 }
@@ -523,7 +573,10 @@ div.mw-notification-area {
 
 /* Wiki Logo */
 .mw-wiki-logo.fallback {
-	background-size: 90%;
+	background-size: 70%;
+	background-position: 50% 40%;
+	width: 100%;
+	border-radius: 8px;
 }
 
 /* Header Links */
@@ -555,5 +608,128 @@ div.mw-notification-area {
 	transition: color 0.2s;
 	&:hover {
 		color: @blue !important;
+	}
+}
+
+.preferences-md-icon( @icon: '' ) {
+	content: '@{icon}';
+	opacity: 0.51;
+	color: black;
+	width: 24px;
+	height: 24px;
+	background-position: center;
+	margin-left: 3px;
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	user-select: none;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: 'liga';
+}
+
+/*参数设置页面*/
+.mw-special-Preferences #mw-wrapper {
+	.mw-prefs-buttons{
+		border-top: 1px transparent;
+		box-shadow: none;
+		margin-top: 15px;
+		padding: 1em 1em;
+		box-shadow: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		background-color: white;
+	}
+	#mw-indicator-mw-helplink a{
+		color: #888888;
+	}
+	.mw-htmlform-field-HTMLHorizontalRuleField .mw-input hr{
+		background-color: unset;
+	}
+	.oo-ui-tabSelectWidget-framed {
+		flex-direction: column;
+		margin-top: 10px;
+	}
+	.oo-ui-menuLayout {
+		display: flex;
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget {
+		width: 180px;
+		align-items: center;
+		border: 0;
+		min-height: 35px;
+		border-radius: 4px;
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(1)::before {
+		.preferences-md-icon( 'person' );
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(2)::before {
+		.preferences-md-icon( 'palette' );
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(3)::before {
+		.preferences-md-icon( 'edit' );
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(4)::before {
+		.preferences-md-icon( 'history' );
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(5)::before {
+		.preferences-md-icon( 'star' );
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(6)::before {
+		.preferences-md-icon( 'widgets' );
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(7)::before {
+		.preferences-md-icon( 'notifications' );
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:hover {
+		background: @hover;
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget .oo-ui-labelElement-label {
+		border: 0;
+		padding: 0 8px;
+		font-weight: normal;
+		font-size: 0.95em;
+		color: @text;
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget .oo-ui-labelElement-label:after {
+		border-bottom: none;
+		background-color: @blue;
+		left: 0;
+		bottom: 26%;
+		height: 16px;
+		width: 3px;
+		border-radius: 3em;
+		transform: translateY(-25px) scaleY(2);
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
+		background-color: @hover;
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
+		border: 0;
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label:after {
+		transform: translateY(0) scaleY(1);
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected.oo-ui-optionWidget-pressed .oo-ui-labelElement-label:after {
+		transform: translateY(0) scaleY(0.7);
+	}
+	.oo-ui-menuLayout.oo-ui-menuLayout-showMenu.oo-ui-menuLayout-top > .oo-ui-menuLayout-content {
+		width: 85%;
+	}
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label,
+	.oo-ui-tabSelectWidget-framed.oo-ui-widget-enabled:focus .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label{
+		border-bottom: none;
+	}
+	.oo-ui-panelLayout-scrollable {
+		animation: slide-in-parent cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.4s backwards;
 	}
 }

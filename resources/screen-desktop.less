@@ -81,7 +81,7 @@ div.mw-notification-area {
 
 #searchInput {
 	background: transparent;
-	padding: 0.3em 3.7em 0.3em 1.5em;
+	padding: 0.3em 2.8em 0.3em 1em;
 }
 
 #simpleSearch {
@@ -89,19 +89,27 @@ div.mw-notification-area {
 	background: rgba( 128, 128, 128, 0.1 );
 	max-width: 22em;
 	margin: 0 1em 0 auto;
-	border-radius: 3em;
-	&:hover{
-		background: rgba( 128, 128, 128, 0.15 );
-	}
+	border-radius: 6px;
+	//&:hover{
+	//	background: rgba( 128, 128, 128, 0.15 );
+	//}
 	//&:active, &:focus, &:focus-within{
 	//	border-bottom: 2px solid @blue;
 	//}
 }
 
 #searchButton, #mw-searchButton {
-	height: 2.4em;
-	background-size: 88%;
+	height: 29px;
+	width: 29px;
+	margin-top: 4px;
+	background-size: 60%;
 	background-position: center;
+	right: 5px;
+	border-radius: 6px;
+}
+
+#searchButton:hover {
+	background-color: @hover;
 }
 
 .suggestions {
@@ -284,12 +292,24 @@ div.mw-notification-area {
 		background: @hover
 	}
 
-	&.dropdown-active:active h3:after {
-		transform: rotate(-180deg) translateY(-3px);
+	&:hover {
+		h3:after {
+			transform: rotate(-180deg);
+		}
+	}
+
+	&:hover:active {
+		h3:after {
+			transform: rotate(-180deg) translateY(-3px);
+		}
 	}
 
 	&.dropdown-active h3:after {
 		transform: rotate(-180deg);
+	}
+
+	&.dropdown-active:active h3:after {
+		transform: rotate(-180deg) translateY(-3px);
 	}
 
 	h3 {
@@ -304,6 +324,7 @@ div.mw-notification-area {
 		justify-content: center;
 		align-items: center;
 		align-content: center;
+		text-align: right;
 		padding: 0 17px 0 14px;
 		height: 36px;
 		font-size: 0.95em;
@@ -336,12 +357,6 @@ div.mw-notification-area {
 
 		.selected a {
 			color: @text;
-		}
-	}
-
-	&:active {
-		h3:after {
-			transform: translateY(3px);
 		}
 	}
 }
@@ -384,6 +399,11 @@ div.mw-notification-area {
 }
 
 /* Content */
+
+#mw-content-wrapper {
+	background-color: @background;
+	border-radius: 8px;
+}
 
 #mw-content-container {
 	margin-top: 0;
@@ -636,6 +656,15 @@ div.mw-notification-area {
 	font-feature-settings: 'liga';
 }
 
+/*最近更改页面*/
+.mw-collapsible-arrow.mw-collapsible-toggle-collapsed:hover:active, .mw-collapsible-arrow.mw-collapsible-toggle-expanded:active {
+	transform: rotate(90deg) translateX(3px);
+}
+.mw-collapsible-arrow.mw-collapsible-toggle-collapsed:hover {
+	transform: rotate(90deg);
+	opacity: 1;
+}
+
 /*参数设置页面*/
 .mw-special-Preferences #mw-wrapper {
 	.mw-prefs-buttons{
@@ -709,6 +738,7 @@ div.mw-notification-area {
 		width: 3px;
 		border-radius: 3em;
 		transform: translateY(-25px) scaleY(2);
+		animation: none;
 	}
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
 		background-color: @hover;

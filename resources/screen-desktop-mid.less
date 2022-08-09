@@ -4,6 +4,7 @@
 
 #mw-content-block {
 	clear: both;
+	background-color: white;
 }
 
 #p-logo-text {
@@ -23,6 +24,10 @@
 	overflow: hidden;
 }
 
+#mw-site-navigation .sidebar-chunk, #mw-related-navigation .sidebar-chunk {
+	box-shadow: none;
+}
+
 #mw-related-navigation > div.sidebar-chunk:first-child {
 	margin-top: 0;
 }
@@ -31,6 +36,7 @@
 	float: right;
 	margin-left: -@column-left-size;
 	width: 100%;
+	box-shadow: none;
 }
 
 #mw-content,
@@ -54,4 +60,8 @@
 
 #user-tools {
 	min-width: 12em;
+}
+
+#mw-content-container {
+	background-color: @background;
 }

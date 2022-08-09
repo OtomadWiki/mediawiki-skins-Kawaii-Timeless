@@ -80,10 +80,10 @@ class TimelessTemplate extends BaseTemplate {
 
 		//add banner -aira@21.11.15
 		$html .= Html::rawElement( 'div' , [ 'id' => 'siteBanner', 'class' => 'siteBanner' ],
-			Html::rawElement( 'div' , [ 'id' => 'topHeadingImage', 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/BG-2022031702.png);' ]).
+			Html::rawElement( 'div' , [ 'id' => 'topHeadingImage', 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/BG-20220705.png);' ]).
 			Html::rawElement( 'div' , [ 'id' => 'bannerItems', 'class' => 'bannerItems' ],
 				Html::rawElement( 'a', [ 'href' => '/' ],
-					Html::rawElement( 'img' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-Spring.svg', 'style' => 'filter: drop-shadow(0 4px 5px #fb729980);' ]),
+					Html::rawElement( 'img' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-SummerB2.svg', 'style' => 'filter: drop-shadow(0 4px 5px #4288d380);' ]),
 			),
 			).
 		 '');

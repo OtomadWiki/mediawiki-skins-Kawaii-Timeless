@@ -84,6 +84,29 @@
 		transition: background-color 200ms;
 		background-color: transparent;
 	}
+	&::after {
+		content: 'upload';
+		font-family: 'Material Icons';
+		font-weight: normal;
+		font-style: normal;
+		width: 100%;
+		height: 57px;
+		font-size: 28px;
+		text-transform: none;
+		letter-spacing: normal;
+		word-wrap: normal;
+		white-space: nowrap;
+		direction: ltr;
+		user-select: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		-moz-osx-font-smoothing: grayscale;
+		font-feature-settings: 'liga';
+		text-indent: 0;
+		color: white;
+		position: relative;
+		display: inline-block;
+	}
 	&:hover::before, &:focus-visible::before {
 		background-color: rgba( 255, 255, 255, 0.3 );
 	}
@@ -94,4 +117,44 @@
 
 #personal-extra {
 	width: 95px;
+}
+
+
+.mw-special-Preferences #mw-wrapper {
+	&::after {
+		content: 'settings';
+		display: flex;
+		position: fixed;
+		width: 256px;
+		height: 256px;
+		font-size: 256px;
+		margin: 0;
+		padding: 0;
+		margin-right: 8px;
+		line-height: 1;
+		pointer-events: none;
+	
+		animation: rolling 10s infinite linear;
+	
+		background-position: center;
+		font-family: 'Material Icons';
+		font-weight: normal;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: normal;
+		word-wrap: normal;
+		white-space: nowrap;
+		direction: ltr;
+		user-select: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		-moz-osx-font-smoothing: grayscale;
+		font-feature-settings: 'liga';
+	
+		left: unset;
+		right: -64px;
+		bottom: -32px;
+		color: black;
+		opacity: 0.05;
+	}
 }

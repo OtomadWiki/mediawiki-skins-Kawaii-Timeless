@@ -19,7 +19,7 @@
 #mw-footer .footer-icons {
 	clear: both;
 	margin-bottom: 0.5em;
-}
+} 
 
 .color-middle {
 	margin: auto;
@@ -29,7 +29,6 @@
 .categories-bottom();
 
 #p-variants-desktop,
-#mw-page-header-links #ca-view,
 #mw-header-nav-hack,
 #page-tools h2,
 #other-languages h2,
@@ -147,7 +146,7 @@
 		.icon();
 	}
 
-	&:after {
+	&::after {
 		position: absolute;
 		top: 0.65em;
 		left: 23px;
@@ -197,6 +196,13 @@
 	}
 }
 
+#p-more #ca-more {
+	transition: transform 1s cubic-bezier(0.67, 0.03, 0, 0.99);
+	&:hover {
+		transform: rotate(90deg);
+	}
+}
+	
 /* Logo */
 
 #p-logo-text {
@@ -230,6 +236,10 @@
 	align-items: center;
 }
 
+.tools-inline li {
+	border-radius: 3em;
+}
+
 .tools-inline li a {
 	.ca-icon-only();
 	.ca-icon-only-mobile();
@@ -237,7 +247,7 @@
 
 #ca-more,
 #ca-languages {
-	&:after {
+	&::after {
 		margin-left: -0.35em;
 	}
 
@@ -361,8 +371,75 @@ div.thumb {
 	background: transparent;
 }
 
-.mw-prefs-tabs > .oo-ui-menuLayout-content > .oo-ui-indexLayout-stackLayout > .oo-ui-tabPanelLayout {
-	padding: 20px 8px;
+
+.mw-special-Preferences #mw-wrapper {
+
+	.oo-ui-optionWidget.oo-ui-labelElement>.oo-ui-labelElement-label {
+			display: flex;
+	}
+	
+	.preferences-md-icon-mobile(@icon: '') {
+		content: '@{icon}';
+		width: 24px;
+		height: 24px;
+		margin-right: 4px;
+		background-position: center;
+		font-family: 'Material Icons';
+		font-weight: normal;
+		font-style: normal;
+		font-size: 24px;
+		display: flex;
+		text-transform: none;
+		letter-spacing: normal;
+		word-wrap: normal;
+		white-space: nowrap;
+		direction: ltr;
+		user-select: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		-moz-osx-font-smoothing: grayscale;
+		font-feature-settings: 'liga';
+	}
+
+	.oo-ui-tabSelectWidget-framed {
+		flex-wrap: wrap;
+	}
+
+	.oo-ui-tabOptionWidget {
+		color: #7d7d7d;
+	}
+	
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(1) .oo-ui-labelElement-label::before {
+		.preferences-md-icon-mobile('person');
+	}
+
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(2) .oo-ui-labelElement-label::before {
+		.preferences-md-icon-mobile('palette');
+	}
+
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(3) .oo-ui-labelElement-label::before {
+		.preferences-md-icon-mobile('edit');
+	}
+
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(4) .oo-ui-labelElement-label::before {
+		.preferences-md-icon-mobile('history');
+	}
+
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(5) .oo-ui-labelElement-label::before {
+		.preferences-md-icon-mobile('star');
+	}
+
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(6) .oo-ui-labelElement-label::before {
+		.preferences-md-icon-mobile('widgets');
+	}
+
+	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(7) .oo-ui-labelElement-label::before {
+		.preferences-md-icon-mobile('notifications');
+	}
+
+	.mw-prefs-tabs > .oo-ui-menuLayout-content > .oo-ui-indexLayout-stackLayout > .oo-ui-tabPanelLayout {
+		padding: 36px 8px;
+	}
 }
 
 /* Atom */
@@ -384,3 +461,19 @@ a.feedlink {
     background-repeat: no-repeat;
     background-color: @base70;
 }
+
+#nprogress {
+	display: none !important;
+}
+
+.comment-time {
+	width: 100%;
+	margin-right: 0;
+}
+
+/* Recent Changes */
+/*
+table.mw-made-collapsible tr {
+	max-height: 3.3em;
+}
+*/

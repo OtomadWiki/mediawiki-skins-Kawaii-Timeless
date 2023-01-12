@@ -1,9 +1,9 @@
 {
-	"name": "Kawaii-Timeless",
-	"version": "2.6.2",
+	"name": "Timeless-Kawaii",
+	"version": "3.0.230113",
 	"author": [
-		"Isarra Yos",
 		"[https://otomad.wiki/User:%E8%89%BE%E4%BA%86%E4%B8%AA%E6%8B%89 艾了个拉]",
+		"Timeless原作者「Isarra Yos」",
 		"..."
 	],
 	"url": "https://github.com/OtomadWiki/Kawaii-Timeless",
@@ -16,7 +16,7 @@
 	},
 	"ValidSkinNames": {
 		"timeless": {
-			"displayname": "Kawaii-Timeless",
+			"displayname": "Timeless-Kawaii",
 			"class": "MediaWiki\\Skin\\Timeless\\SkinTimeless",
 			"args": [
 				{
@@ -79,6 +79,9 @@
 				"toc": true
 			},
 			"styles": {
+				"resources/libraries/nprogress.min.css": {
+					"media": "screen"
+				},
 				"resources/libraries/mdui-mini.css": {
 					"media": "screen"
 				},
@@ -158,7 +161,6 @@
 			"+ext.CodeMirror": "resources/extensions/CodeMirror.less",
 			"+ext.wikiEditor.styles": "resources/extensions/WikiEditor.less",
 			"+ext.flowthread": "resources/extensions/FlowThread.less",
-			"+ext.flowthread.manage": "resources/extensions/FlowThread.less",
 			"+ext.uls.pt": "resources/extensions/uls.pt.less",
 			"+ext.uls.interface": "resources/extensions/uls.interface.less",
 			"+ext.uls.languagesettings": "resources/extensions/uls.languagesettings.less",

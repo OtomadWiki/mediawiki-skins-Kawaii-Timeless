@@ -1,5 +1,6 @@
-Kawaii Timeless
+Timeless Kawaii
 ====
+
 Timeless Skin for Chinese Otomad Wiki
 
 ![Preview Screenshot](https://raw.githubusercontent.com/OtomadWiki/Kawaii-Timeless/master/screenshots/1920x1080.png)
@@ -16,5 +17,6 @@ Timeless Skin for Chinese Otomad Wiki
 wfLoadSkin( 'Timeless' );
 $wgDefaultSkin = "Timeless";
 ```
+
 6. Import codes from `https://otomad.wiki/MediaWiki:Timeless.css` to your site's `MediaWiki:Timeless.css`
 7. Import codes from `https://otomad.wiki/MediaWiki:Common.css` to your site's `MediaWiki:Common.css`

@@ -245,7 +245,6 @@ td.mw-submit {
  * Convenience links to edit delete and protect reasons
  */
 p.mw-protect-editreasons,
-p.mw-filedelete-editreasons,
 p.mw-delete-editreasons {
 	font-size: 90%;
 	text-align: right;
@@ -365,48 +364,6 @@ a.new {
 
 .success {
 	color: #14866d;
-}
-
-.messagebox,
-.errorbox,
-.warningbox,
-.successbox {
-	color: #000;
-	margin-bottom: 1em;
-	border: 1px solid;
-	padding: 0.5em 1em;
-}
-
-.messagebox h2,
-.errorbox h2,
-.warningbox h2,
-.successbox h2 {
-	color: inherit;
-	display: inline;
-	margin: 0 0.5em 0 0;
-	border: 0;
-	font-size: 1em;
-	font-weight: bold;
-}
-
-.messagebox {
-	background-color: #fbecf0;
-	border-color: #a2a9b1;
-}
-
-.errorbox {
-	background-color: #fee7e6;
-	border-color: #d33;
-}
-
-.warningbox {
-	background-color: #fef6e7;
-	border-color: #fc3;
-}
-
-.successbox {
-	background-color: #d5fdf4;
-	border-color: #14866d;
 }
 
 /* general info/warning box for SP */

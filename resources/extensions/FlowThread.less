@@ -1,10 +1,10 @@
 @import '../variables.less';
 
 .comment-thread {
-    border-top: 1px solid rgba(0,0,0,0.11);
+    border-top: 0;
 }
 
-.comment-container > div:first-child {
+.comment-container>div:first-child {
     border-top: 0;
 }
 
@@ -26,7 +26,8 @@
     padding-left: 75px;
 }
 
-.comment-body textarea, .comment-preview {
+.comment-body textarea,
+.comment-preview {
     font-family: @fonts;
     font-size: 15px;
     color: @text;
@@ -36,6 +37,7 @@
     height: 50px;
     line-height: 28px;
     transition: 250ms !important;
+
     &:focus {
         line-height: 20px;
         height: 84px;
@@ -50,28 +52,35 @@
     padding: 14px 10px;
 }
 
-.comment-user, .comment-user a {
+.comment-user,
+.comment-user a {
     font-size: 14px;
+    font-weight: bold;
 }
 
 .comment-footer {
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .comment-submit {
     border-radius: 2px;
     text-shadow: none;
-    background-color: @blue;
+    background-color: @accent;
     color: white;
     border: none;
     width: 70px;
-    box-shadow: 0 4px 4px rgba( 251, 114, 153, 0.3 );
+    box-shadow: 0 4px 4px rgba(251, 114, 153, 0.3);
     transition: 150ms ease;
-    &:hover{
-        box-shadow: 0 9px 9px rgba( 251, 114, 153, 0.3 );
+
+    &:hover {
+        box-shadow: 0 9px 9px rgba(251, 114, 153, 0.3);
     }
-    &:active{
-        box-shadow: 0 0 0 rgba( 251, 114, 153, 0.3 );
+
+    &:active {
+        box-shadow: 0 0 0 rgba(251, 114, 153, 0.3);
     }
 }
 
@@ -82,12 +91,14 @@
     box-shadow: none !important;
     border: 0 !important;
     border-radius: 50%;
+
     &:hover {
         background-color: @hover;
     }
 }
 
-.flowthread-btn:active, .flowthread-btn.on {
+.flowthread-btn:active,
+.flowthread-btn.on {
     background-color: @hover !important;
 }
 
@@ -98,16 +109,21 @@
 
 .mw-special-FlowThreadManage fieldset {
     padding: 1.5em 0.75em 0.625em;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.04), 0 3px 6px rgba(0,0,0,0.06);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.04), 0 3px 6px rgba(0, 0, 0, 0.06);
     margin-bottom: 15px;
     border-radius: 5px;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .mw-special-FlowThreadManage legend {
-    background: #fb7299;
+    background: @accent;
     border-radius: 1em;
     color: white;
     padding: 0 1em;
-    box-shadow: 0 3px 6px rgba(251,114,153,0.5);
+    box-shadow: 0 3px 6px rgba(251, 114, 153, 0.5);
+}
+
+.comment-like[liked],
+.comment-report[reported] {
+    color: @accent;
 }

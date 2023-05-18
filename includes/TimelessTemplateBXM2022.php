@@ -65,9 +65,10 @@ class TimelessTemplate extends BaseTemplate {
 
 		$html .= Html::rawElement( 'div', [ 'id' => 'mw-header-container', 'class' => 'ts-container' ],
 			Html::rawElement( 'div', [ 'id' => 'mw-header', 'class' => 'ts-inner' ],
+
 				$userLinks['html'] .
 				$this->getLogo( 'p-logo-text', 'text' ) .
-				$this->getHeaderCenter() ,
+				$this->getSearch()
 			) .
 			Html::rawElement( 'div' , [ 'id' => 'kawaiiHeaderBackground', 'class' => 'kawaiiHeaderBackground']).
 			$this->getClear()
@@ -78,22 +79,19 @@ class TimelessTemplate extends BaseTemplate {
 		$html .= Html::element( 'div', [ 'id' => 'menus-cover' ] );
 
 		//add banner -aira@21.11.15
-		$html .= Html::rawElement( 'div' , [ 'class' => 'siteBanner' ],
-			Html::rawElement( 'div' , [ 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/BG-2023032902.webp);' ]).
-			// Html::rawElement( 'div' , [ 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/audience2022/bg.png);' ]).
+		$html .= Html::rawElement( 'div' , [ 'id' => 'siteBanner', 'class' => 'siteBanner' ],
+			Html::rawElement( 'div' , [ 'id' => 'topHeadingImage', 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/bxm2022/BG4.png);' ]).
 			//, 'style' => 'background-image: url(/kawaii/banner/BG-20220705.png);'
-			Html::rawElement( 'div' , [ 'class' => 'bannerItems' ],
-				Html::rawElement( 'a', [ 'href' => '/', 'name' => 'OtomadWiki 春' ],
-					Html::rawElement( 'img' , [ 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-Spring.svg', 'style' => 'filter: drop-shadow(0 4px 5px #F06E8E80);', 'title' => 'OtomadWiki 春' ]),
-					// Html::rawElement( 'img' , [ 'class' => 'topHeadingLogo', 'src' => '/kawaii/banner/audience2022/omwiki_otmink.png', 'title' => 'OtomadWiki 春' ]),
-				),
-				/*
-				Html::rawElement( 'a', [ 'href' => 'https://otm.ink/viewpick/', 'title' => 'BILIBILI音MAD观众选', 'class' => 'bannerRightBlock' ],
-					// Html::rawElement( 'img' , [ 'class' => 'bannerGirlBg', 'src' => '/kawaii/banner/audience2022/girl.png' ]).
-					Html::rawElement( 'img' , [ 'class' => 'bannerContent', 'src' => '/kawaii/banner/audience2022/content.png' ]).
-					Html::rawElement( 'img' , [ 'class' => 'bannerGirl', 'src' => '/kawaii/banner/audience2022/girl.png' ]),
-				),
-				*/
+			Html::rawElement( 'div' , [ 'id' => 'bannerItems', 'class' => 'bannerItems' ],
+				Html::rawElement( 'a', [ 'href' => '/', 'name' => 'OtomadWiki 秋' ],
+					// Html::rawElement( 'img' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-Autumn.svg', 'style' => 'filter: drop-shadow(0 4px 5px #D16F4380);', 'title' => 'OtomadWiki 秋' ]),
+					Html::rawElement( 'img' , [ 'id' => 'topHeadingLogo', 'class' => 'topHeadingLogo', 'src' => '/kawaii/banner/bxm2022/omwiki_bxm2022.png', 'title' => 'OtomadWiki 秋' ]),
+			).
+			Html::rawElement( 'a', [ 'href' => 'https://lachrymal.net/otopick/', 'title' => 'BILIBILI音MAD作者选' ],
+					Html::rawElement( 'img' , [ 'id' => 'bannerContent', 'class' => 'bannerContent', 'src' => '/kawaii/banner/bxm2022/content1.png', 'title' => 'BILIBILI音MAD作者选' ]),
+			).
+			Html::rawElement( 'div' , [ 'class' => 'bannerBlock3' ],
+			),
 			).
 		 '');
 			//$html .= Html::rawElement('div', ['class' => 'topHeadingImage'], '');
@@ -146,9 +144,7 @@ class TimelessTemplate extends BaseTemplate {
 
 		// The unholy echo
 		echo $html;
-
-		// Header Loading Progress
-		//echo "<script>".file_get_contents('skins/Timeless/resources/libraries/nprogress.min.js')."</script>";
+		echo "<script>".file_get_contents('skins/Timeless/resources/libraries/nprogress.min.js')."</script>";
 	}
 
 	/**
@@ -593,50 +589,28 @@ class TimelessTemplate extends BaseTemplate {
 		return $html;
 	}
 
-
-	/**
-	 * the center part of desktop header
-	 * 
-	 * including search and header-links
-	 */
-
-	protected function getHeaderCenter() {
-		//Aira
-		$html = Html::rawElement( 'div', [ 'id' => 'header-center'],
-
-			/** 
-			*Html::rawElement( 'div' , [ 'id' => 'header-links-container', 'style' => 'position: fixed' ],
-			*	Html::rawElement( 'ul' , [ 'class' => 'header-links-ul' ],
-			*		Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
-			*			Html::rawElement( 'a' , [ 'id' => 'header-link-home' , 'class' => 'header-links-a', 'href' => '/' ], '首页'),
-			*		).
-			*		
-			*		Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
-			*			Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://www.calibur.tv/' ], '主站'),
-			*		).
-			*		
-			*		Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
-			*			Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://mc.calibur.tv/' ], 'MC'),
-			*		),
-			*	).
-			*'').
-			*/
-			$this->getSearch(),
-		);
-
-		
-		return $html;
-	}
-
-
 	/**
 	 * The search box at the top
 	 *
 	 * @return string html
 	 */
 	protected function getSearch() {
-
 		$html = Html::openElement( 'div', [ 'class' => 'mw-portlet', 'id' => 'p-search' ] );
+
+			//Aira
+			$html .= Html::rawElement( 'div' , [ 'id' => 'header-links-container', 'style' => 'position: fixed' ],
+				Html::rawElement( 'ul' , [ 'class' => 'header-links-ul' ],
+					Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
+						Html::rawElement( 'a' , [ 'id' => 'header-link-home' , 'class' => 'header-links-a', 'href' => '/' ], '首页'),
+					).
+					Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
+						Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://www.calibur.tv/' ], '主站'),
+					).
+					Html::rawElement( 'li', [ 'class' => 'header-links-li', 'style' => 'list-style: none' ],
+						Html::rawElement( 'a' , [ 'class' => 'header-links-a', 'href' => 'https://mc.calibur.tv/' ], 'MC'),
+					),
+				).
+		 	'');
 
 		$html .= Html::rawElement(
 			'h3',
@@ -652,15 +626,13 @@ class TimelessTemplate extends BaseTemplate {
 					] )
 				) .
 				Html::hidden( 'title', $this->get( 'searchtitle' ) ) .
-				Html::rawElement( 'div', ['id' => 'header-search-button', 'class' => 'mdui-ripple' ],
-					$this->makeSearchButton(
-						'fulltext',
-						[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
-					) .
-					$this->makeSearchButton(
-						'go',
-						[ 'id' => 'searchButton', 'class' => 'searchButton' ]
-					)
+				$this->makeSearchButton(
+					'fulltext',
+					[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
+				) .
+				$this->makeSearchButton(
+					'go',
+					[ 'id' => 'searchButton', 'class' => 'searchButton' ]
 				)
 			)
 		);
@@ -788,7 +760,9 @@ class TimelessTemplate extends BaseTemplate {
 		}
 		$html = Html::openElement( 'div', [ 'id' => 'user-tools' ] );
 		$avatar = 'https://otomad.wiki/images/avatars/otomad_wiki_' . $user->getId() . '_l';
-		$html .= Html::rawElement( 'a', [ 'id' => 'header-upload', 'class' => 'mdui-ripple', 'href' => 'https://otomad.wiki/Special:Upload', 'title' => '上传文件[alt-shift-u]' ]);
+
+		// $html .= Html::rawElement( 'a', [ 'id' => 'headerUpload', 'class' => 'mdui-ripple', 'href' => 'https://otomad.wiki/Special:Upload', 'title' => '上传文件[alt-shift-u]' ], '上 传');
+		$html .= Html::rawElement( 'a', [ 'id' => 'headerUpload', 'class' => 'mdui-ripple', 'href' => 'https://otomad.wiki/Special:Upload', 'title' => '上传文件[alt-shift-u]' ]);
 
 		// Extra icon stuff (echo etc)
 		if ( !empty( $extraTools ) ) {

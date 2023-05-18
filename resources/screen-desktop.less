@@ -26,36 +26,49 @@ div.mw-notification-area {
 
 /* Header */
 
-#mw-header {
-	.flex-display;
-}
-
 #mw-header-container {
 	/* Stupid IE10+ bug requires defining the height property for this to work
 	 * the way it is intended; without doing that this'll break horribly under
 	 * IE10 and IE11.
 	 * @see https://phabricator.wikimedia.org/T173769
 	 */
-	height: 0;
+	.flex-display;
+	align-items: center;
+	height: @fixed-header-height;
 	position: fixed;
 	z-index: 100;
 	top: 0;
 	width: 100%;
 	color: @text;
-	padding: 0.5em 0 0;
 	min-height: @fixed-header-height;
 	box-sizing: border-box;
-	box-shadow: 0 0.125rem 2rem rgba( 193, 159, 168, 0.5 );
+}
+
+#mw-header {
+	.flex-display;
+	align-items: center;
+	flex-grow: 1;
+	height: inherit;
 }
 
 #kawaiiHeaderBackground {
-	height: 0;
+	// height: 0;
+	height: @fixed-header-height;
 	position: fixed;
 	z-index: -2;
 	top: 0;
-	width: 100%;
+	width: 100vw;
 	.backdropfx();
-	min-height: @fixed-header-height;
+	// box-shadow: none;
+	box-shadow: 0 0.125rem 2rem rgba(193, 159, 168, 0.5);
+	transition: box-shadow cubic-bezier(0.16, 1, 0.3, 1) 300ms, height cubic-bezier(0.16, 1, 0.3, 1) 300ms;
+
+	/*
+	.scrolled & {
+		height: @fixed-header-height;
+		box-shadow: 0 0.125rem 2rem rgba(193, 159, 168, 0.5);
+	}
+	*/
 }
 
 //Acrylic
@@ -71,8 +84,16 @@ div.mw-notification-area {
 	position: absolute;
 }
 
+#header-center {
+	.flex-display;
+	align-items: center;
+	flex-grow: 1;
+	height: inherit;
+}
+
 #p-logo-text {
-	.flex(0, 0, auto, 1);
+	.flex-display;
+	justify-content: center;
 }
 
 #p-search {
@@ -81,42 +102,34 @@ div.mw-notification-area {
 
 #searchInput {
 	background: transparent;
-	padding: 0.3em 2.8em 0.3em 0;
-	text-indent: 1em;
-	//text-shadow: 0 0 4px white, 0 0 4px white, 0 0 8px white;
+	padding: 0 0.4em 0 0.8em;
 }
 
 #simpleSearch {
 	border: none;
-	background: rgba( 128, 128, 128, 0.1 );
-	max-width: 22em;
+	height: 36px;
+	max-width: 300px;
 	margin: 0 1em 0 auto;
 	border-radius: 6px;
-	//&:hover{
-	//	background: rgba( 128, 128, 128, 0.15 );
-	//}
-	//&:active, &:focus, &:focus-within{
-	//	border-bottom: 2px solid @blue;
-	//}
-}
 
-#searchButton, #mw-searchButton {
-	height: 29px;
-	width: 29px;
-	margin-top: 4px;
-	background-size: 60%;
-	background-position: center;
-	right: 5px;
-	border-radius: 6px;
-}
-
-#searchButton:hover {
-	background-color: @hover;
+	#header-search-button {
+		width: 36px;
+		height: 36px;
+	}
 }
 
 .suggestions {
 	.backdropfx();
-	transform: translateY(9px);
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	transition: border-radius .5s cubic-bezier(0.16, 1, 0.3, 1);
+	margin: 0 !important;
+	top: 55px !important;
+
+	.scrolled & {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
 
 	.suggestions-special {
 		background-color: transparent;
@@ -137,8 +150,12 @@ div.mw-notification-area {
 }
 
 #user-tools {
-	.flex(0, 1, auto, 3);
-	display: inline-block;
+	.flex-display;
+	flex-direction: row-reverse;
+	align-items: center;
+	order: 3;
+	gap: 8px;
+	width: @column-right-size;
 
 	h2 span {
 		display: inline-block;
@@ -161,19 +178,20 @@ div.mw-notification-area {
 #personal {
 	display: block;
 	position: relative;
-	padding-left: 1.5em;
 	line-height: 1;
-	float: left;
+	margin-right: auto;
 
 	.dropdown {
 		display: block !important;
 		.dropdown-menu();
 		// .dropdown-pokey();
 		z-index: -1;
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
 		width: 12em;
-		top: 3.16em;
+		top: 46px;
+		.scrolled & {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
 	}
 
 	.pokey {
@@ -187,6 +205,54 @@ div.mw-notification-area {
 		span {
 			display: none
 		}
+	}
+}
+
+#personal-extra {
+	ul {
+		gap: 8px;
+
+		li {
+			.gray-hover;
+		}
+	}
+}
+
+#header-upload {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	position: relative;
+	padding: 6px;
+	border-radius: 100%;
+	.gray-hover;
+
+	&::after {
+		content: 'upload';
+		font-family: 'Material Icons';
+		font-weight: normal;
+		font-style: normal;
+		width: 24px;
+		height: 24px;
+		font-size: 24px;
+		text-transform: none;
+		letter-spacing: normal;
+		word-wrap: normal;
+		white-space: nowrap;
+		direction: ltr;
+		user-select: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		-moz-osx-font-smoothing: grayscale;
+		font-feature-settings: 'liga';
+		text-indent: 0;
+		color: black;
+		opacity: 0.51;
+		position: relative;
+		display: flex;
+		line-height: 1;
 	}
 }
 
@@ -225,7 +291,7 @@ div.mw-notification-area {
 	content: '';
 	width: 100%;
 	height: 100%;
-	background-color: @blue;
+	background-color: var(--color-base);
 	position: relative;
 	display: block;
 	border-radius: 50%;
@@ -254,21 +320,21 @@ div.mw-notification-area {
 	&.selected {
 		background: transparent;
 		border-radius: 0;
-		border-bottom: 2px @blue solid;
-		color: @blue;
+		border-bottom: 2px @accent solid;
+		color: @accent;
 	}
 	&.new.selected {
 		border-bottom: 2px @link-red solid;
 	}
 	&.selected a {
-		color: @blue;
+		color: @accent;
 
 		&:hover {
-			color: @blue;
+			color: @accent;
 		}
 
 		&:active {
-			color: @blue;
+			color: @accent;
 		}
 	}
 	&.new.selected a {
@@ -285,6 +351,20 @@ div.mw-notification-area {
 }
 */
 
+@keyframes dropdown-after-press {
+	0% {
+		translate: 0;
+	}
+
+	30% {
+		translate: 0 3px;
+	}
+
+	100% {
+		translate: 0;
+	}
+}
+
 #p-variants-desktop {
 	float: right;
 	//padding: 4px 6px 4px 14px;
@@ -298,23 +378,18 @@ div.mw-notification-area {
 
 	&:hover {
 		h3::after {
-			transform: rotate(-180deg);
-		}
-	}
-
-	&:hover:active {
-		h3::after {
-			transform: rotate(-180deg) translateY(-3px);
+			transform: rotate(0);
 		}
 	}
 
 	&.dropdown-active h3::after {
-		transform: rotate(-180deg);
+		transform: rotate(0);
+		animation: dropdown-after-press 300ms cubic-bezier(0, 0, 0.2, 1);
 	}
 
-	&.dropdown-active:active h3::after {
-		transform: rotate(-180deg) translateY(-3px);
-	}
+	// &.dropdown-active:active h3::after {
+	// 	transform: rotate(-180deg) translateY(-3px);
+	// }
 
 	h3 {
 		.dropdown-header();
@@ -324,7 +399,7 @@ div.mw-notification-area {
 		border: 0;
 		background-color: transparent;
 		background-repeat: no-repeat;
-		display: flex;
+		.flex-display;
 		justify-content: center;
 		align-items: center;
 		align-content: center;
@@ -345,6 +420,7 @@ div.mw-notification-area {
 		&::after {
 			transition: transform .4s cubic-bezier(.22,.58,.12,.98);
 			margin-right: -6px;
+			transform: rotate(-90deg);
 		}
 	}
 
@@ -473,7 +549,7 @@ div.mw-notification-area {
 }
 
 #mw-site-navigation .sidebar-chunk li a, #mw-related-navigation .sidebar-chunk li a, #p-variants-desktop .dropdown li a {
-	display: flex;
+	.flex-display;
 	align-items: center;
 	padding: 0 0.4em;
 	width: 100%;
@@ -486,7 +562,7 @@ div.mw-notification-area {
 }
 
 #personal .dropdown li a {
-	display: flex;
+	.flex-display;
 	align-items: center;
 	padding: 0 0.4em;
 	width: 100%;
@@ -606,8 +682,8 @@ div.mw-notification-area {
 
 /* Wiki Logo */
 .mw-wiki-logo.fallback {
-	background-size: 70%;
-	background-position: 50% 40%;
+	background-size: 80%;
+	background-position: center;
 	width: 100%;
 	border-radius: 8px;
 }
@@ -616,31 +692,32 @@ div.mw-notification-area {
 #header-links-container {
 	display: block;
 	top: 0;
-	height: 3.5em;
+	height: inherit;
 }
 
 .header-links-ul {
-	height: 100%;
+	.flex-display;
+	align-items: center;
+	height: inherit;
 	margin: 0;
-	display: flex;
 }
 
 .header-links-li {
-	height: 100%;
+	height: inherit;
 	margin: 0;
 }
 
 .header-links-a {
+	.flex-display;
 	height: 100%;
 	text-align: center;
 	padding: 0 14px 0 14px;
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #545454 !important;
 	transition: color 0.2s;
 	&:hover {
-		color: @blue !important;
+		color: var(--color-base) !important;
 	}
 }
 
@@ -720,7 +797,7 @@ div.mw-notification-area {
 		.preferences-md-icon( 'person' );
 	}
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(2)::before {
-		.preferences-md-icon( 'palette' );
+		.preferences-md-icon( 'display_settings' );
 	}
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child(3)::before {
 		.preferences-md-icon( 'edit' );
@@ -749,7 +826,7 @@ div.mw-notification-area {
 	}
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget .oo-ui-labelElement-label::after {
 		border-bottom: none;
-		background-color: @blue;
+		background-color: var(--color-base);
 		left: 0;
 		bottom: 26%;
 		height: 16px;

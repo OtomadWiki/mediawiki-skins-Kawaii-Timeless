@@ -1,34 +1,36 @@
 @base100: #fff;
 @base90: #f8f9fa;
 @base80: #ececec;
-@base70: rgba( 0, 0, 0, 0.11 );
+@base70: rgba(0, 0, 0, 0.11);
 @base30: #c5c5c5;
 @base20: #aaaaaa;
 @base0: #000;
 
 @input-background: #fbfbfb;
 
-@hover: rgba( 0, 0, 0, 0.05 );
+@hover: rgba(0, 0, 0, 0.05);
 
 @red: #ff6666;
 @red-bright: #fee7e6;
 @red-dark: #9c3f3f;
 
 @title-pink: #e06386;
-@tools-color:#7d7d7d;
+@tools-color: #7d7d7d;
 
 @green: #00af89;
 @green-bright: #d5fdf4;
 @green-dark: #14866d;
 
-@blue: #fb7299;
-@blue-bright: #ffe6ed;
-@blue-dark: #bd5774;
-@blue-hover: #fa9bb6;
+@accent: #f06e8e;
+@accent-bright: #ffedf2;
+@accent-dark: #a23b57;
+@accent-hover: #f390a9;
 
-@blue-orig: #36c;
-@blue-orig-bright: #eaf3ff;
-@blue-orig-dark: #2a4b8d;
+// @blue-orig: #36c;
+// @blue-orig-bright: #eaf3ff;
+// @blue-orig-bright-highlighted: rgba(41, 98, 204, 0.1);
+// @blue-orig-dark: #2a4b8d;
+// @blue-orig-hover: #447ff5;
 
 @background: @base100;
 @body-background: #fafafa;
@@ -36,13 +38,13 @@
 
 @link: #008ac5;
 @link-hover: #00aeec;
-@link-visited: #008ac5;
+@link-visited: @link;
 
 @link-red: #ff6666;
-@link-red-visited: #ff6666;
+@link-red-visited: @link-red;
 
-@link-ext: #008ac5;
-@link-ext-visited: #008ac5;
+@link-ext: @link;
+@link-ext-visited: @link-visited;
 
 @line-height: 1.6;
 
@@ -50,8 +52,9 @@
 
 // Fonts are chosen for consistent metrics, not necessarily overall prettiness.
 @fonts-symbol: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-@fonts-cjksans: 'Noto Sans CJK SC', 'Noto Sans SC', 'WenQuanYi Micro Hei', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK TC', 'Noto Sans TC', 'Noto Sans CJK JP', 'Noto Sans JP';
-@fonts-sans: '-apple-system', 'BlinkMacSystemFont', 'PingFang SC', 'Segoe UI Variable Display', 'Roboto', 'Helvetica Neue', 'Segoe UI', 'Noto Sans', @fonts-cjksans, sans-serif, @fonts-symbol;
+@fonts-cjksans-backup: 'Noto Sans CJK SC', 'Noto Sans SC', 'WenQuanYi Micro Hei', 'Noto Sans CJK TC', 'Noto Sans TC', 'Noto Sans CJK JP', 'Noto Sans JP';
+@fonts-cjksans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'Yu Gothic UI';
+@fonts-sans: '-apple-system', 'BlinkMacSystemFont', 'PingFang SC', 'Segoe UI Variable Display', 'Roboto', 'Helvetica Neue', 'Segoe UI', @fonts-cjksans, sans-serif, @fonts-symbol;
 @fonts-serif: 'Linux Libertine', 'Times New Roman', 'Liberation Serif', 'Nimbus Roman', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif SC', 'Noto Serif CJK TC', 'Noto Serif TC', 'Noto Serif CJK JP', 'Noto Serif JP', 'Times', @fonts-cjksans, serif, @fonts-symbol;
 @fonts-mono: 'JetBrains Mono', 'Ubuntu Mono', 'Cascadia Code PL', 'Menlo', 'Consolas', 'Monaco', 'Noto Mono', 'Nimbus Mono L', 'Courier New', @fonts-cjksans, monospace, @fonts-symbol;
 

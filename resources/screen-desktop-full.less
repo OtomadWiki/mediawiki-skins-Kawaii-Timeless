@@ -7,10 +7,6 @@
 	clear: both;
 }
 
-#p-logo-text {
-	min-width: @column-left-size;
-}
-
 #mw-site-navigation {
 	.column-left();
 	.flex(0, 0, @column-left-size, 1);
@@ -33,11 +29,6 @@
 	display: none;
 }
 
-// For the more responsive username support
-#user-tools {
-	min-width: @column-right-size;
-}
-
 
 // Dropdown
 #mw-related-navigation .sidebar-inner, #mw-site-navigation .sidebar-inner{
@@ -47,78 +38,6 @@
 #personal {
 	margin-left: 1em;
 }
-
-#headerUpload {
-	position: relative;
-	height: 3.75em;
-	width: 4.9em;
-	background-color: @blue;
-	background-image: -webkit-gradient(linear, right top, left top, from(#ff77b0), to(#fb7299));
-	background-image: linear-gradient(-90deg, #ff77b0 0%, #fb7299 100%);
-	float: right;
-	margin-top: -0.5em;
-	right: 0.5em;
-	border-radius: 0 0 6px 6px;
-	box-shadow: 0 4px 8px rgba( 251, 114, 153, 0.3 );
-	color: white !important;
-	line-height: 55px;
-	text-align: center;
-	display: block;
-	&:hover, &:focus-visible {
-		background-color: @blue-hover;
-		box-shadow: 0 9px 9px rgba( 251, 114, 153, 0.3 );
-		transition: box-shadow 200ms, background-color 200ms;
-	}
-	&:active {
-		background-color: @blue-dark;
-		box-shadow: 0 0 0 rgba( 251, 114, 153, 0.3 );
-		transition: box-shadow 200ms, background-color 200ms;
-	}
-	&::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		display: block;
-		border-radius: 0 0 6px 6px;
-		transition: background-color 200ms;
-		background-color: transparent;
-	}
-	&::after {
-		content: 'upload';
-		font-family: 'Material Icons';
-		font-weight: normal;
-		font-style: normal;
-		width: 100%;
-		height: 57px;
-		font-size: 28px;
-		text-transform: none;
-		letter-spacing: normal;
-		word-wrap: normal;
-		white-space: nowrap;
-		direction: ltr;
-		user-select: none;
-		-webkit-font-smoothing: antialiased;
-		text-rendering: optimizeLegibility;
-		-moz-osx-font-smoothing: grayscale;
-		font-feature-settings: 'liga';
-		text-indent: 0;
-		color: white;
-		position: relative;
-		display: inline-block;
-	}
-	&:hover::before, &:focus-visible::before {
-		background-color: rgba( 255, 255, 255, 0.3 );
-	}
-	&:active::before {
-		background-color: rgba( 0, 0, 0, 0.3 );
-	}
-}
-
-#personal-extra {
-	width: 95px;
-}
-
 
 .mw-special-Preferences #mw-wrapper {
 	&::after {

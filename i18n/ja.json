@@ -11,9 +11,9 @@
 		]
 	},
 	"skinname-timeless": "Timeless",
-	"timeless-desc": "Brandon Harris による Winter というプロトタイプやウィキメディア財団によるさまざまなスタイルを基にしてデザインされた不朽 (timeless) の外装。",
+	"timeless-desc": "Modern Timeless Skin for Chinese Otomad Wiki",
 	"timeless-anonymous": "匿名",
-	"timeless-loggedinas": "'''$1''' としてログインしています",
+	"timeless-loggedinas": "'''$1'''",
 	"timeless-notloggedin": "ログインしていません",
 	"timeless-userpage": "{{GENDER:$1|利用者}}ページ",
 	"timeless-talkpage": "{{GENDER:$1|利用者}}トーク",

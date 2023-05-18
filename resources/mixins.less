@@ -88,6 +88,8 @@
 		display: inline-block;
 		//line-height: 1;
 		text-transform: none;
+		text-align: center;
+		vertical-align: middle;
 		letter-spacing: normal;
 		word-wrap: normal;
 		white-space: nowrap;
@@ -99,7 +101,7 @@
 		font-feature-settings: 'liga';
 		text-indent: 0;
 		opacity: 1;
-		line-height: 1.05em;
+		line-height: 1;
 	}
 }
 
@@ -207,7 +209,7 @@
 		-moz-osx-font-smoothing: grayscale;
 		font-feature-settings: 'liga';
 		text-indent: 0;
-		line-height: 1.05em;
+		line-height: 1;
 	}
 }
 
@@ -270,5 +272,14 @@
 		div {
 			margin: 0 0 0.35em;
 		}
+	}
+}
+
+.gray-hover() {
+	transition: background-color cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.4s;
+	
+	&:hover,
+	&:focus-visible {
+		background-color: @hover;
 	}
 }

@@ -37,14 +37,21 @@
 }
 
 #mw-header-container {
+	.flex-display;
 	background: @background;
-	padding: 3.75em 0.45em 0.7em;
-	height: 0;
+	padding: 0 1.2em;
+	// height: 0;
 	top: 0;
 	z-index: 500;
 	width: 100%;
 	box-sizing: border-box;
-	min-height: 7.7em;
+	box-shadow: 0 0.125rem 2rem rgba(193, 159, 168, 0.5);
+}
+
+#mw-header {
+	.flex-display;
+	flex-direction: column;
+	flex-grow: 1;
 }
 
 #mw-header-hack {
@@ -54,9 +61,16 @@
 }
 
 #simpleSearch {
+	margin: 0;
+
 	&:hover, &:active, &:focus, &:focus-within {
 		border: 1px solid #E3E5E7;
 		background: #fff;
+	}
+
+	#header-search-button {
+		width: 48px;
+		height: 48px;
 	}
 }
 
@@ -131,15 +145,20 @@
 #user-tools h2,
 .sidebar-chunk h2 {
 	.dropdown-header();
+	.flex-display;
+	justify-content: center;
+	align-items: center;
 	margin: 0;
-	width: 30px;
-	height: 30px;
+	width: 36px;
+	height: 36px;
+	background-size: 30px;
 	position: absolute;
-	top: 1em;
+	top: 12px;
 	padding-bottom: 0;
 	font-size: 1em;
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: center;
+	border-radius: 100%;
 
 	span {
 		display: inline-block;
@@ -187,7 +206,7 @@
 }
 
 #site-tools h2 {
-	right: @content-padding + 3.1em;
+	right: @content-padding + 3em;
 	z-index: 100;
 	background-image: url( images/gear-large-grey.svg );
 	transition: transform 1s cubic-bezier(0.67, 0.03, 0, 0.99);
@@ -206,9 +225,7 @@
 /* Logo */
 
 #p-logo-text {
-	position: absolute;
-	top: 0.75em;
-	left: @content-padding + 4em;
+	margin: 4px 0 4px 2.2em;
 	text-align: left;
 
 	a {
@@ -343,27 +360,23 @@ div.thumb {
 }
 
 /* Banner */
-.topHeadingLogo, .bannerContent{
+.siteBanner {
 	display: none;
 }
 
 /* Fix Echo Position bug on Safari */
 #personal-extra{
-	right: @content-padding + 5.1em;
-    top: 0;
-    height: 60px;
+	right: 106px;
+    top: 12px;
+    height: 36px;
     display: flex;
     align-items: center;
-	& li {
+	li {
 		margin-right: 1.2em;
-		width: 22px;
-		display: block;
 	}
-	& ul {
+	ul {
 		margin: 0;
-		height: 20px;
-		display: flex;
-		flex-direction: row;
+		gap: 4px;
 	}
 }
 

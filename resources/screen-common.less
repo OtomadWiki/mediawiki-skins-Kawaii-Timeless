@@ -50,7 +50,7 @@ body {
 	margin-top: 0.95em;
 	animation: slide-in-parent cubic-bezier(0.1,0.9,0.2,1) 0.6s 0.3s backwards;
 	box-shadow: 0 4px 7px 1px rgba( 193, 159, 168, 0.2 );
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 #bodyContent {
@@ -60,7 +60,7 @@ body {
 #bodyContentOuter {
 	/* Set a z-index for the content to group it away from any nav stuff (extensions) - T200148 */
 	position: relative;
-	z-index: 0;
+	/* z-index: 0; */
 }
 
 .mw-body {
@@ -76,14 +76,14 @@ body {
 		color: #212121;
 
 		&:hover {
-			color: @blue;
+			color: var(--color-base);
 		}
 
 		&:visited {
 			color: #212121;
 
 			&:hover {
-				color: @blue;
+				color: var(--color-base);
 			}
 		}
 	}
@@ -99,17 +99,19 @@ body {
 }
 
 #p-logo-text {
-	max-width: @column-left-size;
+	width: @column-left-size;
 	text-align: center;
 	line-height: 1;
 
 	a {
+		.flex-display;
+		align-items: center;
 		padding: 0.1em 1em 0.2em;
 		color: @text;
 		font-family: @fonts-secondary;
 		font-variant: small-caps;
 		font-size: 1.85em;
-		display: block;
+
 
 		/* 13+ character names */
 		&.long {
@@ -136,17 +138,23 @@ body {
 }
 
 #simpleSearch {
-	background: #f1f2f3;
+	.flex-display;
+	background: rgba(128, 128, 128, 0.1);
 	position: relative;
 	border: solid 1px transparent;
 	//transition: background-color .3s;
 	margin-left: .5em;
 	margin-right: .5em;
 	border-radius: 8px;
+	overflow: hidden;
 }
 
 .opacityhide {
 	opacity: 0
+}
+
+#searchInput-container {
+	flex-grow: 1;
 }
 
 #searchInput {
@@ -162,19 +170,29 @@ body {
 	opacity: 80%;
 }
 
+#header-search-button {
+	.flex-display;
+	align-items: center;
+	justify-content: center;
+	.gray-hover;
+}
+
 #searchButton,
 #mw-searchButton {
 	position: absolute;
 	top: 0;
+	right: 0;
 	margin: 0;
 	padding: 0;
-	right: 1em;
-	width: 1.5em;
-	height: 1.5em;
+	border-radius: 0;
+	width: inherit;
+	height: inherit;
 	.icon;
 	background-image: url( images/search-ltr.svg );
+	background-color: transparent !important;
+	background-size: 50%;
+	background-position: center;
 	/* @noflip */
-	background-position: center 40%;
 	box-shadow: none;
 	font-size: inherit;
 }
@@ -292,8 +310,8 @@ body {
 	&.selected {
 		background: transparent;
 		border-radius: 0;
-		border-bottom: 2px @blue solid;
-		color: @blue;
+		border-bottom: 2px var(--color-base) solid;
+		color: var(--color-base);
 	}
 
 	&.new.selected {
@@ -301,14 +319,14 @@ body {
 	}
 
 	&.selected a {
-		color: @blue;
+		color: var(--color-base);
 
 		&:hover {
-			color: @blue;
+			color: var(--color-base);
 		}
 
 		&:active {
-			color: @blue;
+			color: var(--color-base);
 		}
 	}
 
@@ -980,7 +998,7 @@ body :not( :checked ) > .toctogglespan:after {
 }
 
 .mw-datatable th {
-	background: @blue-bright;
+	background: var(--color-bright);
 }
 
 .mw_metadata th,
@@ -1024,7 +1042,6 @@ body :not( :checked ) > .toctogglespan:after {
 #p-banner img {
 	width: 170px !important;
 	height: 50px !important;
-	transform: translateY(-0.23em) !important;
 	overflow: visible;
 }
 
@@ -1303,12 +1320,12 @@ table.mw-made-collapsible.mw-collapsed tr:not(:first-child) {
 */
 
 .mw-rcfilters-ui-changesListWrapperWidget:not(.mw-rcfilters-ui-changesListWrapperWidget-highlighted) .mw-changeslist-watchedseen div.mw-rcfilters-ui-highlights-color-none {
-	border: 1px solid @blue;
+	border: 1px solid var(--color-base);
 }
 
 .mw-rcfilters-ui-changesListWrapperWidget:not(.mw-rcfilters-ui-changesListWrapperWidget-highlighted) .mw-changeslist-watchedunseen div.mw-rcfilters-ui-highlights-color-none {
-	background-color: @blue;
-	border: 1px solid @blue;
+	background-color: var(--color-base);
+	border: 1px solid var(--color-base);
 }
 
 /* Recent Changes Button */
@@ -1360,7 +1377,7 @@ table.mw-made-collapsible.mw-collapsed tr:not(:first-child) {
 		text-indent: 0;
 		color: black;
 		opacity: 0.51;
-		line-height: 1.05em;
+		line-height: 1;
 }
 
 .comment-md-icon( @icon: '' ) {
@@ -1388,7 +1405,7 @@ table.mw-made-collapsible.mw-collapsed tr:not(:first-child) {
 		font-feature-settings: 'liga';
 		text-indent: 0;
 		opacity: 1;
-		line-height: 1.05em;
+		line-height: 1;
 	}
 }
 
@@ -1694,7 +1711,7 @@ ul#pagehistory {
 			height: 16px;
 			width: 3px;
 			display: block;
-			background-color: #fb7299;
+			background-color: var(--color-base);
 			border-radius: 3em;
 		}
 	}
@@ -1819,7 +1836,7 @@ ul#pagehistory {
 	}
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label,
 	.oo-ui-tabSelectWidget-framed.oo-ui-widget-enabled:focus .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label{
-		color: #fb7299;
+		color: var(--color-base);
 		font-weight: 700;
 	}
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget .oo-ui-labelElement-label {
@@ -1848,15 +1865,16 @@ ul#pagehistory {
 	bottom: 0;
 	width: 95%;
 	height: 2px;
-	background-color: @blue;
+	background-color: var(--color-base);
 	opacity: 0;
 	transform: translate(-50%) scaleX(0);
 	transition: transform .8s cubic-bezier(0.1,0.9,0.2,1);
+	border-radius: 100px;
 }
 .oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label::after {
 	transform: translate(-50%) scaleX(1);
 	animation: tab-indicator-opacity .5s cubic-bezier(0.1,0.9,0.2,1);
-	opacity: 1
+	opacity: 1;
 }
 #mw-wrapper .oo-ui-fieldsetLayout-group {
 	animation: move-in-left cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.4s backwards;
@@ -1913,13 +1931,13 @@ ul#pagehistory {
 	border-radius: 2px;
 	transition: border-color 250ms,box-shadow 250ms,height 250ms,line-height 250ms;
 	&:hover {
-		border-bottom: solid 1px @blue;
+		border-bottom: solid 1px var(--color-base);
 		background: white;
 	}
 	&:focus {
 		background: white;
-		border-color: @blue;
-		box-shadow: inset 0 0 0 1px @blue;
+		border-color: var(--color-base);
+		box-shadow: inset 0 0 0 1px var(--color-base);
 	}
 }
 
@@ -1983,8 +2001,55 @@ input#wpUploadFile {
 	display: none !important;
 }
 
-/* Hide Links */
+/** Header */
+
+.header-right-icons {
+	.flex-display;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	order: 3;
+}
+
+#mw-wrapper #personal-extra {
+	ul {
+		.flex-display;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+		margin: 0;
+
+		li {
+			.flex-display;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
+			padding: 0;
+			border-radius: 100%;
+			
+			a {
+				.flex-display;
+				width: 36px;
+				height: 36px;
+				align-items: center;
+				justify-content: center;
+				background-repeat: no-repeat;
+				background-position: center;
+				padding: 0;
+				margin: 0;
+				border-radius: 100%;
+			}
+		}
+	}
+}
+
+/** Hide Links Default */
 #header-links-container {
+	display: none;
+}
+
+/** Hide Upload Default */
+#headerUpload {
 	display: none;
 }
 
@@ -2053,11 +2118,11 @@ input#wpUploadFile {
 	border-radius: 2px;
 	transition: border-color 250ms,box-shadow 250ms;
 	&:hover {
-		border-bottom: solid 1px @blue;
+		border-bottom: solid 1px var(--color-base);
 	}
 	&:focus {
-		box-shadow: inset 0 0 0 1px @blue;
-		border: solid 1px @blue;
+		box-shadow: inset 0 0 0 1px var(--color-base);
+		border: solid 1px var(--color-base);
 	}
 }
 
@@ -2092,20 +2157,15 @@ select {
 	background-color: @input-background;
 	border-radius: 2px;
 	&:focus {
-		border: 1px solid #fb7299;
-		box-shadow: inset 0 0 0 1px #fb7299;
+		border: 1px solid var(--color-base);
+		box-shadow: inset 0 0 0 1px var(--color-base);
 	}
 	&:hover {
-		border: 1px solid #fb7299;
+		border: 1px solid var(--color-base);
 	}
 	&:active {
 		background-position: 99% 80%;
 	}
-}
-
-/* Hide Upload Default */
-#headerUpload {
-	display: none;
 }
 
 textarea {
@@ -2146,4 +2206,21 @@ div>.flow-menu ul {
 div>.flow-menu ul>section:not(:first-of-type)>li:first-of-type,
 div>.flow-menu ul li.flow-menu-section:not(:first-of-type) {
 	border-top: 1px solid #ececec;
+}
+
+.flow-ui-editorWidget-editor {
+	border-top: 1px solid transparent !important;
+	border-left: 1px solid transparent !important;
+	border-right: 1px solid transparent !important;
+	border-bottom: 1px solid #d1d1d1 !important;
+	background-color: #fbfbfb;
+	&:hover {
+		border-bottom: 1px solid var(--color-base) !important;
+		background-color: transparent !important;
+	}
+	&:focus, &:focus-visible {
+		background-color: transparent !important;
+		box-shadow: inset 0 0 0 1px var(--color-base) !important;
+		border: 1px solid var(--color-base) !important;
+	}
 }

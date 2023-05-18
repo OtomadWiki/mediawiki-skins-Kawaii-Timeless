@@ -1,24 +1,26 @@
 .languagesettings-menu {
-    .menu-section {
+	.menu-section {
 		box-shadow: none;
 		margin-left: 10px;
 		transform: translateX(10px);
-        &.active {
-			border-left-color: #fb7299;
+
+		&.active {
+			border-left-color: @accent;
 			background-color: transparent;
 		}
+
 		&:hover {
 			transform: translateX(15px);
 			background-color: transparent;
 		}
-    }
+	}
 
-    &:focus {
-			border-color: transparent;
+	&:focus {
+		border-color: transparent;
 	}
 }
 
 #languagesettings-panels .mw-ui-pressed {
-	background-color: #fb7299;
-	border-color: #fb7299;
+	background-color: @accent;
+	border-color: @accent;
 }

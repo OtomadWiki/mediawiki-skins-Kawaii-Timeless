@@ -5,7 +5,8 @@
 #mw-site-navigation,
 #mw-related-navigation,
 #mw-page-header-links,
-#mw-footer {
+#mw-footer,
+.topHeadingLogo {
 	display: none;
 }
 

@@ -29,9 +29,9 @@
 	display: none;
 }
 
-
 // Dropdown
-#mw-related-navigation .sidebar-inner, #mw-site-navigation .sidebar-inner{
+#mw-related-navigation .sidebar-inner,
+#mw-site-navigation .sidebar-inner {
 	padding: unset !important;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .mw-special-Preferences #mw-wrapper {
-	&::after {
+	&:after {
 		content: 'settings';
 		display: flex;
 		position: fixed;
@@ -52,9 +52,7 @@
 		margin-right: 8px;
 		line-height: 1;
 		pointer-events: none;
-	
 		animation: rolling 10s infinite linear;
-	
 		background-position: center;
 		font-family: 'Material Icons';
 		font-weight: normal;
@@ -69,7 +67,6 @@
 		text-rendering: optimizeLegibility;
 		-moz-osx-font-smoothing: grayscale;
 		font-feature-settings: 'liga';
-	
 		left: unset;
 		right: -64px;
 		bottom: -32px;

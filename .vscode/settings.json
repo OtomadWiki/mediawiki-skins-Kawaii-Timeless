@@ -1,0 +1,32 @@
+{
+	"prettier.useTabs": true,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": true,
+	"stylelint.snippet": [
+		"css",
+		"less",
+		"postcss",
+		"sass",
+		"scss",
+		"vue"
+	],
+	"stylelint.validate": [
+		"css",
+		"less",
+		"postcss",
+		"sass",
+		"scss",
+		"vue",
+		"html"
+	],
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.sortImports": true,
+	},
+	// "javascript.updateImportsOnFileMove.enabled": "never",
+	// "typescript.updateImportsOnFileMove.enabled": "never",
+	// "vue.features.updateImportsOnFileMove.enabled": false,
+	// "vue.features.autoCompleteRefs": false,
+}

@@ -1,0 +1,43 @@
+@import '../../../resources/variables.less';
+
+.skin-timeless {
+	.mw-dismissable-notice {
+		&-close {
+			font-size: 0; // hide brackets
+
+			> a {
+				display: block;
+				width: 24px;
+				height: 24px;
+
+				&::before {
+					display: block;
+					color: var( --color-base );
+					content: '\00d7'; // close icon
+					font-size: 24px;
+					line-height: 1;
+					text-align: center;
+					transition: @transition-color;
+				}
+
+				&:hover {
+					&::before {
+						color: var( --color-base--emphasized );
+					}
+				}
+
+				&:active {
+					&::before {
+						color: var( --color-base--subtle );
+					}
+				}
+			}
+		}
+
+		&-body {
+			// Default has top and bottom margin
+			// So bottom margin is added to respect it
+			margin: 0 0 var( --space-md ) 0;
+		}
+	}
+}

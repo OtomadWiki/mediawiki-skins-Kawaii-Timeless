@@ -1,0 +1,54 @@
+/*
+ * Citizen - SRF Filtered Base
+ * https://starcitizen.tools
+*/
+
+@import '../../../../resources/variables.less';
+
+.skin-timeless-dark {
+	.filtered {
+		.filtered-filters {
+			border: 1px solid @dark-bg-50;
+
+			.filtered-filter {
+				.filtered-filter-label {
+					background: var( --color-surface-0 );
+				}
+
+				.filtered-filter-onoff {
+					&::before {
+						background: var( --color-surface-0 );
+					}
+				}
+
+				.filtered-filter-collapse::before {
+					background-color: var( --color-surface-0 );
+				}
+			}
+
+			.filtered-filter-spinner {
+				background: var( --color-surface-0 );
+			}
+		}
+
+		.filtered-views {
+			border: 1px solid @dark-bg-50;
+
+			.filtered-views-selectors-container {
+				border-bottom: 1px solid @dark-bg-50;
+
+				.filtered-view-selector {
+					border-right: 1px solid @dark-bg-50;
+
+					&.selected {
+						background-color: @dark-bg-10;
+					}
+
+					&.active {
+						background-color: @dark-bg-20;
+					}
+				}
+			}
+		}
+	}
+}

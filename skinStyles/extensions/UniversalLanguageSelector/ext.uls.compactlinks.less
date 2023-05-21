@@ -1,0 +1,26 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:UniversalLanguageSelector
+ * Module: ext.uls.compactlinks
+ * Version: MLEB 2021.12
+ *
+ * Date: 2022-05-17
+*/
+
+@import 'ext.uls.mixins.less';
+
+.mw-interlanguage-selector.selector-open {
+	background-color: var( --color-surface-4 );
+}
+
+.skin-timeless-dark {
+	#p-lang .mw-interlanguage-selector,
+	#p-lang .mw-interlanguage-selector:active {
+		filter: invert( 1 ) hue-rotate( 180deg );
+	}
+}
+
+.interlanguage-uls-menu {
+	.caret();
+}

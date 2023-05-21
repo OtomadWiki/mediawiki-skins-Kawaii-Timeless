@@ -1,0 +1,29 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Special:RecentChanges filters
+ * Module: mediawiki.rcfilters.filters.base.styles
+ * Version: 1.39.0
+ *
+ * Date: 2022-12-07
+*/
+
+.client-js {
+	.mw-recentchanges-toplinks {
+		&:not( .mw-recentchanges-toplinks-collapsed ) {
+			border-color: var( --border-color-base );
+		}
+	}
+
+	.mw-rcfilters-spinner {
+		& .mw-rcfilters-spinner-bounce,
+		&::before,
+		&::after {
+			background-color: var( --color-base--subtle );
+		}
+	}
+}
+
+.mw-rcfilters-staticfilters-selected {
+	font-weight: var( --font-weight-semibold );
+}

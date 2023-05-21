@@ -1,0 +1,230 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:CodeMirror
+ * Module: ext.CodeMirror.lib
+ * Version: REL1_35 a326407
+ *
+ * Date: 2021-08-25
+*/
+
+@import '../../../resources/variables.less';
+
+.CodeMirror {
+	// FIXME: This should be shared between other extensions
+	--color-syntax-red: @color-syntax-red;
+	--color-syntax-orange: @color-syntax-orange;
+	--color-syntax-yellow: @color-syntax-yellow;
+	--color-syntax-green: @color-syntax-green;
+	--color-syntax-cyan: @color-syntax-cyan;
+	--color-syntax-blue: @color-syntax-blue;
+	--color-syntax-paleblue: @color-syntax-paleblue;
+	--color-syntax-purple: @color-syntax-purple;
+	--color-syntax-brown: @color-syntax-brown;
+	--color-syntax-pink: @color-syntax-pink;
+	--color-syntax-violet: @color-syntax-violet;
+	--color-syntax-grey: @color-syntax-grey;
+	background-color: var( --color-surface-0 );
+	color: var( --color-base );
+	font-family: var( --font-family-monospace );
+
+	&-scrollbar,
+	&-gutter {
+		&-filler {
+			background-color: var( --color-surface-0 );
+		}
+	}
+
+	&-gutters {
+		border-color: transparent;
+		background-color: var( --color-surface-0 );
+	}
+
+	&-linenumber {
+		padding: 0 16px; // Give more space since there is no border and background
+		color: var( --color-base--subtle );
+	}
+
+	&-guttermarker {
+		color: var( --color-base );
+
+		&-subtle {
+			color: var( --color-base--subtle );
+		}
+	}
+
+	&-cursor {
+		border-left-color: var( --color-base--emphasized );
+	}
+
+	div.CodeMirror-secondarycursor {
+		border-left-color: var( --color-base );
+	}
+
+	&-ruler {
+		border-left-color: var( --border-color-base );
+	}
+
+	&-composing {
+		border-bottom-color: var( --border-color-base );
+	}
+
+	&-selected {
+		background: var( --background-color-primary--hover );
+	}
+
+	&-focused .CodeMirror-selected {
+		background: var( --background-color-primary--active );
+	}
+
+	&-line {
+		&::selection,
+		> span::selection,
+		> span > span::selection {
+			background: var( --background-color-primary--active );
+		}
+	}
+}
+
+// Default theme
+.cm {
+	&-s-default {
+		.cm {
+			&-header {
+				color: var( --color-syntax-blue );
+			}
+
+			&-quote {
+				color: var( --color-syntax-green );
+			}
+
+			&-keyword {
+				color: var( --color-syntax-purple );
+			}
+
+			&-atom {
+				color: var( --color-syntax-pink );
+			}
+
+			&-number {
+				color: var( --color-syntax-orange );
+			}
+
+			&-def {
+				color: var( --color-syntax-blue );
+			}
+
+			&-variable {
+				color: var( --color-syntax-red );
+			}
+
+			&-variable-2 {
+				color: var( --color-base );
+			}
+
+			&-variable-3,
+			&-type {
+				color: var( --color-syntax-yellow );
+			}
+
+			&-comment {
+				color: var( --color-syntax-gray );
+			}
+
+			&-string {
+				color: var( --color-syntax-green );
+			}
+
+			&-string-2 {
+				color: var( --color-syntax-red );
+			}
+
+			&-meta {
+				color: var( --color-syntax-yellow );
+			}
+
+			&-qualifier {
+				color: var( --color-syntax-yellow );
+			}
+
+			&-builtin {
+				color: var( --color-syntax-yellow );
+			}
+
+			&-bracket {
+				color: var( --color-syntax-grey );
+			}
+
+			&-tag {
+				color: var( --color-syntax-pink );
+			}
+
+			&-attribute {
+				color: var( --color-syntax-purple );
+			}
+
+			&-hr {
+				color: var( --color-syntax-blue );
+			}
+
+			&-link {
+				color: var( --color-syntax-blue );
+			}
+
+			&-error {
+				color: var( --color-destructive );
+			}
+
+			&-property {
+				color: var( --color-syntax-purple );
+			}
+
+			&-operator {
+				color: var( --color-syntax-cyan );
+			}
+
+			&-punctuation {
+				color: var( --color-syntax-cyan );
+			}
+		}
+
+		&-negative {
+			color: var( --color-destructive );
+		}
+
+		&-positive {
+			color: var( --color-success );
+		}
+
+		&-invalidchar {
+			color: var( --color-destructive );
+		}
+	}
+}
+
+div.CodeMirror {
+	span.CodeMirror {
+		&-matchingbracket {
+			color: var( --color-success );
+		}
+
+		&-nonmatchingbracket {
+			color: var( --color-destructive );
+		}
+	}
+}
+
+.skin-timeless-dark .CodeMirror {
+	// FIXME: This should be shared between other extensions
+	--color-syntax-red: @color-syntax-red-dark;
+	--color-syntax-orange: @color-syntax-orange-dark;
+	--color-syntax-yellow: @color-syntax-yellow-dark;
+	--color-syntax-green: @color-syntax-green-dark;
+	--color-syntax-cyan: @color-syntax-cyan-dark;
+	--color-syntax-blue: @color-syntax-blue-dark;
+	--color-syntax-paleblue: @color-syntax-paleblue-dark;
+	--color-syntax-purple: @color-syntax-purple-dark;
+	--color-syntax-brown: @color-syntax-brown-dark;
+	--color-syntax-pink: @color-syntax-pink-dark;
+	--color-syntax-violet: @color-syntax-violet-dark;
+}

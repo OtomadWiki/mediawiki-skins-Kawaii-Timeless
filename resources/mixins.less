@@ -3,6 +3,8 @@
 // for things that are basically the same thing repeated, which should use
 // a shared class instead.
 
+@import './variables.less';
+
 // To hide objects, but keep them accessible for screen-readers
 .hidden() {
 	position: absolute;
@@ -12,38 +14,38 @@
 
 // Icons - hides labels, but keep them accessible for screen-readers
 .icon() {
-	text-indent: -99999px;
-	font-size: 0;
 	border: 0;
 	background-color: transparent;
 	background-repeat: no-repeat;
+	font-size: 0;
+	text-indent: -99999px;
 }
 
 // Icons for the page actions menus
 .ca-icon( @icon: '' ) {
+	display: flex;
+	height: 36px;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	padding: 0 17px 0 14px;
 	border: 0;
 	background-color: transparent;
 	background-repeat: no-repeat;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	padding: 0 17px 0 14px;
-	height: 36px;
 	font-size: 0.95em;
-	text-indent: 4px;
 	letter-spacing: 0.5px;
+	text-indent: 4px;
 
 	&:before {
-		content: '';
-		background-repeat: no-repeat;
 		display: inline-block;
 		width: 22px;
 		height: 22px;
-		opacity: 0.51;
-		background-size: 100%;
-		background-position: center;
 		background-image: url( '@{icon}.svg' );
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		content: '';
+		opacity: 0.51;
 	}
 }
 
@@ -53,8 +55,8 @@
 	box-sizing: border-box;
 	padding: 0 14px;
 	font-size: 0 !important;
-	text-indent: 0 !important;
 	letter-spacing: 0 !important;
+	text-indent: 0 !important;
 
 	span {
 		display: none;
@@ -64,11 +66,11 @@
 
 // For use after .ca-icon-only() ...
 .ca-icon-only-mobile() {
-	background-repeat: no-repeat;
-	background-position: center !important;
 	width: 100% !important;
 	height: 100%;
 	padding: 0 !important;
+	background-position: center !important;
+	background-repeat: no-repeat;
 
 	span {
 		display: none !important;
@@ -78,72 +80,72 @@
 
 .ca-icon-material( @icon: '' ) {
 	&:before {
-		content: '@{icon}';
-		background-image: none;
-		font-family: 'Material Icons';
-		font-weight: normal;
-		font-style: normal;
-		font-size: 22px;
+		display: inline-block;
 		width: 22px;
 		height: 22px;
-		display: inline-block;
+		background-image: none;
+		content: '@{icon}';
+		direction: ltr;
+		font-family: 'Material Icons';
+		font-feature-settings: 'liga';
+		font-size: 22px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-style: normal;
+		font-weight: normal;
+		letter-spacing: normal;
+		line-height: 1;
+		opacity: 1;
+		text-align: center;
+		text-indent: 0;
+		text-rendering: optimizeLegibility;
 		//line-height: 1;
 		text-transform: none;
-		text-align: center;
-		vertical-align: middle;
-		letter-spacing: normal;
-		word-wrap: normal;
-		white-space: nowrap;
-		direction: ltr;
 		user-select: none;
-		-webkit-font-smoothing: antialiased;
-		text-rendering: optimizeLegibility;
-		-moz-osx-font-smoothing: grayscale;
-		font-feature-settings: 'liga';
-		text-indent: 0;
-		opacity: 1;
-		line-height: 1;
+		vertical-align: middle;
+		white-space: nowrap;
+		word-wrap: normal;
 	}
 }
 
 .box() {
-	background: @base90;
-	border-radius: 8px;
 	padding: 1.25em 1.75em;
+	border-radius: 8px;
+	background: @base90;
 	box-shadow: 0 10px 12px 1px rgba( 193, 159, 168, 0.1 );
 }
 
 .unbox() {
-	background: transparent;
-	border: 0;
 	padding: 0;
+	border: 0;
+	background: transparent;
 	box-shadow: none;
 }
 
 .nav-block() {
+	overflow: hidden;
 	padding: 1.9em 1.2em 0;
+	border-radius: 8px;
 	margin: 1em 0;
-	line-height: 1.125;
-	word-wrap: break-word;
-	font-size: 0.95em;
 	background: @base100;
 	box-shadow: 0 4px 7px 1px rgba( 193, 159, 168, 0.2 );
-	border-radius: 8px;
-	overflow: hidden;
+	font-size: 0.95em;
+	line-height: 1.125;
+	word-wrap: break-word;
 
 	ul,
 	li {
-		list-style: none;
-		margin: 0;
 		padding: 0;
+		margin: 0;
+		list-style: none;
 	}
 
 	h3 {
-		font-weight: normal;
-		font-size: 1.2em;
-		margin: 0.25em 0.3em 0.75em 0.3em;
 		padding-bottom: 0.15em;
 		border-bottom: solid 2px @base70;
+		margin: 0.25em 0.3em 0.75em 0.3em;
+		font-size: 1.2em;
+		font-weight: normal;
 	}
 
 	.mw-portlet-body {
@@ -157,8 +159,8 @@
 }
 
 .column-right() {
-	padding-left: 1em;
 	box-sizing: border-box;
+	padding-left: 1em;
 
 	.sidebar-chunk {
 		.nav-block();
@@ -166,8 +168,8 @@
 }
 
 .column-left() {
-	padding-right: 1em;
 	box-sizing: border-box;
+	padding-right: 1em;
 
 	.sidebar-chunk {
 		.nav-block();
@@ -176,73 +178,73 @@
 
 // FX
 .backdropfx() {
-	background: rgba( 255, 255, 255, 0.7 );
 	-webkit-backdrop-filter: blur( 12px );
 	backdrop-filter: blur( 12px );
+	background: rgba( 255, 255, 255, 0.7 );
 }
 
 // Dropdowns
 .dropdown-header() {
-	cursor: pointer;
-	margin-bottom: -0.45em;
 	padding-bottom: 0.45em;
+	margin-bottom: -0.45em;
+	cursor: pointer;
 }
 
 .dropdown-header-after() {
 	&:after {
-		content: 'expand_more';
-		background-image: none;
-		font-family: 'Material Icons';
-		font-weight: normal;
-		font-style: normal;
-		font-size: 22px;
+		display: inline-block;
 		width: 22px;
 		height: 22px;
-		display: inline-block;
-		text-transform: none;
-		letter-spacing: normal;
-		word-wrap: normal;
-		white-space: nowrap;
+		background-image: none;
+		content: 'expand_more';
 		direction: ltr;
-		user-select: none;
-		-webkit-font-smoothing: antialiased;
-		text-rendering: optimizeLegibility;
-		-moz-osx-font-smoothing: grayscale;
+		font-family: 'Material Icons';
 		font-feature-settings: 'liga';
-		text-indent: 0;
+		font-size: 22px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-style: normal;
+		font-weight: normal;
+		letter-spacing: normal;
 		line-height: 1;
+		text-indent: 0;
+		text-rendering: optimizeLegibility;
+		text-transform: none;
+		user-select: none;
+		white-space: nowrap;
+		word-wrap: normal;
 	}
 }
 
 .dropdown-menu( @direction: right ) {
 	.nav-block();
 	.backdropfx();
-	box-shadow: 0 15px 20px rgba( 193, 159, 168, 0.4 );
 	position: absolute;
-	margin: 0;
-	min-width: 9.153em;
-	top: 2.95em;
-	@{direction}: -1em;
 	z-index: 3;
-	opacity: 100;
-	transition: all 0.5s cubic-bezier( 0.16, 1, 0.3, 1 );
+	top: 2.95em;
+	min-width: 9.153em;
 	height: 0;
 	padding: 0 1.2em 0;
+	margin: 0;
+	box-shadow: 0 15px 20px rgba( 193, 159, 168, 0.4 );
+	opacity: 100;
+	transition: all 0.5s cubic-bezier( 0.16, 1, 0.3, 1 );
+	@{direction}: -1em;
 }
 
 .dropdown-pokey() {
 	&:before,
 	&:after {
-		transform: rotate( 360deg ); // to force some smoothing in annoying browsers
+		position: absolute;
+		z-index: 4;
+		right: 1em;
+		width: 0;
+		height: 0;
+		border-right: 10px solid transparent;
 		border-bottom: 10px solid @base80;
 		border-left: 10px solid transparent;
-		border-right: 10px solid transparent;
 		content: '';
-		height: 0;
-		width: 0;
-		position: absolute;
-		right: 1em;
-		z-index: 4;
+		transform: rotate( 360deg ); // to force some smoothing in annoying browsers
 	}
 
 	&:before {
@@ -250,8 +252,8 @@
 	}
 
 	&:after {
-		border-bottom-color: @base100;
 		top: -8px;
+		border-bottom-color: @base100;
 	}
 }
 
@@ -263,8 +265,8 @@
 	}
 
 	#catlinks {
-		margin: 0 @content-padding;
 		padding: 1em 0 0.5em;
+		margin: 0 @content-padding;
 
 		li {
 			border-left: 0;
@@ -281,6 +283,226 @@
 
 	&:hover,
 	&:focus-visible {
-		background-color: @hover;
+		background-color: var( --background-color-quiet--hover );
 	}
+}
+
+/* Citizen Start */
+.citizen-card(@border-radius: true) {
+	border: 1px solid var( --border-color-base );
+	background-color: var( --color-surface-1 );
+	box-shadow: var( --box-shadow-dialog );
+
+	& when (@border-radius ) {
+		border-radius: var( --border-radius--medium );
+	}
+}
+
+// Collaspe animation setup
+.citizen-card-hide(@position, @axis: '', @fadeChildren: true) {
+	opacity: 0;
+	pointer-events: none;
+	transform: ~'scale@{axis}( 0 )';
+	transform-origin: @position;
+	visibility: hidden;
+
+	& when (@fadeChildren ) {
+		>* {
+			opacity: 0;
+		}
+	}
+}
+
+// Expand animiation setup
+// When using fadeChildren, the child elements need to have
+// opacity: 0 set manually
+.citizen-card-show(@fadeChildren: true) {
+	opacity: 1;
+	pointer-events: auto;
+	transform: none;
+	// HACK: So that visiblity won't wait 250ms to become visible
+	transition-delay: 0ms;
+	visibility: visible;
+
+	& when (@fadeChildren ) {
+		>* {
+			.citizen-card-content-show;
+		}
+	}
+}
+
+// Fade content when users open the menu
+// But GTFO instantly when they close the menu
+.citizen-card-content-show() {
+	opacity: 1;
+	transition: @transition-opacity--transform;
+	will-change: opacity;
+}
+
+// Transition animation
+.citizen-card-transition() {
+	transition: @transition-transform, @transition-opacity--transform, @transition-visibility--transform;
+	will-change: transform, opacity, opacity;
+}
+
+// Header card popups
+.citizen-header-card(@position ) {
+	position: absolute;
+	right: 0;
+	bottom: 100%;
+	left: 0;
+	overflow: auto;
+	min-width: 16rem;
+	max-height: var( --header-card-maxheight );
+	margin: var( --space-xs );
+	contain: content;
+	overscroll-behavior: contain;
+	user-select: none;
+	.citizen-card();
+	.citizen-card-hide(bottom @position );
+
+	@media ( min-width: @width-breakpoint-tablet ) {
+		& when (@position =left) {
+			right: unset;
+		}
+
+		& when (@position =right) {
+			left: unset;
+		}
+	}
+
+	@media ( min-width: @width-breakpoint-desktop ) {
+		right: unset;
+		left: 100%;
+
+		& when (@position =left) {
+			top: 0;
+			bottom: unset;
+			.citizen-card-hide(top left);
+		}
+
+		& when (@position =right) {
+			bottom: 0;
+			.citizen-card-hide(bottom left);
+		}
+	}
+}
+
+.citizen-sticky-header(@topOffset: 0, @bottomBorder: true, @zIndex: true) {
+	position: sticky;
+	top: @topOffset;
+
+	& when (@bottomBorder ) {
+		border-bottom: 1px solid var( --border-color-base );
+	}
+
+	& when (@zIndex ) {
+		z-index: @z-index-page-header;
+	}
+
+	// HACK: Hide overflow
+	// This has an issue if parent has overflow set
+	&:before {
+		position: absolute;
+		z-index: -1;
+		top: @topOffset;
+		right: ~'calc( var(--padding-page ) * -1 )';
+		left: ~'calc( var(--padding-page ) * -1 )';
+		height: 100%;
+		backdrop-filter: saturate( 50% ) blur( 16px );
+		background-color: var( --background-color-overlay );
+		content: '';
+	}
+}
+
+// To hide objects, but keep them accessible for screen-readers
+.hidden() {
+	position: absolute;
+	top: -9999px;
+}
+
+// Set content to be at the center
+.content-center() {
+	max-width: var( --width-layout );
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.resource-loader-icon() {
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	background-position: center;
+	background-repeat: no-repeat;
+	content: '';
+}
+
+.resource-loader-menu-icon() {
+	position: absolute;
+	width: @icon-box-size;
+	height: @icon-box-size;
+	background-position: center;
+	background-repeat: no-repeat;
+	content: '';
+}
+
+.resource-loader-list-icon() {
+	position: relative;
+	width: @icon-size;
+	height: @icon-size;
+	flex-shrink: 0;
+	align-self: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: '';
+}
+
+.menu-item-link() {
+	display: flex;
+	align-items: center;
+	color: var( --color-base ) !important;
+	font-weight: var( --font-weight-medium );
+	gap: var( --space-sm );
+}
+
+.menu-item-link-hover() {
+	background-color: var( --background-color-primary--hover );
+}
+
+.menu-item-link-active() {
+	background-color: var( --background-color-primary--active );
+}
+
+// Button Styles
+.button-blue() {
+	background-color: var( --color-primary );
+	color: #fff !important;
+	transition: @transition-background, @transition-color;
+}
+
+.button-blue-hover() {
+	background-color: var( --color-primary--hover );
+}
+
+.button-blue-active() {
+	background-color: var( --color-primary--active );
+}
+
+.button-red() {
+	background-color: var( --color-destructive );
+	color: #fff !important;
+	transition: @transition-background, @transition-color;
+}
+
+.button-red-hover() {
+	background-color: var( --color-destructive--hover );
+}
+
+.button-red-active() {
+	background-color: var( --color-destructive--active );
+}
+
+.flex-display() {
+	display: flex;
 }

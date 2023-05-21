@@ -1,0 +1,182 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:SemanticMediaWiki
+ * Module: ext.smw.browse.styles
+ * Version: 4.0.2 (0fcdfce)
+ *
+ * Date: 2022-10-20
+*/
+
+@import '../../../resources/mixins.less';
+@import '../../../resources/variables.less';
+
+// Disable sticky header since it collides with anchor and adds no value
+#citizen-body-header-sticky-sentinel {
+	display: none;
+}
+
+/* smw/special/ext.smw.special.browse.css */
+.smwb-datasheet,
+.smwb-content {
+	margin-right: 0;
+}
+
+.smwb-factbox {
+	border-left: 0;
+}
+
+.smwb-factbox .smwb-cell {
+	border: 0;
+	border-top: 1px solid var( --border-color-base );
+}
+
+.smwb-cell-empty {
+	border-left: 0;
+}
+
+.smwb-prophead {
+	background-color: var( --color-surface-2 );
+}
+
+.smwb-title {
+	background-color: transparent;
+	font-size: 1.5rem;
+	font-weight: var( --font-weight-semibold );
+	line-height: var( --line-height-xs );
+}
+
+.smwb-title td {
+	padding-left: 0;
+	border-bottom: 0;
+}
+
+.smwb-propvalue {
+	background-color: transparent;
+}
+
+.smwb-propvalue .smwb-prophead {
+	padding: var( --space-xs ) var( --space-md );
+	font-size: 1rem;
+	font-weight: var( --font-weight-medium );
+}
+
+.smwb-propvalue .smwb-propval {
+	padding: var( --space-xs ) var( --space-md );
+	background-color: transparent;
+}
+
+.smwb-center,
+.smwb-actions {
+	background-color: transparent;
+}
+
+.smwb-actions {
+	line-height: 3rem;
+}
+
+.smwb-title a,
+.smwb-center a:first-child,
+.smwb-actions a:first-child {
+	padding-left: 0;
+}
+
+.smwb-bottom {
+	border-bottom: 1px solid var( --border-color-base );
+}
+
+/**
+ * Inverse factbox
+ * @ignore
+ */
+.smwb-ifactbox {
+	border-right: 0;
+}
+
+.smwb-ifactbox .smwb-cell {
+	border: 0;
+	border-top: 1px solid var( --border-color-base );
+}
+
+.smwb-ititle {
+	background-color: transparent;
+	font-size: 1.5rem;
+	font-weight: var( --font-weight-semibold );
+	line-height: var( --line-height-xs );
+}
+
+.smwb-ititle td {
+	padding-left: 0;
+	border-bottom: 0;
+}
+
+.smwb-ipropvalue {
+	background-color: transparent;
+}
+
+.smwb-ipropvalue .smwb-prophead {
+	padding: var( --space-xs ) var( --space-md );
+	font-size: 1rem;
+	font-weight: var( --font-weight-medium );
+}
+
+.smwb-ipropvalue .smwb-propval {
+	padding: var( --space-xs ) var( --space-md );
+	background-color: transparent;
+}
+
+.smwb-input .button-field input {
+	padding: 6px;
+}
+
+.smwb-input .mw-ui-input:focus {
+	border-color: var( --color-primary );
+	box-shadow: inset 0 0 0 1px var( --color-primary );
+}
+
+.smwb-action-separator {
+	border-left-color: var( --border-color-base );
+}
+
+/**
+ * Light theme
+ */
+.smwb-theme-light .smwb-factbox {
+	border-left: 0;
+}
+
+.smwb-theme-light .smwb-ifactbox {
+	border-right: 0;
+}
+
+.smwb-theme-light .smwb-title,
+.smwb-theme-light .smwb-actions {
+	background-color: transparent;
+}
+
+.smwb-theme-light .smwb-prophead {
+	background-color: var( --color-surface-3 );
+}
+
+.smwb-theme-light .smwb-center,
+.smwb-theme-light .smwb-propval {
+	background-color: var( --color-surface-2 );
+}
+
+/**
+ * Responsive settings (#see smw.table.css)
+ */
+@media screen and ( max-width: 800px ) {
+	.smwb-group .smwb-propval,
+	.smwb-group .smwb-theme-light .smwb-propval {
+		background-color: transparent;
+	}
+}
+
+// Sticky header
+.smwb-datasheet > .smwb-factbox:first-child {
+	padding: var( --space-md ) 0;
+	border-bottom: 1px solid var( --border-color-base );
+	background: transparent;
+	.citizen-sticky-header;
+}

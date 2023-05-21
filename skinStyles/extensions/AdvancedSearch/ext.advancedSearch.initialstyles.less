@@ -1,0 +1,27 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:AdvancedSearch
+ * Module: ext.advancedSearch.initialstyles
+ * Version: REL1_39 3a0eed7
+ *
+ * Date: 2022-12-12
+*/
+
+.client-js {
+	.mw-search-form-wrapper {
+		min-height: 121.56px; // This is quite hacky
+	}
+
+	.mw-search-spinner {
+		top: 5em;
+		// Very hacky since it might be wrong because of font size
+		left: 23em;
+
+		&::before,
+		&::after,
+		& .mw-search-spinner-bounce {
+			background-color: var( --color-base--subtle );
+		}
+	}
+}

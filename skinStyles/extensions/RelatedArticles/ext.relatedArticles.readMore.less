@@ -1,0 +1,86 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:RelatedArticles
+ * Module: ext.relatedArticles.readMore
+ * Version: REL1_39 f513e5c
+ *
+ * Date: 2022-11-16
+*/
+
+@import '../../../resources/variables.less';
+
+.ra-read-more {
+	max-width: var( --width-layout--extended );
+	padding: var( --space-md ) 0 0;
+	margin-right: auto;
+	margin-left: auto;
+
+	h2 {
+		padding-bottom: 0;
+		margin-top: 0;
+		color: var( --color-base--subtle );
+		font-size: 0.8125rem;
+		font-weight: var( --font-weight-normal );
+		letter-spacing: 0.05em;
+		text-transform: none;
+	}
+}
+
+.ext-related-articles-card-list {
+	gap: var( --space-xs );
+
+	h3 {
+		font-weight: var( --font-weight-semibold );
+		line-height: var( --line-height-xs );
+
+		a {
+			color: var( --color-base--emphasized );
+		}
+
+		&::after {
+			background-image: linear-gradient( to right, rgba( 255, 255, 255, 0 ), var( --color-surface-2 ) 50% );
+		}
+	}
+
+	.ext-related-articles-card {
+		overflow: hidden; // Enforce rounded corner
+		border-color: var( --border-color-base ) !important;
+		border-radius: var( --border-radius--medium ) !important; // Same border-radius regardless
+		background-color: var( --color-surface-2 );
+	}
+
+	.ext-related-articles-card > a {
+		&:hover {
+			background-color: var( --background-color-quiet--hover );
+			box-shadow: var( --box-shadow-card ); // reset
+		}
+
+		&:active {
+			background-color: var( --background-color-quiet--active );
+		}
+	}
+
+	.ext-related-articles-card-extract {
+		margin-top: var( --space-xxs );
+		color: var( --color-base--subtle );
+		font-size: 0.8125rem;
+	}
+
+	.ext-related-articles-card-thumb {
+		margin-right: var( --space-sm );
+	}
+}
+
+@media all and ( min-width: @width-breakpoint-tablet ) {
+	.ext-related-articles-card-list {
+		gap: var( --space-sm );
+
+		.ext-related-articles-card {
+			// Magic
+			width: ~'calc( 100% / 3 - var( --space-xs ) )';
+			margin-right: 0;
+			margin-bottom: 0;
+		}
+	}
+}

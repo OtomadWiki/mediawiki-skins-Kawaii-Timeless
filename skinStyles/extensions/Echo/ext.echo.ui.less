@@ -1,0 +1,309 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:Echo
+ * Module: ext.echo.ui
+ * Version: REL1_35 347c30e
+ *
+ * Date: 2021-08-11
+*/
+
+@import '../../../resources/variables.less';
+@import '../../../resources/mixins.less';
+
+.mw-echo-ui-notificationBadgeButtonPopupWidget-popup {
+	top: unset !important;
+	bottom: var( --header-size ) !important;
+	margin: var( --space-xs );
+	box-shadow: var( --box-shadow-dialog );
+}
+
+@media ( min-width: @width-breakpoint-tablet ) {
+	.mw-echo-ui-notificationBadgeButtonPopupWidget-popup {
+		// .citizen-header-card-tablet( right );
+	}
+}
+
+@media ( min-width: @width-breakpoint-desktop ) {
+	.mw-echo-ui-notificationBadgeButtonPopupWidget-popup {
+		bottom: 0 !important;
+		left: var( --header-size ) !important;
+	}
+}
+
+/* mw.echo.ui.mobile.less */
+@media all and ( max-width: 720px ) {
+	.mw-echo-ui-overlay {
+		.mw-echo-ui-notificationBadgeButtonPopupWidget-popup {
+			right: 0 !important;
+			left: 0 !important;
+		}
+	}
+}
+
+/* mw.echo.ui.overlay.less */
+.mw-echo-ui-overlay {
+	position: fixed; // Header is fixed
+	z-index: @z-index-overlay; // Higher than header
+	// The notification button is always bottom-aligned
+	// Setting a top value will break the 0 height hack used in the original
+	top: unset;
+	bottom: 0;
+}
+
+/* mw.echo.ui.NotificationItemWidget.less */
+.mw-echo-ui-notificationItemWidget {
+	border-color: var( --border-color-base );
+	background-color: var( --color-surface-3 );
+
+	&:hover {
+		background-color: var( --color-surface-2--hover );
+	}
+
+	&:active {
+		background-color: var( --color-surface-2--active );
+	}
+
+	&:last-child {
+		border-bottom-color: var( --border-color-base );
+	}
+
+	&-unread {
+		background-color: var( --color-surface-1 );
+
+		&:hover {
+			background-color: var( --color-surface-2--hover );
+		}
+	}
+
+	&-notify {
+		&-description {
+			color: var( --color-base--subtle );
+		}
+	}
+
+	&-icon {
+		img {
+			width: 24px; // It looks nicer
+		}
+	}
+
+	&-content {
+		&-message {
+			&-header {
+				color: var( --color-base--emphasized );
+			}
+
+			&-body {
+				color: var( --color-base--subtle );
+			}
+		}
+
+		&-table {
+			display: block;
+		}
+
+		&-actions {
+			display: flex; // Table row does not align things properly
+			align-items: center;
+
+			& > &-buttons.oo-ui-buttonSelectWidget {
+				display: block;
+				margin-right: 0;
+			}
+
+			.mw-echo-ui-menuItemWidget-prioritized {
+				border-radius: var( --border-radius-small );
+
+				&:hover {
+					background-color: var( --background-color-quiet--hover );
+				}
+
+				&:active {
+					background-color: var( --background-color-quiet--active );
+				}
+			}
+
+			&-menu {
+				opacity: var( --opacity-icon-base );
+
+				&:hover {
+					opacity: var( --opacity-icon-base--hover );
+				}
+
+				&:active {
+					opacity: var( --opacity-icon-base--active );
+				}
+			}
+
+			&-timestamp {
+				display: block;
+				color: var( --color-base--subtle );
+				opacity: 1;
+			}
+		}
+	}
+
+	&-bundled {
+		.mw-echo-ui-notificationItemWidget-content {
+			.mw-echo-ui-notificationItemWidget {
+				&-content-message {
+					&-header {
+						em {
+							color: var( --color-base--subtle );
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&-initiallyUnseen {
+		-webkit-animation-name: unseen-fadeout-to-read;
+		animation-name: unseen-fadeout-to-read;
+
+		&.mw-echo-ui-notificationItemWidget-unread {
+			-webkit-animation-name: unseen-fadeout-to-unread;
+			animation-name: unseen-fadeout-to-unread;
+		}
+	}
+}
+
+@-webkit-keyframes unseen-fadeout-to-unread {
+	from {
+		background-color: var( --color-surface-2 );
+	}
+
+	to {
+		background-color: var( --color-surface-1 );
+	}
+}
+
+@keyframes unseen-fadeout-to-unread {
+	from {
+		background-color: var( --color-surface-2 );
+	}
+
+	to {
+		background-color: var( --color-surface-1 );
+	}
+}
+
+@-webkit-keyframes unseen-fadeout-to-read {
+	from {
+		background-color: var( --color-surface-2 );
+	}
+
+	to {
+		background-color: var( --color-surface-3 );
+	}
+}
+
+@keyframes unseen-fadeout-to-read {
+	from {
+		background-color: var( --color-surface-2 );
+	}
+
+	to {
+		background-color: var( --color-surface-3 );
+	}
+}
+
+/* mw.echo.ui.ToggleReadCircleButtonWidget.less */
+.mw-echo-ui-toggleReadCircleButtonWidget {
+	&-circle {
+		background-color: var( --color-primary );
+
+		&-unread {
+			border-color: var( --border-color-base );
+			background-color: var( --color-surface-2 );
+		}
+	}
+
+	&:hover .mw-echo-ui-toggleReadCircleButtonWidget-circle {
+		background-color: var( --color-primary--hover );
+
+		&-unread {
+			background-color: var( --color-surface-2--hover );
+		}
+	}
+
+	&:active .mw-echo-ui-toggleReadCircleButtonWidget-circle {
+		background-color: var( --color-primary--active );
+
+		&-unread {
+			background-color: var( --color-surface-2--active );
+		}
+	}
+}
+
+/* mw.echo.ui.CrossWikiNotificationItemWidget.less */
+.mw-echo-ui-crossWikiNotificationItemWidget,
+.mw-echo-ui-bundleNotificationItemWidget {
+	&-separator {
+		border-bottom-color: var( --border-color-base );
+	}
+
+	&-group {
+		background-color: var( --color-surface-2 );
+	}
+
+	.mw-echo-ui-subGroupListWidget-header {
+		&-row-title {
+			color: var( --color-base--subtle );
+		}
+	}
+}
+
+/* mw.echo.ui.NotificationsListWidget.less */
+.mw-echo-ui-notificationsListWidget {
+	> a,
+	&:hover > a {
+		color: var( --color-base--subtle );
+	}
+
+	&:not( :hover ) a,
+	#p-personal &:not( :hover ) a.new {
+		color: var( --color-base--subtle );
+	}
+}
+
+/* mw.echo.ui.PlaceholderItemWidget.less */
+.mw-echo-ui-placeholderItemWidget {
+	background-color: var( --color-surface-1 );
+}
+
+/* mw.echo.ui.MenuItemWidget.less */
+.mw-echo-ui-menuItemWidget {
+	// First selector is polyfill for MW 1.35
+	> .oo-ui-labelElement-label,
+	> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+		color: var( --color-base--emphasized );
+	}
+
+	&-prioritized {
+		opacity: var( --opacity-icon-base );
+
+		&:hover {
+			opacity: var( --opacity-icon-base--hover );
+		}
+
+		&:active {
+			opacity: var( --opacity-icon-base--active );
+		}
+	}
+
+	&-dynamic-action {
+		&:hover {
+			background-color: var( --color-surface-1 );
+		}
+
+		.mw-echo-ui-menuItemWidget-description {
+			color: var( --color-base--subtle );
+		}
+	}
+
+	.mw-echo-ui-actionMenuPopupWidget-menu:hover {
+		background-color: var( --color-surface-2--hover );
+	}
+}

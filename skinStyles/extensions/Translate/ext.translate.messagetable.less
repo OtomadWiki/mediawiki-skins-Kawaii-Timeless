@@ -1,0 +1,86 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:Translate
+ * Module: ext.translate.messagetable
+ * Version: MLEB 2021.07
+ *
+ * Date: 2021-07-29
+*/
+
+.tux-messagelist {
+	background-color: var( --color-surface-2 );
+	color: var( --color-base );
+}
+
+.tux-message-item {
+	border-bottom-color: var( --border-color-base );
+	background: var( --color-surface-0 ); // So that it is the same color as page base
+}
+
+.tux-message-item.translated,
+.tux-message-item.translated:hover,
+.tux-message-item.proofread,
+.tux-message-item.proofread:hover {
+	background-color: var( --color-surface-3 );
+}
+
+.tux-message-item:hover {
+	background-color: var( --color-surface-2--hover );
+}
+
+.tux-info {
+	background-color: var( --color-surface-3 );
+}
+
+.tux-list-translation {
+	color: var( --color-base--subtle );
+}
+
+.tux-messagetable-loader {
+	background: var( --color-surface-2 );
+	box-shadow: none;
+	color: var( --color-base--subtle );
+}
+
+.tux-action-bar {
+	background-color: var( --color-surface-1 );
+	color: var( --color-base );
+}
+
+@media screen and ( min-height: 500px ) {
+	.tux-action-bar.floating {
+		border-top-color: var( --border-color-base );
+	}
+}
+
+.tux-action-bar button {
+	border-color: var( --border-color-base );
+	background: var( --color-surface-2 );
+}
+
+.tux-action-bar button:hover {
+	background: var( --color-surface-2--hover );
+}
+
+.tux-action-bar button:active,
+.tux-action-bar button.down {
+	background: var( --color-primary );
+}
+
+.tux-action-bar button.disabled,
+.tux-action-bar button.disabled:hover {
+	border-color: var( --border-color-base );
+	background-color: var( --color-surface-4 );
+	color: var( --color-base--subtle );
+}
+
+.tux-message-filter-result {
+	border-bottom-color: var( --border-color-base );
+	background: var( --background-color-warning );
+	color: var( --color-base );
+}
+
+.tux-empty-list-guide {
+	color: var( --color-base--subtle );
+}

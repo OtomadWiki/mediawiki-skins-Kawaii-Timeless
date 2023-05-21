@@ -1,34 +1,226 @@
-@import 'variables.less';
+/*
+ * Citizen - CSS variables
+ * https://starcitizen.tools
+*/
 
+@import './variables.less';
+
+/**
+ * Base theme
+ */
 :root {
-	--color-base: @accent;
-	--color-bright: @accent-bright;
-	--color-dark: @accent-dark;
-	--color-hover: @accent-hover;
-	--color-background-light: #f1e7ea;
-	--color-hover-background: rgba( 0, 0, 0, 0.05 );
+	--background-color-overlay: @background-color-overlay;
+	--background-color-overlay--lighter: @background-color-overlay--lighter;
 
-	--color-mw-base: #36c;
-	--color-mw-bright: #eaf3ff;
-	--color-mw-dark: #2a4b8d;
+	--background-color-icon: @background-color-icon;
+	--background-color-icon--hover: @background-color-icon--hover;
+	--background-color-icon--active: @background-color-icon--active;
+	--background-color-quiet--hover: @background-color-quiet--hover;
+	--background-color-quiet--active: @background-color-quiet--active;
 
-	--color-link-base: @link;
-	--color-link-hover: @link-hover;
-	--color-link-visited: var( --color-link-base );
+	--background-color-destructive: @background-color-destructive;
+	--background-color-warning: @background-color-warning;
+	--background-color-success: @background-color-success;
 
-	--color-link-new: @link-red;
+	/* Foreground Colors */
+	--color-base: @color-base;
+	--color-base--emphasized: @color-base--emphasized;
+	--color-base--subtle: @color-base--subtle;
 
-	--player-icon: #77828b;
-	--player-icon-hover: #52595e;
-	--player-hover-background: rgba( 0, 0, 0, 0.05 );
+	--color-destructive: @color-destructive;
+	--color-destructive--hover: @color-destructive--hover;
+	--color-destructive--active: @color-destructive--active;
 
-	--border-color: #e2e2e2;
+	--color-warning: @color-warning;
+	--color-success: @color-success;
 
-	--base-100: @base100;
-	--base-90: @base90;
-	--base-80: @base80;
-	--base-70: @base70;
-	--base-30: @base30;
-	--base-20: @base20;
-	--base-0: @base0;
+	--color-link-new: @color-link-new;
+	--color-link-new--hover: @color-link-new--hover;
+	--color-link-new--active: @color-link-new--active;
+
+	/* Opacity */
+	--opacity-base--disabled: @opacity-base--disabled;
+	--opacity-icon-base: @opacity-icon-base;
+	--opacity-icon-base--hover: @opacity-icon-base--hover;
+	--opacity-icon-base--active: @opacity-icon-base--active;
+
+	/* Size */
+	--size-icon: @size-icon;
+
+	/* Border Colors */
+	--border-color-base: @border-color-base;
+	--border-color-base--lighter: @border-color-base--lighter;
+	--border-color-base--darker: @border-color-base--darker;
+	--border-color-input: @border-color-input;
+	--border-color-input--hover: @border-color-input--hover;
+
+	/* Border radius */
+	--border-radius--small: @border-radius--small;
+	--border-radius--medium: @border-radius--medium;
+	--border-radius--large: @border-radius--large;
+	--border-radius--pill: @border-radius--pill;
+
+	/* Fonts */
+	--font-family-base: @font-family-base;
+	--font-family-serif: @font-family-serif;
+	--font-family-monospace: @font-family-monospace;
+
+	--font-size-h1: 1.75rem;
+	--font-size-h2: 1.375rem;
+	--font-size-h3: 1.125rem;
+	--font-size-h4: 1rem;
+	--font-size-h5: 1rem;
+	--font-size-h6: 1rem;
+
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+}
+
+html {
+	/* Size */
+	--header-size: @header-size;
+	--header-card-maxheight: 70vh;
+	--width-layout: @width-layout;
+	--width-layout--extended: ~'calc( var( --width-layout ) * 1.5 )';
+	--width-toc: @width-toc;
+	--line-height: @line-height-md;
+	--line-height-xs: @line-height-xs;
+	--line-height-sm: @line-height-sm;
+
+	/* Spacing */
+	--space-unit: @space-unit;
+	--space-xxs: ~'calc( 0.25 * var( --space-unit ) )';
+	--space-xs: ~'calc( 0.5 * var( --space-unit ) )';
+	--space-sm: ~'calc( 0.75 * var( --space-unit ) )';
+	--space-md: ~'var( --space-unit )';
+	--space-lg: ~'calc( 1.25 * var( --space-unit ) )';
+	--space-xl: ~'calc( 1.5 * var( --space-unit ) )';
+	--space-xxl: ~'calc( 2 * var( --space-unit ) )';
+
+	/* Margin */
+	--margin-layout: ~'calc( ( 100vw - var( --width-layout ) ) / 2 )';
+
+	/* Padding */
+	--padding-page: @padding-page;
+}
+
+/**
+ * Dark theme
+ */
+:root.skin-timeless-dark {
+	--background-color-icon: @dark-background-color-icon;
+	--background-color-icon--hover: @dark-background-color-icon--hover;
+	--background-color-icon--active: @dark-background-color-icon--active;
+	--background-color-quiet--hover: @dark-background-color-quiet--hover;
+	--background-color-quiet--active: @dark-background-color-quiet--active;
+
+	--background-color-destructive: @dark-background-color-destructive;
+	--background-color-warning: @dark-background-color-warning;
+	--background-color-success: @dark-background-color-success;
+
+	--color-link-new: @dark-color-link-new;
+	--color-link-new--hover: @dark-color-link-new--hover;
+	--color-link-new--active: @dark-color-link-new--active;
+
+	/* Opacity */
+	--opacity-icon-base--active: @dark-opacity-icon-base--active;
+
+	/* Border Colors */
+	--border-color-base: @dark-border-color-base;
+	--border-color-base--lighter: @dark-border-color-base--lighter;
+	--border-color-base--darker: @dark-border-color-base--darker;
+	--border-color-input: @dark-border-color-input;
+	--border-color-input--hover: @dark-border-color-input--hover;
+}
+
+@media ( min-width: @width-breakpoint-tablet ) {
+	:root {
+		--font-size-h1: 2rem;
+		--font-size-h2: 1.5rem;
+		--font-size-h3: 1.25rem;
+		--font-size-h4: 1.125rem;
+	}
+
+	html {
+		--padding-page: @padding-page * 1.5;
+	}
+}
+
+@media ( min-width: @width-breakpoint-desktop ) {
+	html {
+		--padding-page: @padding-page * 2;
+		--header-card-maxheight: ~'calc( 100vh - var( --space-sm ) * 2 )';
+	}
+}
+
+/**
+ * Base theme
+ */
+:root {
+	--color-primary__h: @color-primary__h;
+	--color-primary__s: @color-primary__s;
+	--color-primary__l: @color-primary__l;
+
+	--color-surface-0: @color-surface-0;
+	--color-surface-1: @color-surface-1;
+	--color-surface-2: @color-surface-2;
+	--color-surface-3: @color-surface-3;
+	--color-surface-4: @color-surface-4;
+
+	--color-primary: ~'hsl( var( --color-primary__h ), var( --color-primary__s ), var( --color-primary__l ) )';
+	--color-primary--hover: ~'hsl( var( --color-primary__h ), var( --color-primary__s ), calc( var( --color-primary__l ) * 1.2 ) )';
+	--color-primary--active: ~'hsl( var( --color-primary__h ), var( --color-primary__s ), calc( var( --color-primary__l ) * 0.8 ) )';
+	--background-color-primary--hover: ~'hsl( var( --color-primary__h ), var( --color-primary__s ), 95% )';
+	--background-color-primary--active: ~'hsl( var( --color-primary__h ), var( --color-primary__s ), 90% )';
+
+	--color-surface-2--hover: @color-surface-2--hover;
+	--color-surface-2--active: @color-surface-2--active;
+
+	--box-shadow-card: @box-shadow-card;
+	--box-shadow-dialog: @box-shadow-dialog;
+
+	--surface-shadow: var( --color-primary__h ) 10% 20%;
+	--shadow-strength: 0.02;
+}
+
+a {
+	--color-link: #008ac5;
+	--color-link--hover: #00aeec;
+	--color-link--active: #36c;
+}
+
+/**
+ * Dark theme
+ */
+:root.skin-timeless-dark {
+	--color-primary__l: 60%;
+
+	--color-surface-0: ~'hsl( var( --color-primary__h ) 20% 10% )';
+	--color-surface-1: ~'hsl( var( --color-primary__h ) 25% 12% )';
+	--color-surface-2: ~'hsl( var( --color-primary__h ) 25% 15% )';
+	--color-surface-3: ~'hsl( var( --color-primary__h ) 15% 20% )';
+	--color-surface-4: ~'hsl( var( --color-primary__h ) 15% 25% )';
+
+	--color-base--emphasized: ~'hsl( var( --color-primary__h ) 80% 95% )';
+	--color-base: ~'hsl( var( --color-primary__h ) 25% 80% )';
+	--color-base--subtle: ~'hsl( var( --color-primary__h ) 25% 65% )';
+
+	--background-color-primary--hover: ~'hsl( var( --color-primary__h ), var( --color-primary__s ), 15% )';
+	--background-color-primary--active: ~'hsl( var( --color-primary__h ), var( --color-primary__s ), 20% )';
+
+	--background-color-overlay: ~'hsla( var( --color-primary__h ) 20% 10% / 95% )';
+	--background-color-overlay--lighter: ~'hsl( var( --color-primary__h ) 20% 10% / 60% )';
+
+	--color-surface-2--hover: ~'hsl( var( --color-primary__h ) 30% 19% )';
+	--color-surface-2--active: ~'hsl( var( --color-primary__h ) 30% 11% )';
+
+	--surface-shadow: var( --color-primary__h ) 50% 3%;
+	--shadow-strength: 0.8;
+
+	// FIXME: Browsers seem to treat GRAD differently, disabling for now
+	// Dark theme usually have an illusion of thicker fonts
+	// So we have to tune it back
+	// font-variation-settings: 'GRAD' -90;
 }

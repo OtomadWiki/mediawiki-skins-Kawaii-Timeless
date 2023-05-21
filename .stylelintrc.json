@@ -1,9 +1,14 @@
 {
-	"extends": "stylelint-config-wikimedia",
+	"extends": [
+		"stylelint-config-idiomatic-order",
+		"stylelint-config-wikimedia"
+	],
 	"rules": {
-		"no-duplicate-selectors": null,
+		"font-weight-notation": null,
 		"selector-max-id": null,
+		"no-descending-specificity": null,
 		"declaration-no-important": null,
-		"no-descending-specificity": null
+		"unit-disallowed-list": null,
+		"declaration-property-unit-disallowed-list": null
 	}
 }

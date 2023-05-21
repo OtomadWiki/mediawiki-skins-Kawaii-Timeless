@@ -1,0 +1,185 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:CodeMirror
+ * Module: ext.CodeMirror.mode.mediawiki
+ * Version: REL1_35 a326407
+ *
+ * Date: 2021-08-25
+*/
+
+.cm-mw {
+	&-matching {
+		background-color: var( --color-syntax-yellow );
+	}
+
+	&-skipformatting {
+		background-color: var( --color-syntax-cyan );
+	}
+
+	&-list {
+		color: var( --color-syntax-cyan );
+	}
+
+	&-doubleUnderscore,
+	&-signature,
+	&-hr {
+		background-color: transparent;
+		color: var( --color-syntax-purple );
+	}
+
+	&-indenting {
+		color: var( --color-syntax-cyan );
+	}
+
+	&-mnemonic {
+		color: var( --color-syntax-green );
+	}
+
+	&-comment {
+		color: var( --color-syntax-grey );
+	}
+
+	&-apostrophes-bold,
+	&-apostrophes-italic {
+		color: var( --color-syntax-cyan );
+	}
+
+	&-section {
+		&-1,
+		&-2,
+		&-3,
+		&-4,
+		&-5,
+		&-6 {
+			span:not( .cm-mw-section-header ) {
+				color: var( --color-base--emphasized );
+			}
+		}
+	}
+
+	&-section-header {
+		color: var( --color-syntax-cyan );
+	}
+
+	&-template,
+	&-templatevariable,
+	&-parserfunction {
+		color: var( --color-base--emphasized );
+
+		&-name {
+			color: var( --color-syntax-blue );
+			font-weight: var( --font-weight-normal );
+		}
+
+		&-delimiter {
+			color: var( --color-syntax-cyan );
+			font-weight: var( --font-weight-normal );
+		}
+
+		&-bracket {
+			color: var( --color-syntax-purple );
+			font-weight: var( --font-weight-normal );
+		}
+	}
+
+	&-template {
+		&-name-mnemonic {
+			color: var( --color-syntax-blue );
+			font-weight: var( --font-weight-normal );
+		}
+
+		&-argument-name {
+			color: var( --color-syntax-red );
+			font-weight: var( --font-weight-normal );
+		}
+	}
+
+	&-exttag,
+	&-htmltag {
+		&-name {
+			color: var( --color-syntax-red );
+			font-weight: var( --font-weight-normal );
+		}
+
+		&-bracket {
+			color: var( --color-syntax-cyan );
+		}
+
+		&-attribute {
+			color: var( --color-syntax-yellow );
+		}
+	}
+
+	&-link {
+		color: var( --color-primary );
+
+		&-pagename {
+			color: var( --color-primary );
+		}
+
+		&-tosection {
+			color: var( --color-primary--hover );
+		}
+
+		&-text {
+			color: var( --color-syntax-green );
+		}
+
+		&-bracket {
+			color: var( --color-primary );
+		}
+
+		&-delimiter {
+			color: var( --color-syntax-cyan );
+		}
+
+		&-ground {
+			background-color: var( --background-color-primary--hover );
+		}
+	}
+
+	&-extlink,
+	&-free-extlink {
+		color: var( --color-primary );
+
+		&-protocol {
+			color: var( --color-syntax-orange );
+			font-weight: var( --font-weight-normal );
+		}
+
+		&-text {
+			color: var( --color-syntax-green );
+		}
+
+		&-bracket {
+			color: var( --color-primary );
+			font-weight: var( --font-weight-normal );
+		}
+
+		&-ground {
+			background-color: var( --background-color-primary--hover );
+		}
+	}
+
+	&-table {
+		&-bracket {
+			color: var( --color-syntax-pink );
+			font-weight: var( --font-weight-normal );
+		}
+
+		&-delimiter {
+			color: var( --color-syntax-cyan );
+			font-weight: var( --font-weight-normal );
+		}
+
+		&-definition {
+			color: var( --color-syntax-yellow );
+		}
+
+		&-caption {
+			color: var( --color-base--emphasized );
+			font-weight: var( --font-weight-normal );
+		}
+	}
+}

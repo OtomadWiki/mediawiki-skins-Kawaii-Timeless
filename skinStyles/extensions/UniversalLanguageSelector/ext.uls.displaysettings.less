@@ -1,0 +1,73 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:UniversalLanguageSelector
+ * Module: ext.uls.displaysettings
+ * Version: MLEB 2021.12
+ *
+ * Date: 2022-05-17
+*/
+
+/* ext.uls.inputsettings.less */
+.uls-ime-menu-settings-item {
+	border-radius: 0 0 var( --border-radius--medium ) var( --border-radius--medium );
+	border-top-color: var( --border-color-base );
+	background-color: var( --color-surface-2 );
+	color: var( --color-base );
+}
+
+.skin-timeless-dark .uls-ime-disable-link {
+	filter: invert( 1 ) hue-rotate( 180deg );
+}
+
+.skin-timeless-dark .uls-ime-more-settings-link {
+	filter: invert( 1 ) hue-rotate( 180deg );
+}
+
+.uls-ime-menu-settings-item > a:hover {
+	background-color: var( --color-surface-2 );
+	color: var( --color-base--emphasized );
+}
+
+.uls-input-settings-disable-info,
+.uls-input-settings-no-inputmethods {
+	color: var( --color-base--subtle );
+}
+
+.down + .uls-input-settings-caret {
+	border-bottom-color: var( --color-surface-2 );
+}
+
+.uls-input-settings .uls-input-settings-inputmethods-list {
+	background: var( --color-surface-2 );
+}
+
+.uls-ime-notification-bubble .link {
+	color: var( --color-primary );
+}
+
+.skin-timeless-dark .ime-checked .ime-perime-help {
+	filter: invert( 1 ) hue-rotate( 180deg );
+}
+
+/* ext.uls.displaysettings.less */
+.ext-uls-sub-panel {
+	border-top-color: var( --border-color-base );
+}
+
+.uls-font-item {
+	border-bottom-color: var( --border-color-base );
+	background: var( --color-surface-2 );
+
+	&:first-child {
+		border-top-color: var( --border-color-base );
+	}
+}
+
+.uls-font-label {
+	color: var( --color-base--subtle );
+}
+
+.uls-font-label strong {
+	color: var( --color-base );
+}

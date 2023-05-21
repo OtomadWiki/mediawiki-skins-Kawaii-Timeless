@@ -76,24 +76,12 @@ class TimelessTemplate extends BaseTemplate {
 		//add banner -aira@21.11.15
 		$html .= Html::rawElement( 'div' , [ 'class' => 'siteBanner' ],
 			Html::rawElement( 'div' , [ 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/BG-2023032902.webp);' ]).
-			// Html::rawElement( 'div' , [ 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/audience2022/bg.png);' ]).
-			//, 'style' => 'background-image: url(/kawaii/banner/BG-20220705.png);'
 			Html::rawElement( 'div' , [ 'class' => 'bannerItems' ],
 				Html::rawElement( 'a', [ 'href' => '/', 'name' => 'OtomadWiki 春' ],
 					Html::rawElement( 'img' , [ 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-Spring.svg', 'style' => 'filter: drop-shadow(0 4px 5px #F06E8E80);', 'title' => 'OtomadWiki 春' ]),
-					// Html::rawElement( 'img' , [ 'class' => 'topHeadingLogo', 'src' => '/kawaii/banner/audience2022/omwiki_otmink.png', 'title' => 'OtomadWiki 春' ]),
 				),
-				/*
-				Html::rawElement( 'a', [ 'href' => 'https://otm.ink/viewpick/', 'title' => 'BILIBILI音MAD观众选', 'class' => 'bannerRightBlock' ],
-					// Html::rawElement( 'img' , [ 'class' => 'bannerGirlBg', 'src' => '/kawaii/banner/audience2022/girl.png' ]).
-					Html::rawElement( 'img' , [ 'class' => 'bannerContent', 'src' => '/kawaii/banner/audience2022/content.png' ]).
-					Html::rawElement( 'img' , [ 'class' => 'bannerGirl', 'src' => '/kawaii/banner/audience2022/girl.png' ]),
-				),
-				*/
 			).
 		 '');
-			//$html .= Html::rawElement('div', ['class' => 'topHeadingImage'], '');
-			//$html .= Html::rawElement('div', ['class' => 'topHeadingLogo'], '');
 		
 		$html .= Html::rawElement( 'div', [ 'id' => 'mw-content-container', 'class' => 'ts-container' ],
 			Html::rawElement( 'div', [ 'id' => 'mw-content-block', 'class' => 'ts-inner' ],
@@ -776,8 +764,8 @@ class TimelessTemplate extends BaseTemplate {
 			$headerMsg = 'timeless-notloggedin';
 		}
 		$html = Html::openElement( 'div', [ 'id' => 'user-tools' ] );
-		$avatar = 'https://otomad.wiki/images/avatars/otomad_wiki_' . $user->getId() . '_l';
-		$html .= Html::rawElement( 'a', [ 'id' => 'header-upload', 'class' => 'mdui-ripple', 'href' => 'https://otomad.wiki/Special:Upload', 'title' => '上传文件[alt-shift-u]' ]);
+		$avatar = '/images/avatars/otomad_wiki_' . $user->getId() . '_l';
+		$html .= Html::rawElement( 'a', [ 'id' => 'header-upload', 'class' => 'mdui-ripple', 'href' => '/Special:Upload', 'title' => '上传文件[alt-shift-u]' ]);
 
 		// Extra icon stuff (echo etc)
 		if ( !empty( $extraTools ) ) {

@@ -8,14 +8,14 @@ input {
 form {
 	// Special-case out the datetime widget and revision-compare button
 	input:not( .mw-widgets-datetime-dateTimeInputWidget-editField ):not( .mw-history-compareselectedversions-button ) {
-		margin: 0.5em 0;
 		padding: 0.35em;
+		margin: 0.5em 0;
 	}
 
 	// Special-case out also rather more normal multiselect
 	.oo-ui-tagMultiselectWidget-handle input {
-		margin: unset;
 		padding: unset;
+		margin: unset;
 	}
 
 	// Padding on checkboxes seems to cause misalignment with its text
@@ -30,9 +30,9 @@ form {
 button,
 textarea,
 select {
-	padding: 0.35em;
-	box-sizing: border-box;
 	height: unset;
+	box-sizing: border-box;
+	padding: 0.35em;
 }
 
 .oo-ui-buttonElement-framed.oo-ui-labelElement > .oo-ui-buttonElement-button,
@@ -55,8 +55,8 @@ button {
 // More fondling, because we've removed the default margins in normalise
 input[ type='radio' ],
 input[ type='checkbox' ] {
-	margin: 0.35em 0.2em 0.25em 0.35em;
 	box-sizing: border-box;
+	margin: 0.35em 0.2em 0.25em 0.35em;
 }
 
 textarea,
@@ -67,11 +67,12 @@ textarea,
 
 textarea {
 	width: 100%;
-	resize: vertical;
 	box-sizing: border-box;
 	line-height: 1.3em;
+	resize: vertical;
 }
 
+/*
 div.editOptions {
 	padding: 1.25em 1.75em;
 	border: solid @base70;
@@ -83,6 +84,7 @@ div.editOptions {
 		margin-top: 1em;
 	}
 }
+*/
 
 form:not( .oo-ui-layout ) {
 	textarea,
@@ -96,29 +98,31 @@ form:not( .oo-ui-layout ) {
 		border-radius: unset;
 	}
 
+	/*
 	button,
 	input[ type='submit' ] {
 		border-radius: 2px;
 		padding: 0.35em 1em;
-		background-color: @accent;
+		background-color: var( --color-base );
 		font-weight: bold;
 		color: #fff;
-		border: solid 1px @accent;
+		border: solid 1px var( --color-base );
 
 		&:not( :disabled ):hover,
 		&:not( :disabled ):active {
 			background-color: @accent-hover;
 		}
 	}
+	*/
 
 	fieldset {
+		padding: 0;
 		border: 0;
 		margin: 1.5em 0 0;
-		padding: 0;
 
 		legend {
-			font-weight: bold;
 			font-size: 110%;
+			font-weight: bold;
 		}
 	}
 }

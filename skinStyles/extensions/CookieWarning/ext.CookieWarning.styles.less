@@ -1,0 +1,54 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:CookieWarning
+ * Module: ext.CookieWarning.styles
+ * Version: REL1_35 3c2ae6a
+ *
+ * Date: 2022-04-29
+*/
+
+@import '../../../resources/variables.less';
+
+.mw-cookiewarning-container {
+	right: 0;
+	width: auto;
+	max-width: @width-breakpoint-tablet;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 var( --padding-page );
+	border-radius: var( --border-radius--large );
+	margin: 10px;
+	background-color: #343a40; // dark base 70
+	box-shadow: var( --box-shadow-dialog );
+	font-size: 0.875rem;
+	line-height: var( --line-height-sm );
+
+	.mw-cookiewarning-text {
+		padding: 20px 0;
+		margin-bottom: 0; // Override media styles
+		font-size: inherit;
+		font-weight: var( --font-weight-medium );
+	}
+
+	form {
+		display: flex;
+		padding: 15px 0;
+	}
+}
+
+@media only screen and ( max-width: @width-breakpoint-tablet ) {
+	.mw-cookiewarning-container {
+		flex-wrap: wrap;
+
+		.mw-cookiewarning-text {
+			flex-wrap: wrap;
+			padding-bottom: 0;
+		}
+
+		form {
+			width: 100%;
+			margin-left: -8px; // cancel out the button margin
+		}
+	}
+}

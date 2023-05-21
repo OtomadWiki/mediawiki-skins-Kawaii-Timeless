@@ -1,0 +1,52 @@
+/*
+ * Citizen - SRF Filtered Slider
+ * https://starcitizen.tools
+*/
+
+@import '../../../../resources/variables.less';
+
+.skin-timeless-dark {
+	.irs-grid-pol {
+		background: @dark-bg-40;
+	}
+
+	.irs-grid-text {
+		color: var( --color-base--subtle );
+	}
+
+	.irs-disable-mask {
+		background: rgba( 0, 0, 0, 0 );
+	}
+
+	.lt-ie9 .irs-disable-mask {
+		background: var( --color-surface-0 );
+	}
+
+	.irs-shadow {
+		background: var( --color-surface-0 );
+	}
+
+	.irs-min,
+	.irs-max {
+		background: rgba( 0, 0, 0, 0.1 );
+		color: var( --color-base--subtle );
+	}
+
+	.lt-ie9 .irs-min,
+	.lt-ie9 .irs-max {
+		background: @dark-bg-30;
+	}
+
+	.irs-from,
+	.irs-to,
+	.irs-single {
+		background: rgba( 0, 0, 0, 0.3 );
+		color: var( --color-base--emphasized );
+	}
+
+	.lt-ie9 .irs-from,
+	.lt-ie9 .irs-to,
+	.lt-ie9 .irs-single {
+		background: @dark-bg-50;
+	}
+}

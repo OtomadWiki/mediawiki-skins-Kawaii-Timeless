@@ -1,0 +1,34 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:Lingo
+ * Module: ext.Lingo
+ * Version: REL1_35 e948775
+ *
+ * Date: 2022-04-29
+*/
+@media screen {
+	span.mw-lingo-term {
+		border-bottom-color: var( --color-base--subtle );
+
+		&:hover {
+			background-color: var( --background-color-quiet--hover );
+		}
+	}
+}
+
+.mw-lingo-tooltip {
+	border: 0;
+	border-radius: var( --border-radius--medium );
+	background-color: var( --color-surface-1 );
+	box-shadow: var( --box-shadow--dialog );
+	color: var( --color-base );
+}
+
+.skin-timeless-dark {
+	.mw-lingo-definition-link {
+		& > a::before {
+			filter: invert( 1 );
+		}
+	}
+}

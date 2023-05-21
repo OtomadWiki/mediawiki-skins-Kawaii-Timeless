@@ -1,0 +1,168 @@
+/*
+ * Citizen - SRF Filtered Map View Leaflet
+ * https://starcitizen.tools
+*/
+
+@import '../../../../resources/variables.less';
+
+.skin-timeless-dark {
+	.leaflet-container a {
+		color: @color-primary;
+		-webkit-tap-highlight-color: rgba( 51, 181, 229, 0.4 );
+	}
+
+	.leaflet-container {
+		background: @dark-bg-20;
+	}
+
+	.leaflet-container a.leaflet-active {
+		outline: 2px solid var( --color-warning );
+	}
+
+	.leaflet-zoom-box {
+		border: 2px dotted var( --color-primary );
+		background: rgba( 0, 0, 0, 0.5 );
+	}
+
+	.leaflet-bar {
+		box-shadow: 0 1px 5px rgba( 0, 0, 0, 0.65 );
+	}
+
+	.leaflet-bar a,
+	.leaflet-bar a:hover {
+		border-bottom: 1px solid @dark-bg-30;
+		background-color: var( --color-surface-0 );
+		color: var( --color-base--emphasized );
+	}
+
+	.leaflet-bar a:hover {
+		background-color: @dark-bg-10;
+	}
+
+	.leaflet-bar a.leaflet-disabled {
+		background-color: @dark-bg-10;
+		color: var( --color-base--subtle );
+	}
+
+	.leaflet-control-layers {
+		background: var( --color-surface-0 );
+		box-shadow: 0 1px 5px rgba( 0, 0, 0, 0.4 );
+	}
+
+	.leaflet-control-layers-expanded {
+		background: var( --color-surface-0 );
+		color: var( --color-base );
+	}
+
+	.leaflet-control-layers-separator {
+		border-top: 1px solid @dark-bg-20;
+	}
+
+	.leaflet-container .leaflet-control-attribution {
+		background: var( --color-surface-0 );
+		background: rgba( 255, 255, 255, 0.7 );
+	}
+
+	.leaflet-control-attribution,
+	.leaflet-control-scale-line {
+		color: var( --color-base );
+	}
+
+	.leaflet-control-scale-line {
+		border: 2px solid @dark-bg-60;
+		background: var( --color-surface-0 );
+		background: rgba( 255, 255, 255, 0.5 );
+	}
+
+	.leaflet-control-scale-line:not( :first-child ) {
+		border-top: 2px solid @dark-bg-30;
+	}
+
+	.leaflet-control-scale-line:not( :first-child ):not( :last-child ) {
+		border-bottom: 2px solid @dark-bg-30;
+	}
+
+	.leaflet-touch .leaflet-control-layers,
+	.leaflet-touch .leaflet-bar {
+		border: 2px solid rgba( 0, 0, 0, 0.2 );
+	}
+
+	.leaflet-popup-content-wrapper,
+	.leaflet-popup-tip {
+		background: var( --color-surface-0 );
+		box-shadow: 0 3px 14px rgba( 0, 0, 0, 0.4 );
+		color: var( --color-base );
+	}
+
+	.leaflet-container a.leaflet-popup-close-button {
+		color: var( --color-base--subtle );
+	}
+
+	.leaflet-container a.leaflet-popup-close-button:hover {
+		color: var( --color-base--subtle );
+	}
+
+	.leaflet-popup-scrolled {
+		border-top: 1px solid @dark-bg-20;
+		border-bottom: 1px solid @dark-bg-20;
+	}
+
+	.leaflet-oldie .leaflet-control-zoom,
+	.leaflet-oldie .leaflet-control-layers,
+	.leaflet-oldie .leaflet-popup-content-wrapper,
+	.leaflet-oldie .leaflet-popup-tip {
+		border: 1px solid @dark-bg-50;
+	}
+
+	.leaflet-div-icon {
+		border: 1px solid @dark-bg-60;
+		background: var( --color-surface-0 );
+	}
+
+	.leaflet-tooltip {
+		border: 1px solid var( --color-surface-0 );
+		background-color: var( --color-surface-0 );
+		box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.4 );
+		color: var( --color-base );
+	}
+
+	.leaflet-tooltip-top::before {
+		border-top-color: var( --color-surface-0 );
+	}
+
+	.leaflet-tooltip-bottom::before {
+		border-bottom-color: var( --color-surface-0 );
+	}
+
+	.leaflet-tooltip-left::before {
+		border-left-color: var( --color-surface-0 );
+	}
+
+	.leaflet-tooltip-right::before {
+		border-right-color: var( --color-surface-0 );
+	}
+
+	.marker-cluster-small {
+		background-color: var( --background-color-primary--hover );
+	}
+
+	.marker-cluster-small div {
+		background-color: var( --color-primary );
+	}
+
+	.marker-cluster-medium {
+		background-color: var( --background-color-success );
+	}
+
+	.marker-cluster-medium div {
+		background-color: var( --color-success );
+	}
+
+	.marker-cluster-large {
+		background-color: var( --background-color-warning );
+	}
+
+	.marker-cluster-large div {
+		background-color: var( --color-warning );
+	}
+}

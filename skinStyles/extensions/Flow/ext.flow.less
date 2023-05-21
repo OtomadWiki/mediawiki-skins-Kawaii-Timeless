@@ -1,0 +1,95 @@
+/*
+ * Citizen
+ *
+ * SkinStyles for Extension:StructuredDiscussions
+ * Module: ext.flow
+ * Version: REL1_35 (e3379f0)
+ *
+ * Date: 2022-04-27
+*/
+
+/* styles/mediawiki.ui/modal.less */
+.flow-ui-modal {
+	background: var( --background-color-overlay );
+}
+
+.flow-ui-modal-layout {
+	background: var( --color-surface-1 );
+	box-shadow: var( --box-shadow-dialog );
+	color: var( --color-base );
+}
+
+.flow-ui-modal-heading {
+	border-bottom-color: var( --border-color-base );
+	color: var( --color-base );
+}
+
+.flow-ui-modal-heading-prev {
+	border-right-color: var( --border-color-base );
+	color: var( --color-base--subtle );
+}
+
+.flow-ui-modal-heading-next {
+	border-left-color: var( --border-color-base );
+	color: var( --color-base--subtle );
+}
+
+/* styles/mediawiki.ui/tooltips.less */
+.flow-ui-tooltip {
+	background-color: var( --color-surface-1 );
+	box-shadow: var( --box-shadow-dialog );
+	color: var( --color-base );
+
+	.flow-ui-tooltip-triangle {
+		&::after {
+			position: absolute;
+			z-index: 1;
+			width: 1em;
+			height: 1em;
+			background: var( --color-surface-1 );
+			content: '';
+			-webkit-transform: rotate( 45deg );
+			transform: rotate( 45deg );
+		}
+	}
+
+	// triangle on top
+	&.flow-ui-tooltip-up {
+		.flow-ui-tooltip-triangle {
+			&::after {
+				/* @noflip */
+				box-shadow: 0 0 1px 0 var( --border-color-base );
+			}
+		}
+	}
+
+	// triangle on bottom
+	&.flow-ui-tooltip-down {
+		.flow-ui-tooltip-triangle {
+			&::after {
+				/* @noflip */
+				box-shadow: 0 -1.5px 0 1.5px var( --border-color-base ), 0 0 1px 0 var( --border-color-base );
+			}
+		}
+	}
+
+	// triangle at left
+	&.flow-ui-tooltip-left {
+		.flow-ui-tooltip-triangle {
+			&::after {
+				/* @noflip */
+				box-shadow: 1.5px 0 0 1.5px var( --border-color-base ), 0 0 1px 0 var( --border-color-base );
+			}
+		}
+	}
+
+	// triangle at right
+	&.flow-ui-tooltip-right {
+		.flow-ui-tooltip-triangle {
+			&::after {
+				/* @noflip */
+				box-shadow: 0 1.5px 0 1.5px var( --border-color-base ), 0 0 1px 0 var( --border-color-base );
+			}
+		}
+	}
+}

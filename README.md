@@ -1,21 +1,20 @@
-Timeless Kawaii
+Kawaii Timeless
 ====
 
-Timeless Skin for Chinese Otomad Wiki
+Modern hybrid Timeless skin for Chinese Otomad Wiki
 
-![Preview Screenshot](https://raw.githubusercontent.com/OtomadWiki/Kawaii-Timeless/master/screenshots/1920x1080.png)
+Some codes are from [Citizen skin](https://github.com/StarCitizenTools/mediawiki-skins-Citizen)
 
 ## How to Use
 
-1. Download ZIP and extract
-2. Rename `Kawaii-Timeless-master` folder to `Timeless`
-3. Rename or delete the original `Timeless` in `skins` directory
+1. Rename or delete the original `Timeless` in `skins` directory
+2. Download ZIP and extract
+3. Rename `mediawiki-skins-Kawaii-Timeless-master` folder to `Timeless`
 4. Put new folder into `skins`
 5. Set `LocalSettings.php` like this
 
 ```
 wfLoadSkin( 'Timeless' );
-$wgDefaultSkin = "Timeless";
 ```
 
 6. Import codes from `https://otomad.wiki/MediaWiki:Timeless.css` to your site's `MediaWiki:Timeless.css`

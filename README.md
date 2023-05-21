@@ -1,9 +1,7 @@
 Kawaii Timeless
 ====
 
-Modern hybrid Timeless skin for Chinese Otomad Wiki
-
-Some codes are from [Citizen skin](https://github.com/StarCitizenTools/mediawiki-skins-Citizen)
+Modern Timeless skin for Chinese Otomad Wiki
 
 ## How to Use
 

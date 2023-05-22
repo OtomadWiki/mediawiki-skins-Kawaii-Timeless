@@ -102,7 +102,7 @@ div.mw-notification-area {
 	max-width: 300px;
 	height: 36px;
 	border: 0;
-	border-radius: 6px;
+	border-radius: var( --border-radius--small );
 	margin: 0 1em 0 auto;
 
 	#header-search-button {
@@ -175,9 +175,9 @@ div.mw-notification-area {
 		top: 46px;
 		display: block !important;
 		width: 12em;
+		.dropdown-menu();
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
-		.dropdown-menu();
 	}
 
 	.pokey {
@@ -306,7 +306,7 @@ div.mw-notification-area {
 
 /*
 .tools-inline li {
-	border-radius: 4px;
+	border-radius: var( --border-radius--small );
 	&.selected {
 		background: transparent;
 		border-radius: 0;
@@ -358,7 +358,7 @@ div.mw-notification-area {
 #p-variants-desktop {
 	//padding: 4px 6px 4px 14px;
 	position: relative;
-	border-radius: 4px;
+	border-radius: var( --border-radius--small );
 	float: right;
 	transition: background cubic-bezier( 0.22, 0.58, 0.12, 0.98 ) 0.4s;
 
@@ -471,7 +471,7 @@ div.mw-notification-area {
 /* Content */
 
 #mw-content-wrapper {
-	border-radius: 8px;
+	border-radius: var( --border-radius--medium );
 	background-color: @background;
 }
 
@@ -709,7 +709,7 @@ div.mw-notification-area {
 /* Wiki Logo */
 .mw-wiki-logo.fallback {
 	width: 100%;
-	border-radius: 8px;
+	border-radius: var( --border-radius--medium );
 	background-position: center;
 	background-size: 80%;
 }

@@ -143,7 +143,7 @@ body {
 	position: relative;
 	overflow: hidden;
 	border: solid 1px transparent;
-	border-radius: 8px;
+	border-radius: var( --border-radius--medium );
 	margin-right: 0.5em;
 	//transition: background-color .3s;
 	margin-left: 0.5em;
@@ -1297,7 +1297,6 @@ body :not( :checked ) > .toctogglespan:after {
 
 .oo-ui-floatableElement-floatable {
 	overflow: hidden;
-	border-radius: 6px !important;
 	animation: scale-in cubic-bezier( 0.22, 0.58, 0.12, 0.98 ) 0.4s backwards !important;
 	transform-origin: top center;
 }
@@ -2366,7 +2365,7 @@ textarea {
 
 div > .flow-menu ul {
 	border: 0;
-	border-radius: 8px;
+	border-radius: var( --border-radius--medium );
 	box-shadow: 0 15px 20px rgba( 193, 159, 168, 0.4 );
 }
 

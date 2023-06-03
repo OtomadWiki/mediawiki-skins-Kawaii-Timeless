@@ -440,11 +440,12 @@ div.mw-notification-area {
 	margin: 0.75em auto 0;
 
 	&.fallback {
-		width: 11em;
+		width: 100%;
 		height: 11em;
-		border-radius: 16px;
+		border-radius: var( --border-radius--medium );
 		background-position: center center;
 		background-repeat: no-repeat;
+		background-size: 80%;
 		content: '';
 	}
 
@@ -704,14 +705,6 @@ div.mw-notification-area {
 
 .jumpanim:hover {
 	animation: jump 0.3s;
-}
-
-/* Wiki Logo */
-.mw-wiki-logo.fallback {
-	width: 100%;
-	border-radius: var( --border-radius--medium );
-	background-position: center;
-	background-size: 80%;
 }
 
 /* Header Links */

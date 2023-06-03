@@ -1,47 +1,46 @@
 @import 'variables.less';
 
 .siteBanner {
-	height: 10vw;
 	position: relative;
 	z-index: 0;
+	display: flex;
+	overflow: hidden;
+	height: 10vw;
 	min-height: 155px;
 	max-height: 240px;
-	display: flex;
-	align-items: center;
 	align-content: center;
-	overflow: hidden;
+	align-items: center;
 }
 
 .topHeadingImage {
 	position: absolute;
+	top: 0;
+	width: 100%;
 	height: 10vw;
 	min-height: 155px;
 	max-height: 240px;
-	width: 100%;
-	background-color: #f9f9f9;
-	background-repeat: no-repeat;
 	background-position: bottom;
+	background-repeat: no-repeat;
 	background-size: cover;
-	top: 0;
 }
 
 .bannerItems {
 	display: flex;
-	align-items: center;
 	width: 100%;
 	max-width: 115em;
-	margin: auto;
-	max-height: 240px;
-	min-height: 155px;
 	height: 10vw;
+	min-height: 155px;
+	max-height: 240px;
+	align-items: center;
 	justify-content: space-between;
+	margin: auto;
 }
 
 .topHeadingLogo {
 	position: relative;
-	margin-left: 44px;
-	margin-top: 55px;
 	width: 326px;
+	margin-top: 55px;
+	margin-left: 44px;
 	//animation: scale-in 0.7s cubic-bezier(0.16,1,0.3,1);
 }
 
@@ -60,23 +59,23 @@
 
 .bannerGirlBg {
 	position: absolute;
-	width: 300%;
-	display: block;
-	transform: translate( -28%, -37% );
-	opacity: 0.2;
 	left: 0;
+	display: block;
+	width: 300%;
+	opacity: 0.2;
 	pointer-events: none;
+	transform: translate( -28%, -37% );
 }
 
 .bannerRightBlock {
 	position: relative;
-	margin-right: 360px;
-	margin-top: 55px;
-	height: ~'calc(10vw - 55px)';
-	max-height: 185px;
-	min-height: 100px;
 	display: flex;
+	height: ~'calc(10vw - 55px)';
+	min-height: 100px;
+	max-height: 185px;
 	align-items: center;
+	margin-top: 55px;
+	margin-right: 360px;
 }
 
 #mw-site-navigation .sidebar-inner {

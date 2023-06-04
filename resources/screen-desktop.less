@@ -391,8 +391,6 @@ div.mw-notification-area {
 		padding: 0 17px 0 14px;
 		//line-height: 1.4;
 		padding-bottom: 1em;
-		//.ca-icon( 'images/material-icons/translate_black_24dp' );
-
 		border: 0;
 		border-bottom: transparent;
 		margin: 0 0 -1em;
@@ -404,8 +402,11 @@ div.mw-notification-area {
 		text-align: right;
 		text-indent: 4px;
 		.flex-display;
+		.ca-icon-material();
 
-		.ca-icon-material( 'translate' );
+		&:before {
+			content: 'translate';
+		}
 
 		&:after {
 			margin-right: -6px;
@@ -483,7 +484,7 @@ div.mw-notification-area {
 
 #mw-wrapper #personal .dropdown h3 {
 	border-bottom: none;
-	margin: 1em 0.3em 1em 0.3em;
+	margin: 1.7em 0 0.3em 0;
 	text-align: center;
 	transition: all 0.7s cubic-bezier( 0.16, 1, 0.3, 1 );
 }

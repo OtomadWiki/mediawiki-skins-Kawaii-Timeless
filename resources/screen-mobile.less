@@ -37,10 +37,10 @@
 }
 
 #mw-header-container {
-	.flex-display;
 	z-index: 500;
 	// height: 0;
 	top: 0;
+	display: flex;
 	width: 100%;
 	box-sizing: border-box;
 	padding: 0 1.2em;
@@ -49,9 +49,10 @@
 }
 
 #mw-header {
-	.flex-display;
+	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+	gap: 8px;
 }
 
 #mw-header-hack {
@@ -61,6 +62,7 @@
 }
 
 #simpleSearch {
+	height: 40px;
 	margin: 0;
 
 	&:hover,
@@ -72,14 +74,14 @@
 	}
 
 	#header-search-button {
-		width: 48px;
-		height: 48px;
+		width: 40px;
+		height: 100%;
 	}
 }
 
 #searchInput {
-	height: 3em;
-	padding: 0 3.7em 0 1.2em;
+	height: 100%;
+	padding: 0 1em;
 	font-size: 16px;
 }
 
@@ -92,6 +94,7 @@
 /* Dropdowns */
 .sidebar-inner,
 .dropdown {
+	.nav-block();
 	position: absolute;
 	z-index: 100;
 	top: 3.25em;
@@ -102,9 +105,6 @@
 	max-width: 80%;
 	padding: 3em 0 0 0;
 	margin: 0;
-	background: @background;
-	box-shadow: 0 2px 3px 1px rgba( 0, 0, 0, 0.05 );
-	.nav-block();
 
 	h3 {
 		border-bottom: 2px solid #eee;
@@ -133,7 +133,7 @@
 
 #menus-cover {
 	position: fixed;
-	z-index: 102;
+	z-index: 99;
 	top: 0;
 	left: 0;
 	display: none;
@@ -149,9 +149,9 @@
 #user-tools h2,
 .sidebar-chunk h2 {
 	.dropdown-header();
-	.flex-display;
 	position: absolute;
 	top: 12px;
+	display: flex;
 	width: 36px;
 	height: 36px;
 	align-items: center;
@@ -183,7 +183,6 @@
 
 #site-navigation {
 	h2 {
-		z-index: 100;
 		left: 1em;
 		background-image: url( images/menu-large-grey.svg );
 	}
@@ -197,6 +196,7 @@
 		overflow: scroll;
 		width: 50%;
 		border-radius: 0;
+		margin: 0;
 		transform: translate3d( -100%, 0, 0 );
 		transition: all 0.7s cubic-bezier( 0.12, 1, 0.29, 0.99 );
 	}
@@ -210,7 +210,6 @@
 }
 
 #site-tools h2 {
-	z-index: 100;
 	right: @content-padding + 3em;
 	background-image: url( images/gear-large-grey.svg );
 	transition: transform 1s cubic-bezier( 0.67, 0.03, 0, 0.99 );
@@ -280,6 +279,7 @@
 		.ca-icon-only-mobile();
 		display: inline-block;
 		overflow: visible;
+		color: @tools-color;
 	}
 }
 
@@ -452,67 +452,21 @@ figure[ typeof~='mw:Audio/Thumb' ]:not( [ typeof~='mw:Error' ] ) {
 		display: flex;
 	}
 
-	.preferences-md-icon-mobile(@icon: '') {
-		display: flex;
-		width: 24px;
-		height: 24px;
-		margin-right: 4px;
-		background-position: center;
-		content: '@{icon}';
-		direction: ltr;
-		font-family: 'Material Icons';
-		font-feature-settings: 'liga';
-		font-size: 24px;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		font-style: normal;
-		font-weight: normal;
-		letter-spacing: normal;
-		text-rendering: optimizeLegibility;
-		text-transform: none;
-		user-select: none;
-		white-space: nowrap;
-		word-wrap: normal;
-	}
-
 	.oo-ui-tabSelectWidget-framed {
 		flex-wrap: wrap;
-	}
 
-	.oo-ui-tabOptionWidget {
-		color: #7d7d7d;
-	}
+		.oo-ui-tabOptionWidget {
+			color: @tools-color;
 
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 1 ) .oo-ui-labelElement-label:before {
-		.preferences-md-icon-mobile('person');
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 2 ) .oo-ui-labelElement-label:before {
-		.preferences-md-icon-mobile('palette');
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 3 ) .oo-ui-labelElement-label:before {
-		.preferences-md-icon-mobile('edit');
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 4 ) .oo-ui-labelElement-label:before {
-		.preferences-md-icon-mobile('history');
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 5 ) .oo-ui-labelElement-label:before {
-		.preferences-md-icon-mobile('star');
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 6 ) .oo-ui-labelElement-label:before {
-		.preferences-md-icon-mobile('search');
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 7 ) .oo-ui-labelElement-label:before {
-		.preferences-md-icon-mobile('notifications');
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 8 ) .oo-ui-labelElement-label:before {
-		.preferences-md-icon-mobile('widgets');
+			&:before {
+				.material-design-icons();
+				display: flex;
+				width: 24px;
+				height: 24px;
+				margin-right: 4px;
+				font-size: 24px;
+			}
+		}
 	}
 
 	.mw-prefs-tabs > .oo-ui-menuLayout-content > .oo-ui-indexLayout-stackLayout > .oo-ui-tabPanelLayout {

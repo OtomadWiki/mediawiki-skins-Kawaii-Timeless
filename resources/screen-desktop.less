@@ -27,15 +27,15 @@ div.mw-notification-area {
 /* Header */
 
 #mw-header-container {
+	position: fixed;
+	z-index: 100;
+	top: 0;
 	/* Stupid IE10+ bug requires defining the height property for this to work
 	 * the way it is intended; without doing that this'll break horribly under
 	 * IE10 and IE11.
 	 * @see https://phabricator.wikimedia.org/T173769
 	 */
-	.flex-display;
-	position: fixed;
-	z-index: 100;
-	top: 0;
+	display: flex;
 	width: 100%;
 	height: @fixed-header-height;
 	min-height: @fixed-header-height;
@@ -45,7 +45,7 @@ div.mw-notification-area {
 }
 
 #mw-header {
-	.flex-display;
+	display: flex;
 	height: inherit;
 	flex-grow: 1;
 	align-items: center;
@@ -78,14 +78,14 @@ div.mw-notification-area {
 }
 
 #header-center {
-	.flex-display;
+	display: flex;
 	height: inherit;
 	flex-grow: 1;
 	align-items: center;
 }
 
 #p-logo-text {
-	.flex-display;
+	display: flex;
 	justify-content: center;
 }
 
@@ -138,7 +138,7 @@ div.mw-notification-area {
 }
 
 #user-tools {
-	.flex-display;
+	display: flex;
 	width: @column-right-size;
 	flex-direction: row-reverse;
 	align-items: center;
@@ -186,7 +186,6 @@ div.mw-notification-area {
 
 	h2 {
 		margin: 0;
-		cursor: pointer;
 
 		span {
 			display: none;
@@ -384,6 +383,7 @@ div.mw-notification-area {
 	h3 {
 		.dropdown-header();
 		.dropdown-header-after();
+		display: flex;
 		height: 36px;
 		align-content: center;
 		align-items: center;
@@ -401,7 +401,6 @@ div.mw-notification-area {
 		letter-spacing: 0.5px;
 		text-align: right;
 		text-indent: 4px;
-		.flex-display;
 		.ca-icon-material();
 
 		&:before {
@@ -552,7 +551,7 @@ div.mw-notification-area {
 #mw-site-navigation .sidebar-chunk li a,
 #mw-related-navigation .sidebar-chunk li a,
 #p-variants-desktop .dropdown li a {
-	.flex-display;
+	display: flex;
 	width: 100%;
 	height: 38px;
 	align-items: center;
@@ -565,7 +564,7 @@ div.mw-notification-area {
 }
 
 #personal .dropdown li a {
-	.flex-display;
+	display: flex;
 	width: 100%;
 	height: 38px;
 	align-items: center;
@@ -716,7 +715,7 @@ div.mw-notification-area {
 }
 
 .header-links-ul {
-	.flex-display;
+	display: flex;
 	height: inherit;
 	align-items: center;
 	margin: 0;
@@ -728,7 +727,7 @@ div.mw-notification-area {
 }
 
 .header-links-a {
-	.flex-display;
+	display: flex;
 	height: 100%;
 	align-items: center;
 	justify-content: center;
@@ -740,31 +739,6 @@ div.mw-notification-area {
 	&:hover {
 		color: var( --color-primary ) !important;
 	}
-}
-
-.preferences-md-icon( @icon: '' ) {
-	display: inline-block;
-	width: 24px;
-	height: 24px;
-	margin-left: 3px;
-	background-position: center;
-	color: black;
-	content: '@{icon}';
-	direction: ltr;
-	font-family: 'Material Icons';
-	font-feature-settings: 'liga';
-	font-size: 24px;  /* Preferred icon size */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-style: normal;
-	font-weight: normal;
-	letter-spacing: normal;
-	opacity: 0.51;
-	text-rendering: optimizeLegibility;
-	text-transform: none;
-	user-select: none;
-	white-space: nowrap;
-	word-wrap: normal;
 }
 
 /* 最近更改页面 */
@@ -815,38 +789,16 @@ div.mw-notification-area {
 		/* &:active {
 			transform: scale(0.95)
 		} */
-	}
 
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 1 ):before {
-		.preferences-md-icon( 'person' );
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 2 ):before {
-		.preferences-md-icon( 'display_settings' );
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 3 ):before {
-		.preferences-md-icon( 'edit' );
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 4 ):before {
-		.preferences-md-icon( 'history' );
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 5 ):before {
-		.preferences-md-icon( 'star' );
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 6 ):before {
-		.preferences-md-icon( 'search' );
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 7 ):before {
-		.preferences-md-icon( 'notifications' );
-	}
-
-	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:nth-child( 8 ):before {
-		.preferences-md-icon( 'widgets' );
+		&:before {
+			.material-design-icons();
+			width: 24px;
+			height: 24px;
+			margin-left: 3px;
+			color: black;
+			font-size: 24px;
+			opacity: 0.51;
+		}
 	}
 
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget:hover {
@@ -874,11 +826,6 @@ div.mw-notification-area {
 
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
 		background-color: var( --background-color-quiet--hover );
-
-		&:before {
-			color: var( --color-primary );
-			opacity: 1;
-		}
 	}
 
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label {

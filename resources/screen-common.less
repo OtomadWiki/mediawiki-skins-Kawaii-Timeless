@@ -106,7 +106,7 @@ body {
 	text-align: center;
 
 	a {
-		.flex-display;
+		display: flex;
 		align-items: center;
 		padding: 0.1em 1em 0.2em;
 		color: @text;
@@ -139,8 +139,8 @@ body {
 }
 
 #simpleSearch {
-	.flex-display;
 	position: relative;
+	display: flex;
 	overflow: hidden;
 	border: solid 1px transparent;
 	border-radius: var( --border-radius--medium );
@@ -168,11 +168,10 @@ body {
 	background: transparent;
 	box-shadow: none;
 	font-family: inherit;
-	opacity: 80%;
 }
 
 #header-search-button {
-	.flex-display;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	.gray-hover;
@@ -306,10 +305,6 @@ body {
 	border-radius: var( --border-radius--small );
 	transform: translateX( 0 );
 	transition: background cubic-bezier( 0.22, 0.58, 0.12, 0.98 ) 0.4s;
-
-	&.new a:visited {
-		color: @tools-color;
-	}
 
 	&.selected {
 		border-radius: 0;
@@ -1829,6 +1824,11 @@ td.mw-enhanced-rc,
 
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
 		background-color: transparent;
+
+		&:before {
+			color: var( --color-primary );
+			opacity: 1;
+		}
 	}
 
 	#mw-page-header-links {
@@ -1856,8 +1856,40 @@ td.mw-enhanced-rc,
 	.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget {
 		display: flex;
 		min-height: 40px;
-		align-items: flex-end;
+		align-items: center;
 		border-radius: var( --border-radius--small );
+
+		&:nth-child( 1 ):before {
+			content: 'person';
+		}
+
+		&:nth-child( 2 ):before {
+			content: 'display_settings';
+		}
+
+		&:nth-child( 3 ):before {
+			content: 'edit';
+		}
+
+		&:nth-child( 4 ):before {
+			content: 'history';
+		}
+
+		&:nth-child( 5 ):before {
+			content: 'star';
+		}
+
+		&:nth-child( 6 ):before {
+			content: 'search';
+		}
+
+		&:nth-child( 7 ):before {
+			content: 'notifications';
+		}
+
+		&:nth-child( 8 ):before {
+			content: 'widgets';
+		}
 	}
 
 	.oo-ui-tabSelectWidget-framed {
@@ -2080,7 +2112,7 @@ input#wpUploadFile {
 /** Header */
 
 .header-right-icons {
-	.flex-display;
+	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
@@ -2089,14 +2121,14 @@ input#wpUploadFile {
 
 #mw-wrapper #personal-extra {
 	ul {
-		.flex-display;
+		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
 		margin: 0;
 
 		li {
-			.flex-display;
+			display: flex;
 			align-items: center;
 			justify-content: center;
 			padding: 0;
@@ -2104,7 +2136,7 @@ input#wpUploadFile {
 			margin: 0;
 
 			a {
-				.flex-display;
+				display: flex;
 				width: 36px;
 				height: 36px;
 				align-items: center;

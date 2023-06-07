@@ -12,8 +12,6 @@
 @import '../../../resources/mixins.less';
 
 .mw-echo-ui-notificationBadgeButtonPopupWidget-popup {
-	top: unset !important;
-	bottom: var( --header-size ) !important;
 	margin: var( --space-xs );
 	box-shadow: var( --box-shadow-dialog );
 }
@@ -21,13 +19,6 @@
 @media ( min-width: @width-breakpoint-tablet ) {
 	.mw-echo-ui-notificationBadgeButtonPopupWidget-popup {
 		// .citizen-header-card-tablet( right );
-	}
-}
-
-@media ( min-width: @width-breakpoint-desktop ) {
-	.mw-echo-ui-notificationBadgeButtonPopupWidget-popup {
-		bottom: 0 !important;
-		left: var( --header-size ) !important;
 	}
 }
 

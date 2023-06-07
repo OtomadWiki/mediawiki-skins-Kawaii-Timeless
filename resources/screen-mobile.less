@@ -230,7 +230,10 @@
 /* Logo */
 
 #p-logo-text {
-	margin: 4px 0 4px 2.2em;
+	display: flex;
+	height: 42px;
+	align-items: center;
+	margin-left: 2.2em;
 	text-align: left;
 
 	a {
@@ -424,6 +427,7 @@ figure[ typeof~='mw:Audio/Thumb' ]:not( [ typeof~='mw:Error' ] ) {
 
 /* Fix Echo Position bug on Safari */
 #personal-extra {
+	position: absolute;
 	top: 12px;
 	right: 106px;
 	display: flex;

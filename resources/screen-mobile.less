@@ -278,9 +278,7 @@
 	}
 
 	span {
-		.ca-icon();
 		.ca-icon-only();
-		.ca-icon-material();
 		.ca-icon-only-mobile();
 		display: inline-block;
 		overflow: visible;
@@ -290,6 +288,8 @@
 
 #ca-more span {
 	//background-image: url( images/gear-grey.svg );
+	.ca-icon();
+	.ca-icon-material();
 
 	&:before {
 		content: 'settings';
@@ -298,6 +298,8 @@
 
 #ca-languages span {
 	//background-image: url( images/material-icons/translate_black_24dp.svg );
+	.ca-icon();
+	.ca-icon-material();
 
 	&:before {
 		content: 'translate';

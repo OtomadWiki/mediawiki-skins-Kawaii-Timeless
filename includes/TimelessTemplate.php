@@ -77,8 +77,8 @@ class TimelessTemplate extends BaseTemplate {
 		$html .= Html::rawElement( 'div' , [ 'class' => 'siteBanner' ],
 			Html::rawElement( 'div' , [ 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/BG-2023032902.webp);' ]).
 			Html::rawElement( 'div' , [ 'class' => 'bannerItems' ],
-				Html::rawElement( 'a', [ 'href' => '/', 'name' => 'OtomadWiki 春' ],
-					Html::rawElement( 'img' , [ 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-Spring.svg', 'style' => 'filter: drop-shadow(0 4px 5px #F06E8E80);', 'title' => 'OtomadWiki 春' ]),
+				Html::rawElement( 'a', [ 'href' => '/', 'name' => 'OtomadWiki 夏' ],
+					Html::rawElement( 'img' , [ 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-SummerB2.svg', 'style' => 'filter: drop-shadow(0 4px 5px #779dff80);', 'title' => 'OtomadWiki 夏' ]),
 				),
 			).
 		 '');

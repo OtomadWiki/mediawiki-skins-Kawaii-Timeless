@@ -878,3 +878,23 @@ div.mw-notification-area {
 #pt-uls .uls-trigger {
 	padding-top: unset !important;
 }
+
+/* 可视化编辑器 */
+#mw-wrapper {
+	.ve-ui-toolbar.ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
+		top: 55px;
+		z-index: 99;
+		border-radius: 0 0 6px 6px;
+		backdrop-filter: blur(12px);
+		background: rgba( 255, 255, 255, 0.7 );
+		box-shadow: 0 0 20px 0 rgba(193,159,168,0.4);
+
+		.ve-ui-toolbar-saveButton {
+			border-radius: 0 0 6px 0;
+		}
+	}
+
+	.ve-ui-toolbar > .oo-ui-toolbar-bar {
+		background: transparent;
+	}
+}

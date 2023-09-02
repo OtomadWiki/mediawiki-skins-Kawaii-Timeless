@@ -2355,8 +2355,18 @@ div > .flow-menu ul li.flow-menu-section:not( :first-of-type ) {
 	}
 }
 
-/* 可视化编辑器 */
+/* 编辑器 */
 #mw-wrapper {
+	.ve-ui-toolbar.ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
+		box-shadow: 0 0 20px 0 rgba(193,159,168,0.4);
+		backdrop-filter: blur(12px);
+		background: rgba( 255, 255, 255, 0.7 );
+	}
+
+	.ve-ui-toolbar > .oo-ui-toolbar-bar {
+		background: transparent;
+	}
+
 	.ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
 		border: 0;
 	}

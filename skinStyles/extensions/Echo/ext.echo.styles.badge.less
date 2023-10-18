@@ -19,15 +19,15 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: var( --header-icon-size );
-		opacity: var( --opacity-icon-base );
+		opacity: var( --opacity-icon-base-active );
 
-		&:hover {
-			opacity: var( --opacity-icon-base--hover );
-		}
+		// &:hover {
+		// 	opacity: var( --opacity-icon-base--hover );
+		// }
 
-		&:active {
-			opacity: var( --opacity-icon-base--active );
-		}
+		// &:active {
+		// 	opacity: var( --opacity-icon-base--active );
+		// }
 
 		&:focus {
 			box-shadow: 0 0 0 1px #fff, 0 0 0 3px var( --color-primary );
@@ -39,11 +39,17 @@
 		}
 
 		&::after {
+			box-sizing: border-box;
 			top: 0;
 			border-color: var( --color-destructive );
 			border-radius: var( --border-radius--pill );
 			background-color: var( --color-destructive );
 			font-size: 0.65rem;
+			height: 16px;
+			min-width: 16px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 
 		&-dimmed {
@@ -53,13 +59,13 @@
 		&.mw-echo-notifications-badge-all-read {
 			opacity: var( --opacity-icon-base );
 
-			&:hover {
-				opacity: var( --opacity-icon-base--hover );
-			}
+			// &:hover {
+			// 	opacity: var( --opacity-icon-base--hover );
+			// }
 
-			&:active {
-				opacity: var( --opacity-icon-base--active );
-			}
+			// &:active {
+			// 	opacity: var( --opacity-icon-base--active );
+			// }
 		}
 	}
 
@@ -81,13 +87,13 @@
 	z-index: 1; // fix background clipping
 	border-radius: var( --border-radius--small );
 
-	&:hover {
-		background-color: var( --background-color-quiet--hover );
-	}
+	// &:hover {
+	// 	background-color: var( --background-color-quiet--hover );
+	// }
 
-	&:active {
-		background-color: var( --background-color-quiet--active );
-	}
+	// &:active {
+	// 	background-color: var( --background-color-quiet--active );
+	// }
 }
 
 // Dark mode icon

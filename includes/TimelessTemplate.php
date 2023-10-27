@@ -75,7 +75,7 @@ class TimelessTemplate extends BaseTemplate {
 
 		//add banner -aira@21.11.15
 		$html .= Html::rawElement( 'div' , [ 'class' => 'siteBanner' ],
-			Html::rawElement( 'div' , [ 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/BG-2023032902.webp);' ]).
+			Html::rawElement( 'div' , [ 'class' => 'topHeadingImage', 'style' => 'background-image: url(/kawaii/banner/BG-2023102002.webp);' ]).
 			Html::rawElement( 'div' , [ 'class' => 'bannerItems' ],
 				Html::rawElement( 'a', [ 'href' => '/', 'name' => 'OtomadWiki 秋' ],
 					Html::rawElement( 'img' , [ 'class' => 'topHeadingLogo', 'src' => '/kawaii/SeasonLogo-Autumn.svg', 'style' => 'filter: drop-shadow(0 4px 5px #ff9b7980);', 'title' => 'OtomadWiki 秋' ]),

@@ -144,7 +144,7 @@
 
 .nav-block() {
 	overflow: hidden;
-	padding: 1.9em 1.2em 0;
+	padding: 16px;
 	border-radius: var( --border-radius--medium );
 	margin: 1em 0;
 	background: @base100;
@@ -158,6 +158,7 @@
 		padding: 0;
 		margin: 0;
 		list-style: none;
+		flex-grow: 1;
 	}
 
 	h3 {
@@ -166,10 +167,6 @@
 		margin: 0.25em 0.3em 0.75em 0.3em;
 		font-size: 1.2em;
 		font-weight: normal;
-	}
-
-	.mw-portlet-body {
-		margin-bottom: 2em;
 	}
 
 	li {
@@ -226,13 +223,14 @@
 	position: absolute;
 	z-index: 3;
 	top: 2.95em;
-	min-width: 9.153em;
+	min-width: 11rem;
 	height: 0;
-	padding: 0 1.2em 0;
+	padding: 0 16px 0;
 	margin: 0;
 	box-shadow: 0 15px 20px rgba( 193, 159, 168, 0.4 );
 	opacity: 100;
 	transition: all 0.5s cubic-bezier( 0.16, 1, 0.3, 1 );
+	box-sizing: border-box;
 	@{direction}: -1em;
 }
 

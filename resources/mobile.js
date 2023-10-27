@@ -8,29 +8,29 @@ $( function () {
 	// Open the various menus
 	$( '#user-tools h2' ).on( 'click', function () {
 		if ( $( window ).width() < 851 ) {
-			$( '#personal-inner, #menus-cover' ).fadeToggle( toggleTime );
+			$( '#personal-inner, #menus-cover' ).fadeToggle( toggleTime ).css('display', 'flex');
 		}
 	} );
 	$( '#site-navigation h2' ).on( 'click', function () {
 		if ( $( window ).width() < 851 ) {
-			$( '#site-navigation .sidebar-inner, #menus-cover' ).fadeToggle( toggleTime );
+			$( '#site-navigation .sidebar-inner, #menus-cover' ).fadeToggle( toggleTime ).css('display', 'flex');
 		}
 	} );
 	$( '#site-tools h2' ).on( 'click', function () {
 		if ( $( window ).width() < 851 ) {
-			$( '#site-tools .sidebar-inner, #menus-cover' ).fadeToggle( toggleTime );
+			$( '#site-tools .sidebar-inner, #menus-cover' ).fadeToggle( toggleTime ).css('display', 'flex');
 		}
 	} );
 	$( '#ca-more' ).on( 'click', function () {
 		$( '#page-tools .sidebar-inner' ).css( 'top', $( '#ca-more' ).offset().top + 25 );
 		if ( $( window ).width() < 851 ) {
-			$( '#page-tools .sidebar-inner, #menus-cover' ).fadeToggle( toggleTime );
+			$( '#page-tools .sidebar-inner, #menus-cover' ).fadeToggle( toggleTime ).css('display', 'flex');
 		}
 	} );
 	$( '#ca-languages' ).on( 'click', function () {
 		$( '#other-languages .sidebar-inner' ).css( 'top', $( '#ca-languages' ).offset().top + 25 );
 		if ( $( window ).width() < 851 ) {
-			$( '#other-languages .sidebar-inner, #menus-cover' ).fadeToggle( toggleTime );
+			$( '#other-languages .sidebar-inner, #menus-cover' ).fadeToggle( toggleTime ).css('display', 'flex');
 		}
 	} );
 

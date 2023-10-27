@@ -10,7 +10,7 @@
 // This also requires !importants where they hover and stuff
 .dropdown,
 .sidebar-inner {
-	display: block !important;
+	display: flex !important;
 }
 
 .ts-inner {
@@ -173,11 +173,15 @@ div.mw-notification-area {
 		// .dropdown-pokey();
 		.dropdown-menu();
 		z-index: -1;
-		display: block !important;
-		width: 12em;
+		display: flex !important;
+		width: 12rem;
 		top: 46px;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
+
+		#p-personal {
+			flex-grow: 1;
+		}
 	}
 
 	.pokey {
@@ -291,7 +295,7 @@ div.mw-notification-area {
 .client-nojs #personal:hover {
 	.pokey,
 	.dropdown {
-		display: block !important;
+		display: flex !important;
 	}
 }
 
@@ -299,7 +303,7 @@ div.mw-notification-area {
 	.pokey,
 	.dropdown,
 	.sidebar-inner {
-		display: block !important;
+		display: flex !important;
 	}
 }
 
@@ -420,7 +424,7 @@ div.mw-notification-area {
 		// .dropdown-pokey();
 		// Override the mobile thing
 		top: 2.25em !important;
-		display: block !important;
+		display: flex !important;
 		height: 0;
 		margin-right: 2px;
 		background: @background;
@@ -434,7 +438,7 @@ div.mw-notification-area {
 }
 
 .client-nojs #p-variants-desktop:hover .dropdown {
-	display: block !important;
+	display: flex !important;
 }
 
 .mw-wiki-logo {
@@ -485,9 +489,10 @@ div.mw-notification-area {
 
 #mw-wrapper #personal .dropdown h3 {
 	border-bottom: none;
-	margin: 1.7em 0 0.3em 0;
+	margin: 36px 0 8px 0;
 	text-align: center;
 	transition: all 0.7s cubic-bezier( 0.16, 1, 0.3, 1 );
+	height: 20px;
 }
 
 /* Dropdown Animation */
@@ -561,7 +566,7 @@ div.mw-notification-area {
 }
 
 #mw-wrapper #personal .dropdown {
-	right: -6em;
+	right: -5rem;
 	pointer-events: none;
 }
 
@@ -592,8 +597,8 @@ div.mw-notification-area {
 
 //顶栏Dropdown
 #mw-wrapper #user-tools .dropdown-active .dropdown {
-	height: 344px;
-	padding: 2em 1.2em 0;
+	height: 362px;
+	padding: 16px;
 	opacity: 100;
 	pointer-events: unset;
 }
@@ -601,8 +606,8 @@ div.mw-notification-area {
 //语言变种Dropdown
 #mw-wrapper #mw-page-header-links .dropdown-active .dropdown {
 	z-index: 101;
-	height: 368px;
-	padding: 1.9em 1.2em 0;
+	height: 374px;
+	padding: 16px;
 	opacity: 100;
 }
 

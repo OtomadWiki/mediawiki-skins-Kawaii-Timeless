@@ -1290,10 +1290,10 @@ body :not( :checked ) > .toctogglespan:after {
 }
 
 .client-js .mw-changeslist .content-table-wrapper {
-	border-bottom: 1px #00000012 solid;
+	border-bottom: 1px var(--border-color-base) solid;
 
 	&:nth-child( 1 ) {
-		border-top: 1px #00000012 solid;
+		border-top: 1px var(--border-color-base) solid;
 	}
 }
 
@@ -1502,6 +1502,10 @@ table.mw-made-collapsible.mw-collapsed tr:not(:first-child) {
 }
 
 .sidebar-inner {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
 	li a {
 		display: flex;
 		align-items: center;
@@ -1629,7 +1633,7 @@ table.mw-made-collapsible.mw-collapsed tr:not(:first-child) {
 /* History Page */
 #pagehistory li {
 	padding: 8px;
-	border-bottom: 1px #00000012 solid;
+	border-bottom: 1px var(--border-color-base) solid;
 	margin-bottom: 0;
 }
 

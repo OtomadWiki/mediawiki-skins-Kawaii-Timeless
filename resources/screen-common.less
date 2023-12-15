@@ -45,7 +45,7 @@ body {
 }
 
 #mw-content-wrapper {
-	margin-top: 0.95em;
+	// margin-top: 0.95em;
 	animation: slide-in-parent cubic-bezier( 0.1, 0.9, 0.2, 1 ) 0.6s 0.3s backwards;
 	box-shadow: 0 4px 7px 1px rgba( 193, 159, 168, 0.2 );
 	/* z-index: 1; */
@@ -92,7 +92,6 @@ body {
 }
 
 #p-logo {
-	margin: auto;
 	text-align: center;
 }
 
@@ -2379,3 +2378,28 @@ div > .flow-menu ul li.flow-menu-section:not( :first-of-type ) {
 	}
 }
 
+
+/* 展开与折叠 */
+#mw-wrapper {
+	.mw-collapsible-toggle-default {
+		&:before {
+			content: 'expand_more';
+			.material-design-icons();
+			transform: scale(1.5);
+			transition: transform 0.4s cubic-bezier(0.22,0.58,0.12,0.98);
+		}
+
+		&:after {
+			content: none;
+			display: none;
+		}
+
+		a.mw-collapsible-text {
+			display: none;
+		}
+
+		&.mw-collapsible-toggle-expanded::before {
+			transform: scale(1.5) rotate(180deg);
+		}
+	}
+}

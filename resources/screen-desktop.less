@@ -16,7 +16,7 @@
 .ts-inner {
 	// max-width: @content-width;
 	box-sizing: border-box;
-	padding: 0 1em;
+	padding: 0 1rem;
 	margin: auto;
 }
 
@@ -51,7 +51,7 @@ div.mw-notification-area {
 	align-items: center;
 }
 
-#kawaiiHeaderBackground {
+.kawaii-header-background {
 	position: fixed;
 	z-index: -2;
 	top: 0;
@@ -59,12 +59,12 @@ div.mw-notification-area {
 	// height: 0;
 	height: @fixed-header-height;
 	box-shadow: 0 0 24px rgba( 193, 159, 168, 0.5 );
-	transition: box-shadow cubic-bezier( 0.16, 1, 0.3, 1 ) 300ms, height cubic-bezier( 0.16, 1, 0.3, 1 ) 300ms;
+	transition: box-shadow cubic-bezier( 0.16, 1, 0.3, 1 ) 600ms, height cubic-bezier( 0.16, 1, 0.3, 1 ) 600ms, transform cubic-bezier( 0.16, 1, 0.3, 1 ) 600ms;
 	.backdropfx();
 }
 
 //Acrylic
-#kawaiiHeaderBackground:before,
+#kawaii-header-background:before,
 #personal .dropdown:before {
 	position: absolute;
 	top: 0;
@@ -103,7 +103,7 @@ div.mw-notification-area {
 	height: 36px;
 	border: 0;
 	border-radius: var( --border-radius--small );
-	margin: 0 1em 0 auto;
+	margin: 0 1rem 0 auto;
 
 	#header-search-button {
 		width: 36px;
@@ -113,7 +113,7 @@ div.mw-notification-area {
 
 .suggestions {
 	.backdropfx();
-	top: 55px !important;
+	top: @fixed-header-height !important;
 	margin: 0 !important;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
@@ -252,7 +252,6 @@ div.mw-notification-area {
 	width: 36px;
 	height: 36px;
 	border-radius: 50%;
-	margin-top: 1px;
 	background-color: rgba( 128, 128, 128, 0.1 );
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -443,7 +442,6 @@ div.mw-notification-area {
 
 .mw-wiki-logo {
 	display: block;
-	margin: 0.75em auto 0;
 
 	&.fallback {
 		width: 100%;
@@ -483,8 +481,8 @@ div.mw-notification-area {
 }
 
 #mw-content-container {
-	padding-bottom: 1em;
-	margin-top: 0;
+	padding-bottom: 1rem;
+	margin-top: @fixed-header-height;
 }
 
 #mw-wrapper #personal .dropdown h3 {
@@ -887,7 +885,7 @@ div.mw-notification-area {
 /* 编辑器 */
 #mw-wrapper {
 	.ve-ui-toolbar.ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
-		top: 55px;
+		top: @fixed-header-height;
 		z-index: 99;
 		border-radius: 0 0 6px 6px;
 
@@ -897,6 +895,6 @@ div.mw-notification-area {
 	}
 
 	.wikiEditor-ui .wikiEditor-ui-top {
-		top: 55px;
+		top: @fixed-header-height;
 	}
 }

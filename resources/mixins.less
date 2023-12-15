@@ -146,7 +146,6 @@
 	overflow: hidden;
 	padding: 16px;
 	border-radius: var( --border-radius--medium );
-	margin: 1em 0;
 	background: @base100;
 	box-shadow: 0 4px 7px 1px rgba( 193, 159, 168, 0.2 );
 	font-size: 0.95em;
@@ -175,9 +174,16 @@
 	}
 }
 
+.column() {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
 .column-right() {
+	.column();
 	box-sizing: border-box;
-	padding-left: 1em;
+	padding-left: 1rem;
 
 	.sidebar-chunk {
 		.nav-block();
@@ -185,8 +191,9 @@
 }
 
 .column-left() {
+	.column();
 	box-sizing: border-box;
-	padding-right: 1em;
+	padding-right: 1rem;
 
 	.sidebar-chunk {
 		.nav-block();

@@ -38,7 +38,7 @@
 .topHeadingLogo {
 	position: relative;
 	width: 326px;
-	margin-top: 55px;
+	margin-top: @fixed-header-height;
 	margin-left: 44px;
 	//animation: scale-in 0.7s cubic-bezier(0.16,1,0.3,1);
 }
@@ -69,11 +69,11 @@
 .bannerRightBlock {
 	position: relative;
 	display: flex;
-	height: ~'calc(10vw - 55px)';
+	height: ~'calc(10vw - @fixed-header-height)';
 	min-height: 100px;
 	max-height: 185px;
 	align-items: center;
-	margin-top: 55px;
+	margin-top: @fixed-header-height;
 	margin-right: 360px;
 }
 
@@ -101,5 +101,15 @@
 
 	to {
 		transform: 0 -20px;
+	}
+}
+
+.kawaii-header-background {
+	transform: translateY(-100%);
+	box-shadow: none;
+
+	.scrolled & {
+		transform: none;
+		box-shadow: 0 0 24px rgba( 193, 159, 168, 0.5 );
 	}
 }

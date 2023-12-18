@@ -9,7 +9,8 @@
 
 #mw-site-navigation {
 	.column-left();
-	.flex(0, 0, @column-left-size, 1);
+	width: @column-left-size;
+	order: 1;
 }
 
 #mw-content-wrapper {
@@ -21,7 +22,8 @@
 
 #mw-related-navigation {
 	.column-right();
-	.flex(0, 0, @column-right-size, 3);
+	width: @column-right-size;
+	order: 3;
 }
 
 // Redundant content category list

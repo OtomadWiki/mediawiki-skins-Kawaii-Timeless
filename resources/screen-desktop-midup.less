@@ -113,3 +113,28 @@
 		box-shadow: 0 0 24px rgba( 193, 159, 168, 0.5 );
 	}
 }
+
+#mw-header-container {
+	height: 68px;
+	transition: height 0.2s;
+
+	.scrolled & {
+		height: @fixed-header-height;
+	}
+}
+
+#mw-content-container {
+	margin-top: 68px;
+}
+
+#personal {
+	.dropdown {
+		border-top-left-radius: var(--border-radius--medium);
+		border-top-right-radius: var(--border-radius--medium);
+
+		.scrolled & {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+	}
+}

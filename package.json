@@ -2,17 +2,17 @@
 	"name": "Timeless",
 	"private": true,
 	"scripts": {
-		"minify-svg": "svgo --config=.svgo.config.js --quiet --recursive --folder resources/images",
+		"minify": "npm -s run minify:svg",
+		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder resources/images",
 		"test": "grunt test"
 	},
 	"devDependencies": {
-		"eslint-config-wikimedia": "0.20.0",
-		"grunt": "1.5.3",
-		"grunt-banana-checker": "0.9.0",
-		"grunt-eslint": "23.0.0",
-		"grunt-stylelint": "0.16.0",
-		"stylelint-config-wikimedia": "0.11.1",
-		"stylelint-config-idiomatic-order": "9.0.0",
-		"svgo": "2.8.0"
+		"eslint-config-wikimedia": "0.28.2",
+		"grunt": "1.6.1",
+		"grunt-banana-checker": "0.13.0",
+		"grunt-eslint": "24.3.0",
+		"grunt-stylelint": "0.20.1",
+		"stylelint-config-wikimedia": "0.17.2",
+		"svgo": "3.2.0"
 	}
 }

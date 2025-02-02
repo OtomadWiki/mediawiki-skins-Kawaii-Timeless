@@ -5,8 +5,6 @@
  * Remove this file if that ever gets fixed?
  */
 
-/* stylelint-disable selector-class-pattern */
-
 /* GENERAL CLASSES FOR DIRECTIONALITY SUPPORT */
 
 /**
@@ -137,7 +135,7 @@ span.history-deleted {
 
 .unpatrolled {
 	font-weight: bold;
-	color: #d33;
+	color: #d73333;
 }
 
 div.patrollink {
@@ -208,7 +206,7 @@ td.mw-submit {
 	display: inline;
 	margin: 0;
 	padding: 0;
-	list-style: none none;
+	list-style: none;
 }
 
 .catlinks li {
@@ -303,20 +301,6 @@ a.new {
 	color: #ba0000;
 }
 
-/* Plainlinks - this can be used to switch
- * off special external link styling */
-.plainlinks a.external {
-	background: none !important; /* stylelint-disable-line declaration-no-important */
-	padding: 0 !important; /* stylelint-disable-line declaration-no-important */
-}
-
-/* External URLs should always be treated as LTR (T6330) */
-/* @noflip */ .rtl a.external.free,
-.rtl a.external.autonumber {
-	direction: ltr;
-	unicode-bidi: embed;
-}
-
 /**
  * wikitable class for skinning normal tables
  * keep in sync with commonPrint.css
@@ -352,10 +336,6 @@ a.new {
 .warning,
 .success {
 	font-size: larger;
-}
-
-.error {
-	color: #d33;
 }
 
 .warning {

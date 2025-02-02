@@ -14,7 +14,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.39.0"
+		"MediaWiki": ">= 1.43"
 	},
 	"ValidSkinNames": {
 		"timeless": {
@@ -23,6 +23,7 @@
 			"args": [
 				{
 					"name": "timeless",
+					"supportsMwHeading": true,
 					"bodyOnly": true,
 					"template": "MediaWiki\\Skin\\Timeless\\TimelessTemplate",
 					"responsive": true,
@@ -57,26 +58,18 @@
 	},
 	"ResourceModules": {
 		"skins.timeless": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"class": "MediaWiki\\Skin\\Timeless\\TimelessVariablesModule",
 			"features": {
 				"normalize": false,
-				"logo": true,
+				"logo": false,
 				"content-media": false,
 				"content-links": true,
 				"content-links-external": true,
-				"content-parser-output": false,
 				"content-tables": false,
 				"interface": false,
 				"interface-category": false,
-				"interface-message-box": true,
 				"elements": false,
-				"legacy": false,
 				"i18n-ordered-lists": true,
-				"i18n-all-lists-margins": true,
 				"i18n-headings": true,
 				"toc": true
 			},
@@ -137,10 +130,6 @@
 			"@NOTE": "Remember to also update variables.less if you change the width cutoffs here. screen-misc.less and mobile.js may also need updating."
 		},
 		"skins.timeless.js": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"resources/main.js",
 				"resources/mobile.js"
@@ -376,7 +365,17 @@
 			"+oojs-ui-widgets": "skinStyles/ooui/oojs-ui-widgets.less",
 			"+oojs-ui-windows": "skinStyles/ooui/oojs-ui-windows.less",
 			"+jquery.ui": "skinStyles/jquery.ui/smoothness/jquery.ui.theme.less",
-			"+@wikimedia/codex": "skinStyles/codex/codex.styles.less"
+			"+@wikimedia/codex": "skinStyles/codex/codex.styles.less",
+			"+mediawiki.page.ready": "resources/teleportTarget.less",
+			"+ext.eventLogging.jsonSchema.styles": "resources/extensions/EventLogging.jsonSchema.less",
+			"+ext.visualEditor.desktopArticleTarget.noscript": "resources/extensions/VisualEditor.article.less",
+			"+ext.visualEditor.mwwikitext": "resources/extensions/VisualEditor.mwwikitext.less",
+			"+ext.CodeMirror.visualEditor": "resources/extensions/VisualEditor.CodeMirror.less",
+			"+ext.CodeMirror.v6.visualEditor": "resources/extensions/VisualEditor.CodeMirror.less",
+			"+ext.MWOAuth.AuthorizeForm": "resources/extensions/MWOAuth.AuthorizeForm.less",
+			"+ext.wikiLove.icon": "resources/extensions/WikiLove.icon.less",
+			"+ext.proofreadpage.page.navigation": "resources/extensions/Proofreadpage.page.navigation.less",
+			"+ext.wikiEditor.styles": "resources/extensions/WikiEditor.less"
 		}
 	},
 	"AutoloadNamespaces": {

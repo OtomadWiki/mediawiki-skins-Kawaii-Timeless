@@ -36,6 +36,7 @@ div.mw-notification-area {
 	 * @see https://phabricator.wikimedia.org/T173769
 	 */
 	display: flex;
+	z-index: @z-index-fixed;
 	width: 100%;
 	height: @fixed-header-height;
 	min-height: @fixed-header-height;
@@ -156,7 +157,7 @@ div.mw-notification-area {
 #mw-header-nav-hack,
 #mw-header-hack {
 	position: fixed;
-	z-index: 97;
+	z-index: @z-index-fixed - 3;
 	top: @fixed-header-height;
 	box-shadow: 0 3px 3px 2px rgba( 0, 0, 0, 0.075 ), 0 0 2px rgba( 0, 0, 0, 0.2 );
 }

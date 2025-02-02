@@ -1,25 +1,13 @@
 @import 'variables-content.less';
 
 figure[ typeof~='mw:File/Thumb' ],
-figure[ typeof~='mw:File/Frame' ],
-/* TODO: Remove "Image|Video|Audio" when version 2.4.0 of the content is no
- * longer supported
- */
-figure[ typeof~='mw:Image/Thumb' ],
-figure[ typeof~='mw:Video/Thumb' ],
-figure[ typeof~='mw:Audio/Thumb' ],
-figure[ typeof~='mw:Image/Frame' ],
-figure[ typeof~='mw:Video/Frame' ],
-figure[ typeof~='mw:Audio/Frame' ] {
+figure[ typeof~='mw:File/Frame' ] {
 	border: @border-thumbinner-print;
-	border-bottom: 0;  // No border to figcaption
+	border-bottom: 0; // No border to figcaption
 	background-color: @background-color-thumbinner-print;
 
-	> a:first-child,
-	> span:first-child {
-		> *:first-child:not( .mw-broken-media ) {
-			border: @border-thumbimage-print;
-		}
+	> :not( figcaption ) .mw-file-element {
+		border: @border-thumbimage-print;
 	}
 
 	> figcaption {
@@ -31,11 +19,6 @@ figure[ typeof~='mw:Audio/Frame' ] {
 	}
 }
 
-.mw-image-border {
-	> a:first-child,
-	> span:first-child {
-		> *:first-child:not( .mw-broken-media ) {
-			border: @border-thumbborder-print;
-		}
-	}
+.mw-image-border .mw-file-element {
+	border: @border-thumbborder-print;
 }

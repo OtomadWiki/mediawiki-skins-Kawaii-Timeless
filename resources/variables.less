@@ -1,5 +1,6 @@
-@import 'mediawiki.mixins';
-@import './themes/kawaii.less'; // default theme
+@import 'mediawiki.skin.variables.less';
+@import 'mediawiki.mixins.less';
+@import './themes/kawaii.less'; // kawaii theme
 // .import-themes(); // might be how we apply any selected theme(s); not implemented
 
 // Should really be part of the theme, but currently too much alignment/positioning
@@ -218,7 +219,7 @@
 @opacity-icon-base--active: 1;
 
 /* Z-Index */
-// @z-index-base: 0; - WMUI
+@z-index-base: 0;
 @z-index-page-header: 11;
 @z-index-site-header: 91;
 @z-index-overlay: 101; // WMUI

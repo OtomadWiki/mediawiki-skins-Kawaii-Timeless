@@ -101,28 +101,24 @@ body {
 
 #p-logo-text {
 	width: @column-left-size;
-	line-height: 1;
+	padding-right: 1em;
+	box-sizing: border-box;
 	text-align: center;
+	line-height: 1;
 
 	a {
 		display: flex;
+		height: 100%;
 		align-items: center;
-		padding: 0.1em 1em 0.2em;
+		justify-content: center;
 		color: @text;
 		font-family: @fonts-secondary;
 		font-size: 1.85em;
-		font-weight: bold;
 
 		/* 13+ character names */
 		&.long {
-			padding: 0 0.75em 0 0;
 			font-size: 1.5em;
 			line-height: 0.8;
-		}
-
-		/* images */
-		&.wordmark {
-			padding: 0 0.5em 0 0;
 		}
 	}
 }
@@ -646,6 +642,22 @@ div.magnify a {
 	}
 }
 
+/**
+ * Old-school "you have new messages" notification bar for when the Echo
+ * extension isn't installed
+ * Styles copied from /resources/src/mediawiki.skinning/interface.css@REL1_34
+ * @see https://phabricator.wikimedia.org/T294679
+ */
+.usermessage {
+	background-color: #ffce7b;
+	border: 1px solid #ffa500;
+	color: #000;
+	font-weight: bold;
+	margin: 2em 0 1em;
+	padding: 0.5em 1em;
+	vertical-align: middle;
+}
+
 /* pre and code styles copypasted from core
  * /resources/src/mediawiki.skinning/elements.css and modified a bit
  * @see https://phabricator.wikimedia.org/T177142
@@ -692,6 +704,7 @@ pre,
 }
 
 .mw-body {
+	.mw-heading,
 	h1,
 	h2,
 	h3,
@@ -728,34 +741,72 @@ pre,
 		font-weight: 500;
 	}
 
+	.mw-heading1,
 	h1 {
 		border-bottom: solid 3px @base70;
 		font-size: 2em;
 	}
 
+	.mw-heading2,
 	h2 {
 		border-bottom: solid 2px @base70;
 		font-size: 1.8em;
 	}
 
+	.mw-heading1,
+	h1,
+	.mw-heading2,
+	h2 {
+		// Introduce a "block formatting context" so that the border-bottom underline doesn't overlap
+		// thumbnails, infoboxes and other floated content.
+		// https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
+		//
+		// It also allows floated content inside the heading to not be affected by those other floats
+		// (e.g. [edit] links when floated by gadgets, or [subscribe] links in DiscussionTools T318872).
+		//
+		// Other skins commonly use 'overflow: hidden' for this, but in our case it causes text in
+		// languages with tall scripts to be cut off (T195822). 'display: flow-root' works in all
+		// browsers supported by MediaWiki except IE 11 (https://caniuse.com/?search=flow-root).
+		display: flow-root;
+	}
+
+	.mw-heading3,
 	h3 {
 		color: @title-pink;
 		font-size: 1.6em;
 	}
 
+	.mw-heading4,
 	h4 {
 		color: @title-pink;
 		font-size: 1.4em;
 	}
 
+	.mw-heading5,
 	h5 {
 		color: @title-pink;
 		font-size: 1.25em;
 	}
 
+	.mw-heading6,
 	h6 {
 		color: @title-pink;
 		font-size: 1.2em;
+	}
+
+	// Override the styles above for `hN` nested inside `.mw-heading`, as used on wikitext pages.
+	.mw-heading {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-size: inherit;
+			border-bottom: 0;
+			// Must be inline to allow `.mw-editsection` to be shown on the same line
+			display: inline;
+		}
 	}
 
 	dt {
@@ -774,38 +825,6 @@ pre,
 	.mw-changeslist-legend dd {
 		margin-bottom: 0;
 	}
-
-	/* overflow:hidden on the header itself breaks tall scripts, but we need to hide
-	 * overflow on the border itself in output for proper thumb handling. Too weird to
-	 * change this everywhere, so we'll just do it for parser output for now.
-	 */
-	.mw-parser-output {
-		h1,
-		h2 {
-			border-bottom: 0;
-
-			&:after {
-				display: block;
-				overflow: hidden;
-				border-bottom: solid 2px @base70;
-				content: '';
-			}
-		}
-
-		h1:after {
-			border-bottom-width: 3px;
-		}
-	}
-
-	// Keep images from overflowing
-	// WHY DID YOU GUYS DO THAT? WTF R U GUYS THINKING ABOUT?
-	/*
-	a > img,
-	.floatnone > img {
-		height: auto !important;
-		max-width: 100% !important;
-	}
-	*/
 }
 
 // Keep images from overflowing
@@ -853,10 +872,6 @@ p {
 ul {
 	padding: 0;
 	margin: 0.3em 0 0 1.6em;
-}
-
-/* body */ .mw-hide-empty-elt .mw-parser-output:not( .mw-show-empty-elt ) .mw-empty-elt {
-	display: none;
 }
 
 .center {
@@ -961,8 +976,8 @@ ul#filetoc {
 
 /* Remove brackets around the show/hide button of the TOC
 The selectors have a higher specifity than in core */
-body :not( :checked ) > .toctogglespan:before,
-body :not( :checked ) > .toctogglespan:after {
+body :not( :checked ) > .toctogglespan::before,
+body :not( :checked ) > .toctogglespan::after {
 	content: '';
 }
 

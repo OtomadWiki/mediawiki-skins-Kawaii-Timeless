@@ -1,3 +1,13 @@
+/** 滚动添加class 已禁用 */
+// window.addEventListener('scroll', function() {
+//     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+//     if (scrollTop >= 1) {
+//         document.body.classList.add("scrolled");
+//     } else {
+//         document.body.classList.remove("scrolled");
+//     }
+// });
+
 $( function () {
 	// sidebar-chunk only applies to desktop-small, but the toggles are hidden at
 	// other resolutions regardless and the css overrides any visible effects.
@@ -229,25 +239,3 @@ $("#p-banner, #ca-ve-edit a, #ca-edit a, #ca-viewsource a, #ca-history a, #ca-wa
 
 /** 修复搜索栏闪动 */
 $("#simpleSearch").removeClass("opacityhide");
-
-/** 滚动添加class */
-$(window).scroll(function () {
-	var scrollTop = $(document).scrollTop();
-	if (scrollTop >= 16) {
-		$("body").addClass("scrolled");
-		$(".header-links-li").addClass("mdui-ripple");
-	} else {
-		$("body").removeClass("scrolled");
-		$(".header-links-li").removeClass("mdui-ripple");
-	}
-});
-
-/*ART*/
-var kawaiiconsole = String("\n✦ KIRAKIRA DOUGA - Coming Soon! ✦\n _____   ______  _____   ___  __  ______  ____        __      __  ______   __  __   ______     \n/\\  __ \\/\\__  _\\/\\  __ \\ \\  \\_\\ \\/\\  _  \\/\\  _ \\     /\\ \\  __/\\ \\/\\__  _\\ /\\ \\/\\ \\ /\\__  _\\    \n\\ \\ \\/\\ \\/_/\\ \\/\\ \\ \\/\\ \\/\\      \\ \\ \\/\\ \\ \\ \\/\\ \\   \\ \\ \\/\\ \\ \\ \\/_/\\ \\/ \\ \\ \\/ / \\/_/\\ \\/    \n \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\__\\ \\ \\  __ \\ \\ \\ \\ \\   \\ \\ \\ \\ \\ \\ \\ \\ \\ \\  \\ \\   <    \\ \\ \\    \n  \\ \\ \\_\\ \\ \\ \\ \\ \\ \\ \\_\\ \\ \\ \\_/\\ \\ \\ \\/\\ \\ \\ \\_\\ \\   \\ \\ \\_\\ \\_\\ \\ \\_\\ \\__\\ \\ \\\\ \\   \\_\\ \\__ \n   \\ \\_____\\ \\ \\_\\ \\ \\_____\\ \\_\\\\ \\_\\ \\_\\ \\_\\ \\____/    \\ \\____/___/ /\\_____\\\\ \\_\\ \\_\\ /\\_____\\\n    \\/_____/  \\/_/  \\/_____/\\/_/ \\/_/\\/_/\\/_/\\/___/      \\/___//__/  \\/_____/ \\/_/\\/_/ \\/_____/\n\n       ✧ Otomad Wiki ✧\n        - Designed by Aira in Shanghai # KAWAII FOREVER #\n         - Kawaii Timeless ♥\n")
-
-console.log('%c%s', 'color: #f06e8e', kawaiiconsole);
-
-/** 卸载时在Console输出bye */
-window.addEventListener('beforeunload', function() {
-  console.log('%c%s', 'color: #f06e8e', 'Bye~');
-})

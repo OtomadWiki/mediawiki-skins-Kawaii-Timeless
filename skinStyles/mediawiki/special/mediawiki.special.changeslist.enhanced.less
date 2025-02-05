@@ -3,49 +3,29 @@
  * https://starcitizen.tools
 */
 
+@import '../../../resources/variables.less';
+
 /*!
  * Styling for Special:Watchlist and Special:RecentChanges when preference 'usenewrc'
  * a.k.a. Enhanced Recent Changes is enabled.
  */
- .mw-enhanced-rc {
-	/*
-	 * Allow the change to scroll if it overflowed the container
-	 * That happends a lot with page name without whitespace in narrow viewport
-	 */
-	table& {
-		display: block;
-		overflow-x: auto;
 
-		tr.mw-enhanced-rc {
-			td.mw-enhanced-rc,
-			td.mw-enhanced-rc-nested {
-				display: block;
-				margin-top: var( --space-xxs );
-			}
-		}
-	}
+table.mw-enhanced-rc {
+	padding: var( --space-sm ) 0;
+	margin: 0 !important;
+	font-size: 0.875rem;
+	transition: @transition-background;
 
-	td& {
-		font-family: var( --font-family-monospace );
-	}
-
-	&-time {
-		font-family: var( --font-family-monospace );
-	}
-
-	&-nested {
-		.mw-tag-markers {
-			margin: var( --space-xxs );
-		}
+	&:hover {
+		background-color: var( --background-color-quiet--hover );
 	}
 }
 
-/* Fix collapsible button alignment */
-.mw-enhancedchanges-arrow-space {
-	float: none !important;
-	width: 1rem;
-	height: 1rem;
-	padding-top: 0;
-	vertical-align: text-bottom;
-	background-position: left center !important;
+.mw-enhanced-rc-nested {
+	display: block;
+	margin-top: var( --space-xxs );
+
+	.mw-tag-markers {
+		margin: var( --space-xxs );
+	}
 }

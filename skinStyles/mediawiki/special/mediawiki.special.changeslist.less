@@ -5,7 +5,7 @@
  * Module: mediawiki.special.changeslist
  * Version: 1.39.0
  *
- * Date: 2022-10-20
+ * Date: 2023-05-29
 */
 
 @import '../../../resources/variables.less';
@@ -17,80 +17,107 @@
 		color: var( --color-success );
 	}
 
-	&-minus {
+	&-neg {
 		color: var( --color-destructive );
 	}
 
 	&-null {
-		color: var( --color-base--subtle );
+		color: var( --color-subtle );
 	}
 }
 
 .mw-changeslist {
-	.comment {
-		color: var( --color-base--subtle );
-	}
-
-	// Need additional parent to override
-	.mw-changeslist-legend {
-		padding: 0.6em; // Sync with rcfilter
-		border-color: transparent;
-		border-radius: var( --border-radius--small );
-		background-color: var( --color-surface-2 );
-		font-size: 0.8125rem;
-
-		// Citizen label styles
-		strong {
-			color: var( --color-base--subtle );
-			font-weight: var( --font-weight-normal );
-			letter-spacing: 0.05em;
-		}
-
-		@media ( max-width: @width-breakpoint-tablet ) {
-			margin: 0;
-			float: none;
-		}
-	}
-
-	.mw-tag-markers {
-		.mw-tag-marker {
-			color: var( --color-base--subtle );
-		}
-	}
-
 	h4 {
+		z-index: @z-index-above-content; // Needed to cover the timeline dots
 		padding: var( --space-sm ) 0;
-		border-bottom: 1px solid var( --border-color-base );
 		margin-bottom: 0;
-		color: var( --color-base--subtle );
-		font-size: 0.8125rem;
+		font-size: var( --font-size-x-small );
 		font-weight: var( --font-weight-normal );
+		color: var( --color-subtle );
 		letter-spacing: 0.05em;
 	}
 
 	&-line {
-		+ .mw-changeslist-line {
-			border-top: 1px solid var( --border-color-base ); // Add separator
+		/* Disable timeline dot for nested changeline */
+		.mw-changeslist-line::before {
+			content: none;
+		}
+
+		&-inner {
+			color: var( --color-subtle );
+		}
+
+		/* Add nested indent line */
+		> td:first-child {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 5px;
+				width: 2px;
+				content: '';
+				background: var( --border-color-base );
+			}
+		}
+	}
+
+	&-separator {
+		color: var( --color-subtle );
+	}
+}
+
+.cloptions {
+	padding: 0;
+	margin: 0;
+	border: 0;
+
+	> legend {
+		display: none; // Eh it is difficult to style legend
+	}
+
+	&:not( .oo-ui-widget ) {
+		padding: var( --space-md );
+		font-size: var( --font-size-small );
+		background: var( --color-surface-2 );
+		border-radius: var( --border-radius-medium );
+	}
+}
+
+.client-js {
+	.mw-recentchanges-toplinks {
+		padding-left: 0;
+	}
+
+	.mw-recentchanges-toplinks:not( .mw-recentchanges-toplinks-collapsed ) {
+		padding: 0; /* Shift padding to button only */
+		margin-bottom: 16px; /* Same margin between rcfilter and saved filter */
+		border-color: var( --border-color-base );
+		border-radius: var( --border-radius-base );
+
+		/* Extend button to full width */
+		.oo-ui-buttonElement-frameless.oo-ui-labelElement:first-child {
+			display: block;
+			background: var( --color-surface-2 );
+			border-top-left-radius: var( --border-radius-base );
+			border-top-right-radius: var( --border-radius-base );
+
+			.oo-ui-buttonElement-button {
+				display: block;
+			}
+
+			.oo-ui-indicatorElement-indicator {
+				right: 6px !important;
+			}
 		}
 	}
 }
 
-.rcoptions {
-	padding: 0;
-	border: 0;
-	margin: var( --space-xl ) 0;
-
-	legend {
-		width: 100%;
-		padding: var( --space-xs ) 0;
-		border-bottom: 1px solid var( --border-color-base );
-		margin-bottom: var( --space-xs );
-		font-size: 0.8125rem;
+.mw-recentchanges-toplinks {
+	.oo-ui-buttonElement-frameless.oo-ui-labelElement:first-child {
+		margin: 0;
 	}
-}
-
-.client-js .mw-recentchanges-toplinks:not( .mw-recentchanges-toplinks-collapsed ) {
-	border-color: var( --border-color-base );
 }
 
 /*
@@ -98,12 +125,78 @@
  * Sometimes wiki transclude those pages and these styles will break regular pages
  */
 .ns-special {
-	.mw-changeslist h4 {
-		.citizen-sticky-header( 0, false, false );
-	}
-
-	// Disable sticky header
-	#citizen-body-header-sticky-sentinel {
+	/* Disable sticky header due to performance issue on long RC */
+	#citizen-page-header-sticky-sentinel {
 		display: none;
 	}
+
+	.mw-changeslist h4 {
+		.mixin-citizen-sticky-header( false, false );
+	}
+}
+
+/*
+ * Make changelist looks like a timeline
+ * And also sync different history lists into the same styles
+ */
+.mw-changeslist,
+.mw-contributions-list {
+	position: relative;
+	font-size: var( --font-size-small );
+
+	/* Timeline line */
+	&::before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: ~'calc( var( --border-width-thick ) + 1px )';
+		width: var( --border-width-thick );
+		content: '';
+		background: var( --border-color-base );
+	}
+}
+
+.mw-changeslist ul,
+.mw-contributions-list {
+	margin: 0 !important;
+	list-style: none;
+}
+
+.mw-changeslist-line,
+.mw-contributions-list li {
+	padding: var( --space-sm ) var( --space-xs ) !important;
+	margin: 0 0 0 16px !important;
+	color: var( --color-subtle );
+	border-radius: var( --border-radius-base );
+
+	&:hover {
+		background-color: var( --background-color-button-quiet--hover );
+
+		&::before {
+			background-color: var( --color-emphasized );
+		}
+	}
+
+	/* Timeline dot */
+	&::before {
+		position: absolute;
+		left: 0;
+		display: block;
+		width: 8px;
+		height: 8px;
+		margin-top: 7px;
+		outline: 4px solid var( --color-surface-0 );
+		content: '';
+		background-color: var( --color-subtle );
+		border-radius: 100%;
+	}
+
+	.comment {
+		color: var( --color-base ); // Make comment more readable
+	}
+}
+
+.mw-pager-navigation-bar {
+	margin: var( --space-md ) 0;
+	color: var( --color-subtle );
 }

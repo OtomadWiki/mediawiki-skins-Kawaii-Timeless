@@ -5,26 +5,21 @@
  * Module: mediawiki.special.search.styles
  * Version: 1.39.0
  *
- * Date: 2022-10-20
+ * Date: 2023-06-20
 */
 
 @import '../../../resources/mixins.less';
 @import '../../../resources/variables.less';
 
 // Disable default sticky header
-#citizen-body-header-sticky-sentinel {
+#citizen-page-header-sticky-sentinel {
 	display: none;
 }
 
 #mw-search-top-table {
 	display: flex;
-	justify-content: space-between;
 	gap: var( --space-xl );
-
-	// Fix weird space between input field and button
-	.oo-ui-actionFieldLayout .oo-ui-textInputWidget {
-		max-width: none;
-	}
+	justify-content: space-between;
 
 	.oo-ui-widget {
 		font-size: 1rem; // HACK: Override the 14px hack we use for OOUI
@@ -32,15 +27,15 @@
 }
 
 .mw-search-profile-tabs {
-	border: 0;
-	border-bottom: 1px solid var( --border-color-base );
 	margin-top: var( --space-xxs );
 	background-color: transparent;
+	border: 0;
+	border-bottom: var( --border-width-base ) solid var( --border-color-base );
 }
 
 .search-types {
-	padding-left: 0;
 	float: none;
+	padding-left: 0;
 
 	ul {
 		display: flex;
@@ -50,40 +45,37 @@
 
 	a {
 		padding: var( --space-xs ) var( --space-sm );
-		border-bottom: 2px solid transparent;
 		font-weight: var( --font-weight-medium );
+		color: var( --color-emphasized );
+		border-bottom: var( --border-width-thick ) solid transparent;
 
-		&, &:visited {
-			color: var( --color-base--emphasized );
-		}
-
-		&:hover, &:hover:visited {
-			border-color: var( --color-primary--hover );
-			color: var( --color-primary--hover );
+		&:hover {
+			color: var( -color-primary--hover );
+			border-color: var( --color-progressive--hover );
 		}
 	}
 
 	.current a {
-		border-color: var( --color-primary );
-		color: var( --color-primary );
+		color: var( --color-progressive );
+		border-color: var( --color-progressive );
 	}
 }
 
 .results-info {
-	color: var( --color-base--subtle );
-	font-size: 0.875rem;
+	font-size: var( --font-size-small );
+	color: var( --color-subtle );
 	white-space: nowrap;
 }
 
 #mw-searchoptions {
+	background-color: var( --color-surface-1 );
 	border-color: transparent;
 	border-radius: 0;
-	background-color: var( --color-surface-1 );
 
 	h4 {
-		color: var( --color-base--subtle );
-		font-size: 0.875rem;
+		font-size: var( --font-size-small );
 		font-weight: var( --font-weight-normal );
+		color: var( --color-subtle );
 		letter-spacing: 0.05em;
 	}
 
@@ -106,9 +98,9 @@
 	// FIXME: re-enable when this is addressed in core
 	// padding: var( --space-sm ) var( --space-md );
 	// background: var( --color-surface-2 );
-	// border-radius: var( --border-radius--small );
+	// border-radius: var( --border-radius-base );
 	margin-top: 0 !important;
-	color: var( --color-base--emphasized );
+	color: var( --color-emphasized );
 }
 
 .mw-search-results {
@@ -118,31 +110,31 @@
 		padding: var( --space-md ) 0;
 
 		a {
-			font-size: var( --font-size-h3 );
+			font-size: var( --font-size-x-large );
 		}
 	}
 }
 
 .mw-search-result {
 	// padding: var( --space-md ) 0;
-	font-size: 0.875rem;
+	font-size: var( --font-size-small );
 
 	&-heading {
 		a {
-			// font-size: var( --font-size-h3 );
-			font-weight: var( --font-weight-semibold );
+			// font-size: var( --font-size-x-large );
+			font-weight: var( --font-weight-semi-bold );
 		}
 	}
 
 	&-data {
-		color: var( --color-base--subtle );
-		font-size: 0.875rem;
+		font-size: var( --font-size-small );
+		color: var( --color-subtle );
 	}
 }
 
 .searchmatch {
-	color: var( --color-base--emphasized );
-	font-weight: var( --font-weight-semibold );
+	font-weight: var( --font-weight-semi-bold );
+	color: var( --color-emphasized );
 
 	a & {
 		// If searchmatch is part of the link (usually title), use link color
@@ -153,12 +145,12 @@
 .searchresults {
 	h2 {
 		padding-bottom: var( --space-xs );
-		border-bottom: 1px solid var( --border-color-base );
 		margin-bottom: 0;
-		color: var( --color-base--subtle );
-		font-size: 0.875rem;
+		font-size: var( --font-size-small );
 		font-weight: var( --font-weight-normal );
+		color: var( --color-subtle );
 		letter-spacing: 0.05em;
+		border-bottom: var( --border-width-base ) solid var( --border-color-base );
 	}
 }
 
@@ -175,20 +167,20 @@
 	}
 }
 
-@media ( max-width: @width-breakpoint-tablet ) {
+@media ( max-width: @max-width-breakpoint-tablet ) {
 	.results-info {
 		display: none;
 	}
 
 	// Not great but works for now
 	#mw-searchoptions {
-		overflow: auto;
 		max-height: 20vh;
+		overflow: auto;
 	}
 
 	.mw-search-createlink,
 	.mw-search-exists {
-		max-width: none;
 		float: none;
+		max-width: none;
 	}
 }

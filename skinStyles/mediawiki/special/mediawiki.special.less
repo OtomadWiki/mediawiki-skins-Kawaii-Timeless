@@ -1,16 +1,131 @@
 /*
- * Citizen - General special pages
- * https://starcitizen.tools
+ * Citizen
+ *
+ * SkinStyles for MediaWiki
+ * Module: mediawiki.special
+ * Version: REL1_43
+ *
+ * Date: 2025-01-01
 */
 
 @import '../../../resources/variables.less';
 
-.skin-timeless-dark {
+/* Special:SpecialPages */
+.mw-specialpagerestricted {
+	font-weight: var( --font-weight-semi-bold );
+}
+
+.mw-specialpagesgroup {
+	clear: none;
+}
+
+/* Special:Version */
+/* MediaWiki License */
+#mw-version-license + .plainlinks {
+	padding: var( --space-md );
+	margin-top: var( --space-md );
+	font-size: var( --font-size-small );
+	color: var( --color-subtle );
+	border: var( --border-width-base ) solid var( --border-color-base );
+	border-radius: var( --border-radius-medium );
+
+	> p {
+		margin-top: 0;
+	}
+}
+
+/* Installed software */
+#sv-software {
+	display: block;
+	max-width: none;
+	line-height: var( --line-height-xx-small );
+	box-shadow: none;
+
+	tbody {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var( --space-xs );
+		border: 0;
+
+		@media ( min-width: @min-width-breakpoint-desktop ) {
+			grid-template-columns: repeat( auto-fit, minmax( 320px, 1fr ) );
+		}
+	}
+
+	tr {
+		display: flex;
+		flex-direction: column;
+		padding: var( --space-sm ) var( --space-md );
+		border: var( --border-width-base ) solid var( --border-color-base );
+		border-radius: var( --border-radius-medium );
+	}
+
+	td {
+		padding: 0;
+		border-top: 0;
+
+		&:first-child {
+			font-size: var( --font-size-large );
+			font-weight: var( --font-weight-semi-bold );
+		}
+	}
+
+	// MW 1.43+ - Remove when we drop 1.39
+	&:has( thead ) {
+		thead tr {
+			// Hide table header
+			display: none;
+		}
+	}
+
+	&:not( :has( thead ) ) {
+		tbody tr:first-child {
+			display: none;
+		}
+	}
+}
+
+.citizen-overflow-wrapper:has( #sv-software ) {
+	max-width: none;
+	box-shadow: none;
+}
+
+.mw-installed-software {
+	width: auto;
+	word-break: normal;
+
+	th {
+		&:nth-child( 4 ) {
+			width: 40%;
+		}
+
+		&:nth-child( 5 ) {
+			width: 30%;
+		}
+	}
+}
+
+// Highlight Citizen skin
+#mw-version-ext-skin-Citizen {
+	background: var( --color-surface-2 );
+}
+
+span.mw-version-ext-vcs-timestamp,
+span.mw-version-ext-vcs-version {
+	color: var( --color-subtle );
+}
+
+.mw-version-ext-name,
+.mw-version-library-name {
+	font-weight: var( --font-weight-semi-bold );
+}
+
+.skin-theme-clientpref-night {
 	#mw-allmessagestable tbody:hover td {
-		background-color: var( --background-color-primary--active );
+		background-color: var( --background-color-progressive-subtle );
 	}
 
 	.mw-protectedpages-unknown {
-		color: var( --color-base--subtle );
+		color: var( --color-subtle );
 	}
 }
